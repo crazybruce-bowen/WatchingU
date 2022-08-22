@@ -6,7 +6,6 @@ import datetime
 path = sys.path[0]
 path_code = os.path.dirname(path)
 path_root = os.path.dirname(path_code)
-os.chdir(path_root)
 if path_root not in sys.path:
     sys.path.append(path_root)
 
@@ -39,7 +38,7 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False, multi_pr
         logging.info('== 链家房源信息获取完毕，开始获取自如房源信息 {} =='.format(time.asctime()))
         info_zr = RoomInfoCatchingZR().get_room_info_total()
         logging.info('== 自如房源信息获取完毕 {} =='.format(time.asctime()))
-        model_path = r'code\utils\orc\pre_trained_model\LR_0818.pickle'
+        model_path = os.path.join(path_root, r'code\utils\orc\pre_trained_model\LR_0818.pickle')
         # 添加价格
         for i in info_zr:
             i['price'] = RoomInfoCatchingZR().get_price(i['price_info'], model_path)
