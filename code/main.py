@@ -3,8 +3,7 @@ import os
 import logging
 import time
 import datetime
-path = sys.path[0]
-path_code = os.path.dirname(path)
+path_code = os.path.dirname(__file__)
 path_root = os.path.dirname(path_code)
 if path_root not in sys.path:
     sys.path.append(path_root)
