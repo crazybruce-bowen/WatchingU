@@ -1,8 +1,7 @@
-from sklearn.cluster import KMeans
-from skimage import morphology
-import pickle
 from PIL import Image
 import numpy as np
+import copy
+import pandas as pd
 
 
 class PricePredict:
@@ -18,14 +17,13 @@ class PricePredict:
     def predict(self, n):
         """
 
-        :param model:
         :param n: 第n个数字
         :return:
         """
         image = self.get_img_idx(n)
         image = image.getchannel(3)
-        image = thin(image)
-        v_image = image.reshape((1, -1))
+        image = my_threshold(image)
+        v_image = np.array(image).reshape((1, -1))
         res = self.model.predict(v_image)[0]
         return res
 
@@ -36,17 +34,19 @@ class PricePredict:
         return im
 
 
-def thresholding(image):
-    predicted = KMeans(n_clusters=2, random_state=9).fit_predict(
-        image.reshape((image.shape[0]*image.shape[1], 1)))
-    image = predicted.reshape((image.shape[0], image.shape[1]))
-    return image
+def my_threshold(image):
+    """
+    将灰度图像转换为二元图像，即1-0
 
-
-def thin(image):
-    image = thresholding(np.array(image))
-    thin_image = morphology.skeletonize(image)
-    return thin_image
+    :param image: PIL Image对象
+    :return: PIL Image对象
+    """
+    im0 = copy.deepcopy(image)
+    im0_num = pd.DataFrame(np.array(im0))
+    im0_num[im0_num > 130] = 255
+    im0_num[im0_num <= 130] = 0
+    res = Image.fromarray(np.array(im0_num))
+    return res
 
 
 #%%

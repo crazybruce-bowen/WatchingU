@@ -2,8 +2,6 @@
 # Attention path
 from PIL import Image
 import numpy as np
-from skimage import morphology
-from sklearn.cluster import KMeans
 from sklearn.linear_model import LogisticRegression as LR
 import pickle
 import os
@@ -16,12 +14,13 @@ os.chdir(path)
 
 model_path = 'data/LR_0818.pickle'
 
+
 def my_threshold(image):
     """
     将灰度图像转换为二元图像，即1-0
 
     :param image: PIL Image对象
-    :return:
+    :return: PIL Image对象
     """
     im0 = copy.deepcopy(image)
     im0_num = pd.DataFrame(np.array(im0))
@@ -52,6 +51,7 @@ def train():
 
 if __name__ == '__main__':
     train()
+
 
 #%% test
 # a = Image.open(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\自如\data\training_data\9.jpg')

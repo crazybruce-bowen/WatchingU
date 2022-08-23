@@ -24,7 +24,8 @@ def my_threshold(image):
     im0_num[im0_num <= 130] = 0
     res = Image.fromarray(np.array(im0_num))
     return res
-    
+
+
 # 分割图片数字
 images = []
 image_width = 30
