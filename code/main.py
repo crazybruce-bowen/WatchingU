@@ -39,8 +39,9 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False, multi_pr
         logging.info('== 自如房源信息获取完毕 {} =='.format(time.asctime()))
         model_path = os.path.join(path_root, r'code\utils\orc\pre_trained_model\LR_0818.pickle')
         # 添加价格
+        t = RoomInfoCatchingZR()
         for i in info_zr:
-            i['price'] = RoomInfoCatchingZR().get_price(i['price_info'], model_path)
+            i['price'] = t.get_price(i['price_info'], model_path)
         logging.info('== 自如房源价格计算完毕 {} =='.format(time.asctime()))
         # 写入local
         if tag_local:
