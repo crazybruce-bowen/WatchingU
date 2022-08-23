@@ -64,5 +64,22 @@ def save_info_to_mongodb(info: [dict], db_config: dict, server_config=None):
     return True
 
 
+def test_db_connect(db_config: dict):
+    """
+    根据db_config测试数据库链接
+
+    :param db_config: dict 需要有host和port参数以供测试
+    :return:
+    """
+    host = db_config.get('host')
+    port = db_config.get('port')
+    if not host or not port:
+        return False, '未输入正确的db_config'
+    client = pymongo.MongoClient(host, port)
+    try:
+        client.list_databases()
+    except:
+        return False
+    return True
 
 

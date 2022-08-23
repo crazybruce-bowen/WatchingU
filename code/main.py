@@ -10,7 +10,7 @@ if path_root not in sys.path:
 
 from code.core.core_catching import RoomInfoCatchingLJ, RoomInfoCatchingZR, HouseDistrictCatching
 from code.utils.log_service import Logging
-from code.utils.io_service import save_info_to_local, save_info_to_mongodb
+from code.utils.io_service import save_info_to_local, save_info_to_mongodb, test_db_connect
 
 logger = Logging().log(level='INFO')
 
@@ -30,6 +30,9 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False, multi_pr
     :param multi_process:  是否使用multi_process
     :return:
     """
+    if tag_db:  # 测试数据库链接
+        if not test_db_connect(db_config):
+            return False, 'mongo数据库链接失败，请检查配置 {}'.format(db_config)
     if not multi_process:
         time0 = time.time()  # 开始时间
         logger.info('== 开始获取链家的房源信息 {} =='.format(time.asctime()))
@@ -80,6 +83,8 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False, multi_pr
 
     else:
         raise Exception('暂未开放')
+
+    return True
 
 
 if __name__ == '__main__':
