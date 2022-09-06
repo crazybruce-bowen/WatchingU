@@ -25,6 +25,27 @@ class RoomInfoCatching:
     def __init__(self):
         print('== Hi U ==')
 
+    @classmethod
+    def update_info(cls, room_info: [dict], source='ZR'):
+        res = list()
+        tmp = dict()
+        for i in room_info:
+            if source == 'ZR':
+                tmp['小区'] = re.sub('\d居室', '', i['name'].split('·')[-1].split('-')[0])
+                tmp['朝向'] = i['name'].split('-')[-1] if len(i['name'].split('-')) > 1 else ''
+            else:
+                tmp['小区'] = i['name'].split('-')[-1]
+                tmp['朝向'] = i['orientation']
+            tmp['平米均价'] = i['avg_price']
+            tmp['房源链接'] = i['room_url']
+            tmp['区域'] = i['区域']
+            tmp['户型'] = i['room_types'].replace(' ', '')
+            tmp['价格'] = i.get('price')
+            tmp['面积'] = i['area']
+            tmp['楼层'] = i['floor']
+            res.append(tmp)
+        return res
+
 
 class RoomInfoCatchingLJ(RoomInfoCatching):
     """ 小区信息提取 """
@@ -413,7 +434,7 @@ class HouseDistrictCatching(RoomInfoCatching):
         items_house_desc = doc('li.fl')('div.goodSellItemDesc').items()
         list_desc = [float(re.findall(r"\d+\.?\d*", i.text().split('/')[0])[0]) for i in items_house_desc]
         list_avgprice = [i/j for i, j in zip(list_price, list_desc)]
-        base_info_dict['avg_price'] = round(np.mean(list_avgprice), 2) if list_avgprice else None
+        base_info_dict['小区均价'] = round(np.mean(list_avgprice), 2) if list_avgprice else None
         return base_info_dict
 
     @staticmethod
@@ -457,7 +478,7 @@ class HouseDistrictCatching(RoomInfoCatching):
         for i in urls_hd_list:
             try:
                 house_info = self.get_hd_info(i.get('url'))
-                house_info['house_district_name'] = i.get('house_district')
+                house_info['小区'] = i.get('house_district')
                 house_info['区域'] = area
                 house_info['url'] = i.get('url')
                 hd_info_list.append(house_info)
