@@ -17,9 +17,10 @@ Tech Points:
 >3. 自动计算小区均价以供对比。房源低价预警正在开发中  
   
 --------  
-非商业用途，仅供个人学习交流  
-Only for personal learning, Do not use it commercially  
   
-Author: crazybruce-bowen  
-作者： 李博文  
-20220919  
+Only for personal learning, Do not use it commercially  
+非商业用途，仅供个人学习交流  
+    
+<p align="right"> Author: crazybruce-bowen  
+<p align="right"> 作者： 李博文  
+<p align="right"> 20220919  
