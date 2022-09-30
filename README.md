@@ -1,14 +1,8 @@
 # WatchingU  
 
-Automatically finding house renting infomation in Shanghai  
-  
-Tech Points:  
->1. Use MongoDB to save image data  
->2. Use image detection and segmentation technology to decrypt the encrypted picture of Ziru house price  
->3. Automatic calculating the average price of the housedistrict completed; Low price warning is developing  
-  
---------
-  
+简体中文 | [English](README_EN.md) 
+
+--------  
 自动获取lianjia和ziru在上海的房源信息，并提供低价预警  
   
 技术点：  
@@ -17,10 +11,8 @@ Tech Points:
 >3. 自动计算小区均价以供对比。房源低价预警正在开发中  
   
 --------  
-  
-Only for personal learning, Do not use it commercially  
+
 非商业用途，仅供个人学习交流  
     
-<p align="right"> Author: crazybruce-bowen  
 <p align="right"> 作者： 李博文  
 <p align="right"> 20220919  
