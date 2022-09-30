@@ -13,15 +13,15 @@
 代码结构:
 
 >- core (核心功能)
->  - core_catching （核心爬虫）
+>   - core_catching （核心爬虫）
 >- logs （日志区）
 >- utils （工具区）
->  - orc （图像文本识别相关）
->  - common_utils （通用工具）
->  - html_service （html服务）
->  - io_service （读取写出服务）
->  - log_service （日志服务）
->  - orc_service （图像文本识别服务）
+>   - orc （图像文本识别相关）
+>   - common_utils （通用工具）
+>   - html_service （html服务）
+>   - io_service （读取写出服务）
+>   - log_service （日志服务）
+>   - orc_service （图像文本识别服务）
 >- main （主程序）
 
 关联项目：
