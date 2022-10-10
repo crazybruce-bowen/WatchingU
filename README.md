@@ -21,7 +21,7 @@
 >   - html_service （html服务）
 >   - io_service （读取写出服务）
 >   - log_service （日志服务）
->   - orc_service （图像文本识别服务）
+>   - ocr_service （图像文本识别服务）
 >- main （主程序）
 
 关联项目：
