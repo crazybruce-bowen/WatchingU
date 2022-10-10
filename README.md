@@ -16,7 +16,7 @@
 >   - core_catching （核心爬虫）
 >- logs （日志区）
 >- utils （工具区）
->   - orc （图像文本识别相关）
+>   - ocr （图像文本识别相关）
 >   - common_utils （通用工具）
 >   - html_service （html服务）
 >   - io_service （读取写出服务）
