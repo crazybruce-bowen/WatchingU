@@ -9,10 +9,10 @@ import copy
 import pandas as pd
 
 
-path = r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\自如'
+path = r'D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\utils\orc\training_data'
 os.chdir(path)
 
-model_path = 'data/LR_0818.pickle'
+model_path = 'LR_0906.pickle'
 
 
 def my_threshold(image):
@@ -34,9 +34,11 @@ def train():
     model = LR()
     images = []
     for i in range(10):
-        image = Image.open('data/training_data/20220818/%d.jpg' % i)
+        image_path = os.path.join(path, '%d.jpg' % i)
+        image = Image.open(image_path)
         image = my_threshold(image)
-        images.append(image)
+        images.append(np.array(image))
+    images = np.array(images)
     images = images.reshape((10, -1))
     print(images.shape)
     X = images
