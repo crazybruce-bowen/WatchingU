@@ -2,4 +2,8 @@
 /.idea
 /result
 /code/logs
+<<<<<<< HEAD
 __pycache__
+=======
+/code/手动操作.py
+>>>>>>> c092291718c5f5f650a0378c9f2cea3276b4d6e7

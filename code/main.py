@@ -4,6 +4,8 @@ import logging
 import time
 import datetime
 import traceback
+import pandas as pd
+
 path_code = os.path.dirname(__file__)
 path_root = os.path.dirname(path_code)
 if path_code not in sys.path:
@@ -12,6 +14,7 @@ if path_code not in sys.path:
 from core.core_catching import RoomInfoCatchingLJ, RoomInfoCatchingZR, HouseDistrictCatching
 from utils.log_service import Logging
 from utils.io_service import save_info_to_local, save_info_to_mongodb, test_db_connect
+
 
 logger = Logging().log(level='INFO')
 
@@ -64,9 +67,18 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False,
             except:
                 avg_price = ''
             i['avg_price'] = avg_price
+        # 整理数据
+        info_zr = RoomInfoCatching.update_info(info_zr, 'ZR')
+        info_lj = RoomInfoCatching.update_info(info_lj, 'LJ')
         if house_district:  # 计算小区信息
             hd = HouseDistrictCatching()
             info_hd = hd.get_total_hd_info()
+            # 数据中添加小区信息
+            tmp_df_zr = pd.DataFrame(info_zr)
+            tmp_df_lj = pd.DataFrame(info_lj)
+            tmp_df_hd = pd.DataFrame(info_hd)
+            info_zr = tmp_df_zr.merge(tmp_df_hd[['小区', '小区均价']], on='小区', how='left').to_dict('records')
+            info_lj = tmp_df_lj.merge(tmp_df_hd[['小区', '小区均价']], on='小区', how='left').to_dict('records')
         # 写入local
         if tag_local:
             if not local_path:
@@ -105,9 +117,9 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False,
                     db_config_hd = {'db_name': db_config['db_name'], 'tb_name': db_config['tb_name_hd']}
                     save_info_to_mongodb(info_hd, db_config_hd, server_config)
             logger.info('== 写入数据库 {} {}和{} 完成 {} =='.format(db_config_lj['db_name'],
-                                                             db_config_lj['tb_name'],
-                                                             db_config_zr['tb_name'],
-                                                             time.asctime()))
+                                                            db_config_lj['tb_name'],
+                                                            db_config_zr['tb_name'],
+                                                            time.asctime()))
 
     else:
         raise Exception('暂未开放')
