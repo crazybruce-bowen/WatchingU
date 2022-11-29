@@ -3,17 +3,18 @@ import os
 import logging
 import time
 import datetime
-
+import traceback
 import pandas as pd
 
 path_code = os.path.dirname(__file__)
 path_root = os.path.dirname(path_code)
-if path_root not in sys.path:
-    sys.path.append(path_root)
+if path_code not in sys.path:
+    sys.path.append(path_code)
 
-from code.core.core_catching import RoomInfoCatchingLJ, RoomInfoCatchingZR, HouseDistrictCatching, RoomInfoCatching
-from code.utils.log_service import Logging
-from code.utils.io_service import save_info_to_local, save_info_to_mongodb, test_db_connect
+from core.core_catching import RoomInfoCatchingLJ, RoomInfoCatchingZR, HouseDistrictCatching
+from utils.log_service import Logging
+from utils.io_service import save_info_to_local, save_info_to_mongodb, test_db_connect
+
 
 logger = Logging().log(level='INFO')
 
@@ -53,7 +54,7 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False,
         info_zr = RoomInfoCatchingZR().get_room_info_total()
         logger.info('== 自如房源信息获取完毕 {} =='.format(time.asctime()))
         if not model_path:
-            model_path = os.path.join(path_root, r'code\utils\orc\pre_trained_model\LR_0818.pickle')
+            model_path = os.path.join(path_root, r'code\utils\orc\pre_trained_model\LR_0906.pickle')
         # 添加价格
         t = RoomInfoCatchingZR()
         for i in info_zr:
@@ -127,4 +128,8 @@ def main(local_path=None, db_config=None, tag_local=True, tag_db=False,
 
 
 if __name__ == '__main__':
-    main(tag_db=True, house_district=True)
+    try:
+        main(tag_db=True, house_district=True)
+    except Exception as e:
+        logging.error(e)
+        logging.error(traceback.format_exc())

@@ -11,14 +11,13 @@ import pickle
 
 now_dir = os.path.dirname(__file__)
 path_code = os.path.dirname(now_dir)
-path_root = os.path.dirname(path_code)
-if path_root not in sys.path:
-    sys.path.append(path_root)
+if path_code not in sys.path:
+    sys.path.append(path_code)
 
-from code.utils.common_utils import print_time
-from code.utils.html_service import get_one_page_html
-from code.utils.io_service import save_info_to_local, save_info_to_mongodb
-from code.utils.orc_service import PricePredict
+from utils.common_utils import print_time
+from utils.html_service import get_one_page_html
+from utils.io_service import save_info_to_local, save_info_to_mongodb
+from utils.orc_service import PricePredict
 
 #%%
 class RoomInfoCatching:
