@@ -1,4 +1,3 @@
-#%%
 import os
 import sys
 import traceback
@@ -8,25 +7,26 @@ import requests
 import numpy as np
 import time
 import pickle
+from typing import List
 
 now_dir = os.path.dirname(__file__)
 path_code = os.path.dirname(now_dir)
 if path_code not in sys.path:
     sys.path.append(path_code)
 
-from utils.common_utils import print_time
+from utils.common_utils import print_time, G_LJ, G_ZR
 from utils.html_service import get_one_page_html
 from utils.io_service import save_info_to_local, save_info_to_mongodb
-from utils.orc_service import PricePredict
+from utils.ocr_service import PricePredict
 
-#%%
+
 class RoomInfoCatching:
     """ 基类 """
     def __init__(self):
         print('== Hi U ==')
 
-    @classmethod
-    def update_info(cls, room_info: [dict], source='ZR'):
+    @staticmethod
+    def update_info(room_info: List[str], source='ZR'):
         res = list()
         tmp = dict()
         for i in room_info:
@@ -51,11 +51,24 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
     """ 小区信息提取 """
     def __init__(self, url_base=None):
         """ base_url: 链家首页 """
-        self.url_base = url_base if url_base else 'https://sh.lianjia.com'
+        self.url_base = url_base if url_base else 'https://sh.lianjia.com/'
         # 均价5k-8k以上房源 TODO 修改为动态生成
-        self.url_selection = 'https://sh.lianjia.com/zufang/rt200600000001l0l1rp6/?showMore=1'
+        self.url_selection = f'{self.url_base}zufang/rt200600000001l0l1rp6/?showMore=1'
         self.urls_area = None
         super().__init__()
+    
+    @classmethod
+    def init_city(cls, city: str):
+        """ 初始城市 """
+        if city in G_LJ.city_list:
+            url = G_LJ.ciry2url_mapper(city)
+        elif city in G_LJ.citycode_list:
+            url = G_LJ.citycode2url_mapper(city)
+        else:
+            raise Exception(f'城市{city}不在支持列表内')
+
+        res = cls(url)
+        return res
 
     def generate_area_urls(self):
         """
@@ -80,7 +93,7 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
         area_url = dict(zip([i['area'] for i in area_info_list], [i['url'] for i in area_info_list])).get(area)
         return area_url
 
-    def find_page_url(self, url_area) -> [str]:
+    def find_page_url(self, url_area) -> List[str]:
         """ 根据区域url获取分页url list """
         doc = pq(get_one_page_html(url_area))
         res = [url_area]
@@ -88,7 +101,7 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
             res.append(self.url_base + i.attr('href'))  # 第二页开始的分页
         return res
 
-    def find_room_url(self, url_pg) -> [dict]:
+    def find_room_url(self, url_pg) -> List[dict]:
         """ 根据分页地址去解析房间url链接 """
         doc = pq(get_one_page_html(url_pg))
         urls_info = doc('.content__list')('div > a').items()
@@ -101,7 +114,7 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
                         'url': room_url})
         return res
 
-    def get_room_info_page(self, url_pg) -> [dict]:  # 获取一整个页面的房间信息
+    def get_room_info_page(self, url_pg) -> List[dict]:  # 获取一整个页面的房间信息
         """
         根据分页的页面获取房源信息
 
@@ -189,12 +202,24 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
 
 
 class RoomInfoCatchingZR(RoomInfoCatching):
-    def __init__(self):
-        self.url_base = 'https://sh.ziroom.com/'
-        self.url_selectoin = 'https://sh.ziroom.com/z/z2-r0/?cp=4000TO8000'  # 4k-8k TODO 改成动态生成
+    def __init__(self, base_url=None):
+        self.url_base = 'https://sh.ziroom.com/' if not base_url else base_url
+        self.url_selectoin = f'{self.url_base}z/z2-r0/?cp=4000TO8000'  # 4k-8k TODO 改成动态生成
         self.urls_area = None
         self.url_pic = dict()
         super().__init__()
+    
+    @classmethod
+    def init_city(cls, city: str):
+        if city in G_ZR.city_list:
+            url = G_ZR.ciry2url_mapper(city)
+        elif city in G_ZR.citycode_list:
+            url = G_ZR.citycode2url_mapper(city)
+        else:
+            raise Exception(f'城市{city}不在支持列表内')
+
+        res = cls(url)
+        return res
 
     def generate_area_urls(self):
         doc = pq(get_one_page_html(self.url_selectoin))
@@ -213,7 +238,7 @@ class RoomInfoCatchingZR(RoomInfoCatching):
         return area_url
 
     @staticmethod
-    def find_page_url(url_area) -> [str]:
+    def find_page_url(url_area) -> List[str]:
         """ 根据区域url获取分页url list """
         doc = pq(get_one_page_html(url_area))
         page_num_text = doc('div.Z_pages span:contains(共)').text()
@@ -228,7 +253,7 @@ class RoomInfoCatchingZR(RoomInfoCatching):
         return res
 
     @staticmethod
-    def find_room_url(url_pg) -> [dict]:
+    def find_room_url(url_pg) -> List[dict]:
         """ 根据分页地址去解析房间url链接 """
         doc = pq(get_one_page_html(url_pg))
         info_items = doc('div.Z_list-box h5.title a').items()
@@ -239,7 +264,7 @@ class RoomInfoCatchingZR(RoomInfoCatching):
         return res
 
     @staticmethod
-    def get_room_info_page(url_pg) -> [dict]:  # 获取一整个页面的房间信息
+    def get_room_info_page(url_pg) -> List[dict]:  # 获取一整个页面的房间信息
         """
         根据分页的页面获取房源信息
 
@@ -360,12 +385,22 @@ class HouseDistrictCatching(RoomInfoCatching):
     """ 小区信息提取 """
     def __init__(self, base_url=None):
         """ base_url: 链家首页 """
-        self.url_base = base_url if base_url else 'https://sh.lianjia.com'
-        self.url_selection = 'https://sh.lianjia.com/xiaoqu/bp6ep10000/'  # 均价6w以上小区 TODO 修改为动态生成
-        # self.html_base = get_one_page_html(self.url_selection)  # 筛选页首页html
-        # self.doc_base = pq(self.html_base)  # 生成pg包的doc文件
+        self.url_base = base_url if base_url else 'https://sh.lianjia.com/'
+        self.url_selection = f'{self.url_base}xiaoqu/bp6ep10000/'  # 均价6w以上小区 TODO 修改为动态生成
         self.urls_area = None
         super().__init__()
+    
+    @classmethod
+    def init_city(cls, city):
+        if city in G_LJ.city_list:
+            url = G_LJ.ciry2url_mapper(city)
+        elif city in G_LJ.citycode_list:
+            url = G_LJ.citycode2url_mapper(city)
+        else:
+            raise Exception(f'城市{city}不在支持列表内')
+
+        res = cls(url)
+        return res
 
     def generate_area_urls(self):
         """
@@ -384,7 +419,7 @@ class HouseDistrictCatching(RoomInfoCatching):
         return res
 
     @staticmethod
-    def generate_hd_urls(url) -> [dict]:
+    def generate_hd_urls(url) -> List[dict]:
         """
         解析当前页面下的小区url
 
