@@ -57,7 +57,10 @@ def main(city=None, local_path: str=None, db_config: dict=None, tag_local=True, 
             logger.info('== 链家房源信息获取完毕，开始获取自如房源信息 {} =='.format(time.asctime()))
             info_zr = RoomInfoCatchingZR().get_room_info_total()
         else:
+            logger.info('== 开始获取链家的房源信息 {} =='.format(time.asctime()))
             info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+            logger.info('== 链家房源信息获取完毕，开始获取自如房源信息 {} =='.format(time.asctime()))
+            info_zr = RoomInfoCatchingZR.init_city(city).get_room_info_total()
         
         logger.info('== 自如房源信息获取完毕 {} =='.format(time.asctime()))
         if not model_path:
