@@ -1,3 +1,4 @@
+#%%
 import os
 import sys
 import traceback
@@ -19,7 +20,7 @@ from code.utils.html_service import get_one_page_html
 from code.utils.io_service import save_info_to_local, save_info_to_mongodb
 from code.utils.orc_service import PricePredict
 
-
+#%%
 class RoomInfoCatching:
     """ 基类 """
     def __init__(self):
