@@ -20,10 +20,9 @@ from utils.io_service import save_info_to_local, save_info_to_mongodb, test_db_c
 logger = Logging().log(level='INFO')
 
 
-def main(city=None, local_path: str=None, db_config: dict=None, tag_local=True, tag_db=False,
+def main(city=None, local_path: str=None, db_config: dict=None, tag_local=True, tag_db=False, 
          model_path=None, house_district=False, multi_process=False, *args, **kwargs):
     """
-
     :param local_path:  存入本地的路径 注 会在该路径下生成LJ和ZR两个文件夹, 代表链家和自如。默认在项目result中
     :param db_config:  MongoDB config, 如手动输入, 需要有如下字段
         host
@@ -45,7 +44,7 @@ def main(city=None, local_path: str=None, db_config: dict=None, tag_local=True, 
         else:
             r = test_db_connect(db_config)
         if not r:
-            return False, 'mongo数据库链接失败, 请检查配置 {}'.format(db_config)
+            raise Exception('mongo数据库链接失败, 请检查配置 {}'.format(db_config))
 
     time_tag = datetime.datetime.today().strftime('%Y%m%d')
 
@@ -150,9 +149,9 @@ def make_argsparse():
     parse.add_argument('--db_tb_name_lj', type=str) # 存入的数据库链家tb名
     parse.add_argument('--db_tb_name_zr', type=str) # 存入的数据库自如tb名
     parse.add_argument('--tb_name_hd', type=str) # 存入的数据库链家小区名   
-    parse.add_argument('--tag_db', default='False', action='store_true') # 是否存入数据库 
-    parse.add_argument('--house_district', default='False', action='store_true') # 是否计算小区数据   
-    parse.add_argument('--multi_process', default='False', action='store_true') # 是否使用multiprocess
+    parse.add_argument('--tag_db', default=False, action='store_true') # 是否存入数据库 
+    parse.add_argument('--house_district', default=False, action='store_true') # 是否计算小区数据   
+    parse.add_argument('--multi_process', default=False, action='store_true') # 是否使用multiprocess
     parse.add_argument('--model_path', type=str) # 用于自如价格图像分割识别数字的模型路径，建议不要修改，使用本项目自带的部分       
     
     args = copy.deepcopy(parse.parse_args().__dict__)
@@ -168,14 +167,14 @@ def make_argsparse():
 
 def run_script(args: dict):
     """ 用argparse的方法执行的入口 """
-    return main(**args)
+    main(**args)
+    return True
 
 
 if __name__ == '__main__':
     try:
-        # args = make_argsparse()
-        # main(**args)
-        main(tag_db=True, house_district=True)
+        args = make_argsparse()
+        run_script(args)
     except Exception as e:
         logging.error(e)
         logging.error(traceback.format_exc())

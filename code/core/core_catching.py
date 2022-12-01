@@ -11,8 +11,9 @@ from typing import List
 
 now_dir = os.path.dirname(__file__)
 path_code = os.path.dirname(now_dir)
-if path_code not in sys.path:
-    sys.path.append(path_code)
+path_root = os.path.dirname(path_code)
+if path_root not in sys.path:
+    sys.path.append(path_root)
 
 from utils.common_utils import print_time, G_LJ, G_ZR
 from utils.html_service import get_one_page_html
@@ -51,9 +52,9 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
     """ 小区信息提取 """
     def __init__(self, url_base=None):
         """ base_url: 链家首页 """
-        self.url_base = url_base if url_base else 'https://sh.lianjia.com/'
+        self.url_base = url_base if url_base else 'https://sh.lianjia.com'
         # 均价5k-8k以上房源 TODO 修改为动态生成
-        self.url_selection = f'{self.url_base}zufang/rt200600000001l0l1rp6/?showMore=1'
+        self.url_selection = f'{self.url_base}/zufang/rt200600000001l0l1rp6/?showMore=1'
         self.urls_area = None
         super().__init__()
     
@@ -61,9 +62,9 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
     def init_city(cls, city: str):
         """ 初始城市 """
         if city in G_LJ.city_list:
-            url = G_LJ.ciry2url_mapper(city)
+            url = G_LJ.city2url_mapper[city]
         elif city in G_LJ.citycode_list:
-            url = G_LJ.citycode2url_mapper(city)
+            url = G_LJ.citycode2url_mapper[city]
         else:
             raise Exception(f'城市{city}不在支持列表内')
 
@@ -212,9 +213,9 @@ class RoomInfoCatchingZR(RoomInfoCatching):
     @classmethod
     def init_city(cls, city: str):
         if city in G_ZR.city_list:
-            url = G_ZR.ciry2url_mapper(city)
+            url = G_ZR.city2url_mapper[city]
         elif city in G_ZR.citycode_list:
-            url = G_ZR.citycode2url_mapper(city)
+            url = G_ZR.citycode2url_mapper[city]
         else:
             raise Exception(f'城市{city}不在支持列表内')
 
@@ -393,9 +394,9 @@ class HouseDistrictCatching(RoomInfoCatching):
     @classmethod
     def init_city(cls, city):
         if city in G_LJ.city_list:
-            url = G_LJ.ciry2url_mapper(city)
+            url = G_LJ.city2url_mapper[city]
         elif city in G_LJ.citycode_list:
-            url = G_LJ.citycode2url_mapper(city)
+            url = G_LJ.citycode2url_mapper[city]
         else:
             raise Exception(f'城市{city}不在支持列表内')
 
