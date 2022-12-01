@@ -173,6 +173,8 @@ def run_script(args: dict):
 
 if __name__ == '__main__':
     try:
+        # args = make_argsparse()
+        # main(**args)
         main(tag_db=True, house_district=True)
     except Exception as e:
         logging.error(e)
