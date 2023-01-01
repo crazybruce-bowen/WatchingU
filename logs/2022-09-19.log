@@ -1,0 +1,7 @@
+2022-09-19 21:00:32,837-INFO-main.py-Line:48-Message:== 开始获取链家的房源信息 Mon Sep 19 21:00:32 2022 ==
+2022-09-19 21:02:44,891-INFO-main.py-Line:50-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Mon Sep 19 21:02:44 2022 ==
+2022-09-19 21:06:23,831-INFO-main.py-Line:52-Message:== 自如房源信息获取完毕 Mon Sep 19 21:06:23 2022 ==
+2022-09-19 21:09:52,429-INFO-main.py-Line:59-Message:== 自如房源价格计算完毕 Mon Sep 19 21:09:52 2022 ==
+2022-09-19 22:56:00,470-INFO-main.py-Line:84-Message:== 写入本地 D:\学习总文件夹\整体项目\爬虫\住房问题\整体\result 完成 Mon Sep 19 22:56:00 2022 ==
+2022-09-19 22:56:01,042-INFO-main.py-Line:107-Message:== 写入数据库 crawler room_info_lj_20220919和room_info_zr_20220919 完成 Mon Sep 19 22:56:01 2022 ==
+2022-09-19 22:56:01,043-INFO-main.py-Line:114-Message:== 全部任务完成，共耗时 6928 秒 ==

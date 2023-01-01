@@ -1,0 +1,11 @@
+2022-11-28 20:06:47,895-INFO-main.py-Line:47-Message:== 开始获取链家的房源信息 Mon Nov 28 20:06:47 2022 ==
+2022-11-28 20:09:09,195-INFO-main.py-Line:49-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Mon Nov 28 20:09:09 2022 ==
+2022-11-28 20:12:46,964-INFO-main.py-Line:51-Message:== 自如房源信息获取完毕 Mon Nov 28 20:12:46 2022 ==
+2022-11-28 20:12:46,964-ERROR-main.py-Line:121-Message:name 'path_root' is not defined
+2022-11-28 20:12:46,965-ERROR-main.py-Line:122-Message:Traceback (most recent call last):
+  File "d:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\main.py", line 119, in <module>
+    main(tag_db=True, house_district=True)
+  File "d:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\main.py", line 53, in main
+    model_path = os.path.join(path_root, r'code\utils\orc\pre_trained_model\LR_0906.pickle')
+NameError: name 'path_root' is not defined
+

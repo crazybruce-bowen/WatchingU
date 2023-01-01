@@ -1,0 +1,22 @@
+2022-09-07 23:08:14,097-INFO-main.py-Line:48-Message:== 开始获取链家的房源信息 Wed Sep  7 23:08:14 2022 ==
+2022-09-07 23:10:23,789-INFO-main.py-Line:50-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Wed Sep  7 23:10:23 2022 ==
+2022-09-07 23:13:48,028-INFO-main.py-Line:52-Message:== 自如房源信息获取完毕 Wed Sep  7 23:13:48 2022 ==
+2022-09-07 23:17:12,528-INFO-main.py-Line:59-Message:== 自如房源价格计算完毕 Wed Sep  7 23:17:12 2022 ==
+2022-09-08 00:23:00,603-ERROR-main.py-Line:122-Message:None
+2022-09-08 00:23:00,603-ERROR-main.py-Line:123-Message:Traceback (most recent call last):
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\main.py", line 120, in <module>
+    main(tag_db=True, house_district=True)
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\main.py", line 69, in main
+    info_hd = hd.get_total_hd_info()
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\utils\common_utils.py", line 19, in fi
+    res = f(*args, **kwargs)
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\core\core_catching.py", line 482, in get_total_hd_info
+    hd_info_list += self.get_area_hd_info(area)
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\core\core_catching.py", line 447, in get_area_hd_info
+    pg_num = self.calculate_pg_num(area)
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\core\core_catching.py", line 394, in calculate_pg_num
+    doc = pq(get_one_page_html(url_area))
+  File "D:\Software\Develope\Python\python3.9\lib\site-packages\pyquery\pyquery.py", line 228, in __init__
+    raise TypeError(context)
+TypeError: None
+

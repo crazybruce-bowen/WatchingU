@@ -1,0 +1,30 @@
+2022-09-06 15:00:36,126-INFO-main.py-Line:48-Message:== 开始获取链家的房源信息 Tue Sep  6 15:00:36 2022 ==
+2022-09-06 15:02:44,482-INFO-main.py-Line:50-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Sep  6 15:02:44 2022 ==
+2022-09-06 15:06:10,835-INFO-main.py-Line:52-Message:== 自如房源信息获取完毕 Tue Sep  6 15:06:10 2022 ==
+2022-09-06 15:09:36,268-INFO-main.py-Line:59-Message:== 自如房源价格计算完毕 Tue Sep  6 15:09:36 2022 ==
+2022-09-06 16:55:13,229-ERROR-main.py-Line:122-Message:No module named 'openpyxl'
+2022-09-06 16:55:13,260-ERROR-main.py-Line:123-Message:Traceback (most recent call last):
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\main.py", line 120, in <module>
+    main(tag_db=True, house_district=True)
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\main.py", line 80, in main
+    save_info_to_local(info_lj, path_lj, 'LJ_room_info_{}.xlsx'.format(time_tag))
+  File "D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\utils\io_service.py", line 26, in save_info_to_local
+    df.to_excel(os.path.join(path, file_name), index=False)
+  File "D:\Software\Develope\Python\python3.9\lib\site-packages\pandas\core\generic.py", line 2345, in to_excel
+    formatter.write(
+  File "D:\Software\Develope\Python\python3.9\lib\site-packages\pandas\io\formats\excel.py", line 888, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+  File "D:\Software\Develope\Python\python3.9\lib\site-packages\pandas\io\excel\_openpyxl.py", line 49, in __init__
+    from openpyxl.workbook import Workbook
+ModuleNotFoundError: No module named 'openpyxl'
+
+2022-09-06 17:41:56,877-INFO-main.py-Line:48-Message:== 开始获取链家的房源信息 Tue Sep  6 17:41:56 2022 ==
+2022-09-06 17:44:05,710-INFO-main.py-Line:50-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Sep  6 17:44:05 2022 ==
+2022-09-06 17:47:30,207-INFO-main.py-Line:52-Message:== 自如房源信息获取完毕 Tue Sep  6 17:47:30 2022 ==
+2022-09-06 22:49:32,170-INFO-main.py-Line:48-Message:== 开始获取链家的房源信息 Tue Sep  6 22:49:32 2022 ==
+2022-09-06 22:51:39,703-INFO-main.py-Line:50-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Sep  6 22:51:39 2022 ==
+2022-09-06 22:54:39,806-INFO-main.py-Line:52-Message:== 自如房源信息获取完毕 Tue Sep  6 22:54:39 2022 ==
+2022-09-06 22:58:09,380-INFO-main.py-Line:59-Message:== 自如房源价格计算完毕 Tue Sep  6 22:58:09 2022 ==
+2022-09-07 00:42:34,071-INFO-main.py-Line:84-Message:== 写入本地 D:\学习总文件夹\整体项目\爬虫\住房问题\整体\result 完成 Wed Sep  7 00:42:34 2022 ==
+2022-09-07 00:42:34,629-INFO-main.py-Line:107-Message:== 写入数据库 crawler room_info_lj_20220906和room_info_zr_20220906 完成 Wed Sep  7 00:42:34 2022 ==
+2022-09-07 00:42:34,630-INFO-main.py-Line:114-Message:== 全部任务完成，共耗时 6782 秒 ==

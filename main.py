@@ -9,13 +9,13 @@ import argparse
 import copy
 
 path_code = os.path.dirname(__file__)
-path_root = os.path.dirname(path_code)
 if path_code not in sys.path:
     sys.path.append(path_code)
 
 from core.core_catching import RoomInfoCatching, RoomInfoCatchingLJ, RoomInfoCatchingZR, HouseDistrictCatching
 from utils.log_service import Logging
 from utils.io_service import save_info_to_local, save_info_to_mongodb, test_db_connect
+
 
 logger = Logging().log(level='INFO')
 
