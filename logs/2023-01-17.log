@@ -1,0 +1,89 @@
+2023-01-17 10:37:05,598-INFO-main.py-Line:52-Message:== 开始获取链家的房源信息 Tue Jan 17 10:37:05 2023 ==
+2023-01-17 10:39:48,710-INFO-main.py-Line:54-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Jan 17 10:39:48 2023 ==
+2023-01-17 10:43:57,118-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Tue Jan 17 10:43:57 2023 ==
+2023-01-17 10:43:57,119-ERROR-main.py-Line:177-Message:[Errno 2] No such file or directory: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\code\\utils\\orc\\pre_trained_model\\LR_0906.pickle'
+2023-01-17 10:43:57,120-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 347, in get_price
+    with open(model_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\code\\utils\\orc\\pre_trained_model\\LR_0906.pickle'
+
+2023-01-17 10:53:06,750-INFO-main.py-Line:52-Message:== 开始获取链家的房源信息 Tue Jan 17 10:53:06 2023 ==
+2023-01-17 10:54:35,984-INFO-main.py-Line:52-Message:== 开始获取链家的房源信息 Tue Jan 17 10:54:35 2023 ==
+2023-01-17 10:57:08,157-INFO-main.py-Line:54-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Jan 17 10:57:08 2023 ==
+2023-01-17 11:01:47,374-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Tue Jan 17 11:01:47 2023 ==
+2023-01-17 11:01:47,374-ERROR-main.py-Line:177-Message:[Errno 2] No such file or directory: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\utils\\orc\\pre_trained_model\\LR_0906.pickle'
+2023-01-17 11:01:47,375-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 347, in get_price
+    with open(model_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\utils\\orc\\pre_trained_model\\LR_0906.pickle'
+
+2023-01-17 11:10:39,460-INFO-main.py-Line:52-Message:== 开始获取链家的房源信息 Tue Jan 17 11:10:39 2023 ==
+2023-01-17 11:13:12,131-INFO-main.py-Line:54-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Jan 17 11:13:12 2023 ==
+2023-01-17 11:17:35,659-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Tue Jan 17 11:17:35 2023 ==
+2023-01-17 11:17:38,362-ERROR-main.py-Line:177-Message:X has 900 features, but LogisticRegression is expecting 840 features as input.
+2023-01-17 11:17:38,363-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 363, in get_price
+    num_pre = pre_obj.predict(j)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\ocr_service.py", line 27, in predict
+    res = self.model.predict(v_image)[0]
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 420, in predict
+    scores = self.decision_function(X)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 401, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 558, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 359, in _check_n_features
+    raise ValueError(
+ValueError: X has 900 features, but LogisticRegression is expecting 840 features as input.
+
+2023-01-17 11:26:08,214-INFO-main.py-Line:52-Message:== 开始获取链家的房源信息 Tue Jan 17 11:26:08 2023 ==
+2023-01-17 11:28:45,562-INFO-main.py-Line:54-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Tue Jan 17 11:28:45 2023 ==
+2023-01-17 11:34:42,641-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Tue Jan 17 11:34:42 2023 ==
+2023-01-17 11:34:43,327-ERROR-main.py-Line:177-Message:X has 900 features, but LogisticRegression is expecting 840 features as input.
+2023-01-17 11:34:43,339-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 363, in get_price
+    num_pre = pre_obj.predict(j)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\ocr_service.py", line 27, in predict
+    res = self.model.predict(v_image)[0]
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 420, in predict
+    scores = self.decision_function(X)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 401, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 558, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 359, in _check_n_features
+    raise ValueError(
+ValueError: X has 900 features, but LogisticRegression is expecting 840 features as input.
+

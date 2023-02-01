@@ -1,0 +1,135 @@
+2023-01-21 00:20:10,076-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Sat Jan 21 00:20:10 2023 ==
+2023-01-21 00:21:23,736-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Sat Jan 21 00:21:23 2023 ==
+2023-01-21 00:21:24,765-INFO-main.py-Line:103-Message:== 写入本地 d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result 完成 Sat Jan 21 00:21:24 2023 ==
+2023-01-21 00:21:24,765-INFO-main.py-Line:133-Message:== 全部任务完成，共耗时 74 秒 ==
+2023-01-21 12:19:11,909-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 12:19:11 2023 ==
+2023-01-21 12:19:11,935-ERROR-main.py-Line:180-Message:check_hostname requires server_hostname
+2023-01-21 12:19:11,980-ERROR-main.py-Line:181-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 178, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 171, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 59, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city, price_low, price_high).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 209, in get_room_info_total
+    urls_area_list = self.generate_area_urls()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 88, in generate_area_urls
+    doc = pq(get_one_page_html(self.url_selection))
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\html_service.py", line 16, in get_one_page_html
+    response = requests.get(url, headers=headers)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connectionpool.py", line 696, in urlopen
+    self._prepare_proxy(conn)
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connectionpool.py", line 964, in _prepare_proxy
+    conn.connect()
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connection.py", line 359, in connect
+    conn = self._connect_tls_proxy(hostname, conn)
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connection.py", line 500, in _connect_tls_proxy
+    return ssl_wrap_socket(
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "D:\Software\Develop\Python\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "D:\Software\Develop\Python\lib\ssl.py", line 997, in _create
+    raise ValueError("check_hostname requires server_hostname")
+ValueError: check_hostname requires server_hostname
+
+2023-01-21 12:21:13,699-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 12:21:13 2023 ==
+2023-01-21 12:21:13,711-ERROR-main.py-Line:182-Message:check_hostname requires server_hostname
+2023-01-21 12:21:13,714-ERROR-main.py-Line:183-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 180, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 173, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 59, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city, price_low, price_high).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 209, in get_room_info_total
+    urls_area_list = self.generate_area_urls()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 88, in generate_area_urls
+    doc = pq(get_one_page_html(self.url_selection))
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\html_service.py", line 16, in get_one_page_html
+    response = requests.get(url, headers=headers)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\Software\Develop\Python\Lib\site-packages\requests\adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connectionpool.py", line 696, in urlopen
+    self._prepare_proxy(conn)
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connectionpool.py", line 964, in _prepare_proxy
+    conn.connect()
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connection.py", line 359, in connect
+    conn = self._connect_tls_proxy(hostname, conn)
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\connection.py", line 500, in _connect_tls_proxy
+    return ssl_wrap_socket(
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\util\ssl_.py", line 453, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls)
+  File "D:\Software\Develop\Python\Lib\site-packages\urllib3\util\ssl_.py", line 495, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock)
+  File "D:\Software\Develop\Python\lib\ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "D:\Software\Develop\Python\lib\ssl.py", line 997, in _create
+    raise ValueError("check_hostname requires server_hostname")
+ValueError: check_hostname requires server_hostname
+
+2023-01-21 12:21:56,879-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 12:21:56 2023 ==
+2023-01-21 12:25:23,669-INFO-main.py-Line:104-Message:== 写入本地 d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result 完成 Sat Jan 21 12:25:23 2023 ==
+2023-01-21 12:25:23,669-INFO-main.py-Line:134-Message:== 全部任务完成，共耗时 206 秒 ==
+2023-01-21 12:51:11,278-INFO-3922252971.py-Line:1-Message:== 开始获取链家的房源信息 Sat Jan 21 12:51:11 2023 ==
+2023-01-21 13:00:41,041-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 13:00:41 2023 ==
+2023-01-21 13:04:06,889-ERROR-main.py-Line:182-Message:[Errno 13] Permission denied: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\result\\LJ\\LJ_room_info_20230121.xlsx'
+2023-01-21 13:04:06,935-ERROR-main.py-Line:183-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 180, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 173, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 100, in main
+    save_info_to_local(info_lj, path_lj, 'LJ_room_info_{}.xlsx'.format(time_tag))
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\io_service.py", line 26, in save_info_to_local
+    df.to_excel(os.path.join(path, file_name), index=False)
+  File "D:\Software\Develop\Python\Lib\site-packages\pandas\core\generic.py", line 2186, in to_excel
+    formatter.write(
+  File "D:\Software\Develop\Python\Lib\site-packages\pandas\io\formats\excel.py", line 815, in write
+    writer = ExcelWriter(  # type: ignore[abstract]
+  File "D:\Software\Develop\Python\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 30, in __init__
+    super().__init__(
+  File "D:\Software\Develop\Python\Lib\site-packages\pandas\io\excel\_base.py", line 799, in __init__
+    self.handles = get_handle(
+  File "D:\Software\Develop\Python\Lib\site-packages\pandas\io\common.py", line 648, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\result\\LJ\\LJ_room_info_20230121.xlsx'
+
+2023-01-21 13:06:25,951-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 13:06:25 2023 ==
+2023-01-21 13:45:55,484-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 13:45:55 2023 ==
+2023-01-21 13:51:25,576-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 13:51:25 2023 ==
+2023-01-21 13:51:36,143-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 13:51:36 2023 ==
+2023-01-21 13:54:54,285-INFO-main.py-Line:104-Message:== 写入本地 d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result 完成 Sat Jan 21 13:54:54 2023 ==
+2023-01-21 13:54:54,285-INFO-main.py-Line:134-Message:== 全部任务完成，共耗时 198 秒 ==
+2023-01-21 14:08:18,121-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 14:08:18 2023 ==
+2023-01-21 15:00:48,212-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 15:00:48 2023 ==
+2023-01-21 15:03:21,690-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 15:03:21 2023 ==
+2023-01-21 15:05:14,308-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 15:05:14 2023 ==
+2023-01-21 15:17:22,649-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 15:17:22 2023 ==
+2023-01-21 15:31:13,891-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 15:31:13 2023 ==
+2023-01-21 16:55:41,664-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 16:55:41 2023 ==
+2023-01-21 16:59:31,391-INFO-main.py-Line:58-Message:== 开始获取链家的房源信息 Sat Jan 21 16:59:31 2023 ==

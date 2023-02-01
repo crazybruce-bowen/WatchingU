@@ -12,7 +12,7 @@
   
 代码结构:
 
->- core (核心功能)
+>- core（核心功能）
 >   - core_catching （核心爬虫）
 >- logs （日志区）
 >- utils （工具区）

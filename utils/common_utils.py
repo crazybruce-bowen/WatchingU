@@ -1,41 +1,48 @@
 import time
-from dataclasses import dataclass
-
-
-@dataclass
-class G_LJ:
-    city_list = ['北京', '长春', '成都', '重庆', '长沙', '大连', '青岛', '上海', '石家庄', '苏州', '沈阳', '深圳', '天津', '太原', '武汉', '无锡', '西安', '厦门', '烟台', '郑州']
-    url_list = ['https://bj.lianjia.com', 'https://cc.lianjia.com', 'https://cd.lianjia.com', 'https://cq.lianjia.com', 'https://cs.lianjia.com', 'https://dl.lianjia.com', 'https://qd.lianjia.com', 'https://sh.lianjia.com', 'https://sjz.lianjia.com', 'https://su.lianjia.com', 'https://sy.lianjia.com', 'https://sz.lianjia.com', 'https://tj.lianjia.com', 'https://ty.lianjia.com', 'https://wh.lianjia.com', 'https://wx.lianjia.com', 'https://xa.lianjia.com', 'https://xm.lianjia.com', 'https://yt.lianjia.com', 'https://zz.lianjia.com/']
-    citycode_list = ['bj', 'cc', 'cd', 'cq', 'cs', 'dl', 'qd', 'sh', 'sjz', 'su', 'sy', 'sz', 'tj', 'ty', 'wh', 'wx', 'xa', 'xm', 'yt', 'zz']
-    city2url_mapper = dict(zip(city_list, url_list))
-    citycode2url_mapper = dict(zip(citycode_list, url_list))
-
-
-@dataclass
-class G_ZR:
-    city_list = ['北京', '上海', '深圳', '杭州', '南京', '成都', '武汉', '广州', '天津', '苏州']
-    url_list = ['https://www.ziroom.com/', 'https://sh.ziroom.com/', 'https://sz.ziroom.com/', 'https://hz.ziroom.com/', 'https://nj.ziroom.com/', 'https://cd.ziroom.com/', 'https://wh.ziroom.com/', 'https://gz.ziroom.com/', 'https://tj.ziroom.com/', 'https://su.ziroom.com/']
-    citycode_list = ['bj', 'sh', 'sz', 'hz', 'nj', 'cd', 'wh', 'gz', 'tj', 'su']
-    city2url_mapper = dict(zip(city_list, url_list))
-    citycode2url_mapper = dict(zip(citycode_list, url_list))
+from utils.constants import CityCode
 
 
 def print_time(f):
-    """Decorator of viewing function runtime.
-    eg:
-        ```py
-        from print_time import print_time as pt
-        @pt
-        def work(...):
-            print('work is running')
-        word()
-        # work is running
-        # --> RUN TIME: <work> : 2.8371810913085938e-05
-        ```
-    """
+    """ 函数修饰器，打印执行时间 """
     def fi(*args, **kwargs):
         s = time.time()
         res = f(*args, **kwargs)
         print('--> RUN TIME: <%s> : %s' % (f.__name__, round(float(time.time() - s), 2)))
         return res
     return fi
+
+
+def mapper(list1, list2):
+    return dict(zip(list1, list2))
+
+
+def get_city_code(city: str) -> str or False:
+    """ 将用户输入的城市信息字符串转化为自己的城市code """
+    assert isinstance(city, str), 'get_city_code方法输入的city信息必须是字符串'
+    assert len(city)<=20, 'get_city_code方法输入字符串最大长度为20'
+    # 判断是否为中文
+    tag_cn = False
+    for s in city:
+        if '\u4e00' <= s <= '\u9fa5':
+            tag_cn = True
+            break
+    # 匹配
+    if tag_cn is True:    # 中文匹配
+        if city in CityCode.city_cn:
+            citycode = mapper(CityCode.city_cn, CityCode.city_code).get(city)
+        else:
+            citycode = mapper(CityCode.city_cn2, CityCode.city_code).get(city, False)
+    else:    # 英文匹配
+        if city in CityCode.city_en_abbr:
+            citycode = mapper(CityCode.city_en_abbr, CityCode.city_code).get(city)
+        else:
+            citycode = mapper(CityCode.city_en, CityCode.city_code).get(city, False)
+
+    return citycode
+
+def get_city_info(citycode: str, attr: str) -> str:
+    """ 根据citycode获取对应的信息，info可选项为CityCode的属性名称，如city_en等 """
+    assert attr in dir(CityCode), f'{attr} 属性不在CityCode属性中，请核实'
+    attr_info = getattr(CityCode, attr)
+    res = mapper(CityCode.city_code, attr_info).get(citycode, False)
+    return res

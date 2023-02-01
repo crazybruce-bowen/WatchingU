@@ -9,10 +9,10 @@ import copy
 import pandas as pd
 
 
-path = r'D:\学习总文件夹\整体项目\爬虫\住房问题\整体\code\utils\orc\training_data'
+path = r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\ocr\training_data'
 os.chdir(path)
 
-model_path = 'LR_0906.pickle'
+model_path = 'LR_0120.pickle'
 
 
 def my_threshold(image):

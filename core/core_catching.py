@@ -10,7 +10,7 @@ import pickle
 from typing import List
 
 
-from utils.common_utils import print_time, G_LJ, G_ZR
+from utils.common_utils import print_time
 from utils.html_service import get_one_page_html
 from utils.io_service import save_info_to_local, save_info_to_mongodb
 from utils.ocr_service import PricePredict
@@ -24,8 +24,9 @@ class RoomInfoCatching:
     @staticmethod
     def update_info(room_info: List[str], source='ZR'):
         res = list()
-        tmp = dict()
         for i in room_info:
+            print(i)
+            tmp = dict()
             if source == 'ZR':
                 tmp['小区'] = re.sub('\d居室', '', i['name'].split('·')[-1].split('-')[0])
                 tmp['朝向'] = i['name'].split('-')[-1] if len(i['name'].split('-')) > 1 else ''
@@ -45,16 +46,28 @@ class RoomInfoCatching:
 
 class RoomInfoCatchingLJ(RoomInfoCatching):
     """ 小区信息提取 """
-    def __init__(self, url_base=None):
-        """ base_url: 链家首页 """
+    def __init__(self, url_base=None, price_low=None, price_high=None):
+        """ url_base: 链家首页 """
         self.url_base = url_base if url_base else 'https://sh.lianjia.com'
-        # 均价5k-8k以上房源 TODO 修改为动态生成
-        self.url_selection = f'{self.url_base}/zufang/rt200600000001l0l1brp5000erp8000/'
+        url_price = self.get_url_selection(price_low, price_high)
+        # rt200600000001l0l1 代表1居室和2居室，目前强制筛选
+        self.url_selection = f'{self.url_base}/zufang/xihu' + '/rt200600000001l0l1' + url_price
         self.urls_area = None
         super().__init__()
     
+    @staticmethod
+    def get_url_selection(price_low=None, price_high=None):
+        """
+        """
+        assert price_high >= price_low, '输入的最大价格需小于最小价格'
+        if price_low:
+            res = f'brp{price_low}'
+        if price_high:
+            res += f'erp{price_high}'
+        return res
+        
     @classmethod
-    def init_city(cls, city: str):
+    def init_city(cls, city: str, price_low=None, price_high=None):
         """ 初始城市 """
         if city in G_LJ.city_list:
             url = G_LJ.city2url_mapper[city]
@@ -63,10 +76,10 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
         else:
             raise Exception(f'城市{city}不在支持列表内')
 
-        res = cls(url)
+        res = cls(url, price_low, price_high)
         return res
 
-    def generate_area_urls(self):
+    def generate_area_urls(self, area=None):
         """
         解析主页，生成分区域分页
 
@@ -76,7 +89,8 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
         doc = pq(get_one_page_html(self.url_selection))
         res = []
         for i in doc('ul[data-target=area]')('a').items():
-            if i.text() != '不限':
+            # if i.text() != '不限':
+            if i.text() == '西湖':
                 res.append({'area': i.text(),
                             'url': self.url_base + i.attr('href')})
         self.urls_area = res
@@ -127,7 +141,10 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
         room_info = doc('.content__list--item--main').items()  # generator
         res = []
         for i in room_info:
-            room_url = self.url_base + i('.twoline').attr('href')
+            if i('.twoline').attr('href'):
+                room_url = self.url_base + i('.twoline').attr('href')
+            else:
+                break
             desc = i('.content__list--item--des').text()
             price_str = i('.content__list--item-price').text()
             updated_info = i('.content__list--item--time.oneline').text()
@@ -137,10 +154,21 @@ class RoomInfoCatchingLJ(RoomInfoCatching):
             orientation = desc_vec[2]
             types = desc_vec[3]
             floor = desc_vec[4]
-            price = float(re.findall('(\d+).* +元/月', price_str)[0])
-            area = float(re.findall('(.*)㎡', area_str)[0])
-            avg_price = round(price / area, 2)
-            sub_area = name.split('-')[1]
+            tmp_price = re.findall('(\d+).* +元/月', price_str)
+            if tmp_price:
+                price = float(tmp_price[0])
+            else:
+                price = ''
+            tmp_area = re.findall('(.*)㎡', area_str)
+            if tmp_area:
+                area = float(tmp_area[0])
+            else:
+                area = ''
+            avg_price = round(price / area, 2) if area else None
+            try:
+                sub_area = name.split('-')[1]
+            except:
+                sub_area = ''
             dict_info = {'name': name, 'area_str': area_str, 'price_str': price_str,
                          'area': area, 'price': price, 'avg_price': avg_price,
                          'orientation': orientation, 'room_types': types, 'floor': floor,
@@ -352,7 +380,7 @@ class RoomInfoCatchingZR(RoomInfoCatching):
             i_url = 'https:' + re.findall('url\((.*)\)', i)[0]
             if i_url not in self.url_pic:
                 ## 根据url获取图片
-                img = Image.open(BytesIO(requests.get(i_url).content))
+                img = Image.open(BytesIO(requests.get(i_url).content)).resize((300, 28))
                 self.url_pic[i_url] = img
             else:
                 img = self.url_pic[i_url]
@@ -517,7 +545,7 @@ class HouseDistrictCatching(RoomInfoCatching):
                 print('==== {} 小区信息获取失败 ===='.format(i.get('house_district')))
                 print('==== 异常原因如下 =====', traceback.format_exc())
             n += 1
-            if n % 100 == 0:
+            if n % 10 == 0:
                 print('=== 完成 {} 个小区，共有 {} 个'.format(n, len(urls_hd_list)))
         return hd_info_list
 
@@ -525,6 +553,9 @@ class HouseDistrictCatching(RoomInfoCatching):
     def get_total_hd_info(self):
         """ 获取全区 """
         area_info_list = self.generate_area_urls() if not self.urls_area else self.urls_area
+        area_info_list = [area_info_list[0]]
+        print('== BW test ==')
+        print(area_info_list)
         print('= 分区域获取小区信息开始！共有 {} 个区域 = '.format(len(area_info_list)))
         hd_info_list = list()
         for i in area_info_list:

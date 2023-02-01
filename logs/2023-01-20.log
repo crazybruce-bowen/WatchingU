@@ -1,0 +1,143 @@
+2023-01-20 12:37:35,025-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 12:37:35 2023 ==
+2023-01-20 12:38:38,842-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 12:38:38 2023 ==
+2023-01-20 12:38:55,328-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 12:38:55 2023 ==
+2023-01-20 12:38:55,328-ERROR-main.py-Line:177-Message:[Errno 2] No such file or directory: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\utils\\ocr\\pre_trained_model\\LR_0120.pickle'
+2023-01-20 12:38:55,343-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 366, in get_price
+    with open(model_path, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'd:\\Learn\\学习入口\\大项目\\爬他妈的\\住房问题\\整合\\utils\\ocr\\pre_trained_model\\LR_0120.pickle'
+
+2023-01-20 12:41:50,451-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 12:41:50 2023 ==
+2023-01-20 12:42:42,383-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 12:42:42 2023 ==
+2023-01-20 12:43:01,179-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 12:43:01 2023 ==
+2023-01-20 12:43:01,615-ERROR-main.py-Line:177-Message:X has 840 features, but LogisticRegression is expecting 672 features as input.
+2023-01-20 12:43:01,617-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 382, in get_price
+    num_pre = pre_obj.predict(j)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\ocr_service.py", line 27, in predict
+    res = self.model.predict(v_image)[0]
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 420, in predict
+    scores = self.decision_function(X)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 401, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 558, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 359, in _check_n_features
+    raise ValueError(
+ValueError: X has 840 features, but LogisticRegression is expecting 672 features as input.
+
+2023-01-20 17:22:42,788-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 17:22:42 2023 ==
+2023-01-20 17:24:27,110-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 17:24:27 2023 ==
+2023-01-20 17:24:54,662-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 17:24:54 2023 ==
+2023-01-20 17:24:55,468-ERROR-main.py-Line:177-Message:X has 84 features, but LogisticRegression is expecting 840 features as input.
+2023-01-20 17:24:55,475-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 382, in get_price
+    num_pre = pre_obj.predict(j)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\ocr_service.py", line 27, in predict
+    res = self.model.predict(v_image)[0]
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 420, in predict
+    scores = self.decision_function(X)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 401, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 558, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 359, in _check_n_features
+    raise ValueError(
+ValueError: X has 84 features, but LogisticRegression is expecting 840 features as input.
+
+2023-01-20 17:26:35,864-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 17:26:35 2023 ==
+2023-01-20 17:27:51,399-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 17:27:51 2023 ==
+2023-01-20 17:28:11,120-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 17:28:11 2023 ==
+2023-01-20 17:28:11,884-ERROR-main.py-Line:177-Message:argument 1 must be sequence of length 2, not 3
+2023-01-20 17:28:11,888-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 374, in get_price
+    img = Image.open(BytesIO(requests.get(i_url).content)).resize((30, 28, 3))
+  File "D:\Software\Develop\Python\Lib\site-packages\PIL\Image.py", line 1979, in resize
+    im = im.resize(size, resample, box)
+  File "D:\Software\Develop\Python\Lib\site-packages\PIL\Image.py", line 2001, in resize
+    return self._new(self.im.resize(size, resample, box))
+TypeError: argument 1 must be sequence of length 2, not 3
+
+2023-01-20 17:29:25,115-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 17:29:25 2023 ==
+2023-01-20 17:30:55,717-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 17:30:55 2023 ==
+2023-01-20 17:31:20,468-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 17:31:20 2023 ==
+2023-01-20 17:31:21,203-ERROR-main.py-Line:177-Message:'tuple' object is not callable
+2023-01-20 17:31:21,205-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 375, in get_price
+    print(img.size())
+TypeError: 'tuple' object is not callable
+
+2023-01-20 17:32:02,464-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 17:32:02 2023 ==
+2023-01-20 17:33:24,091-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 17:33:24 2023 ==
+2023-01-20 17:33:52,796-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 17:33:52 2023 ==
+2023-01-20 17:33:53,688-ERROR-main.py-Line:177-Message:测试！！
+2023-01-20 17:33:53,690-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 376, in get_price
+    raise Exception('测试！！')
+Exception: 测试！！
+
+2023-01-20 17:35:06,559-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Fri Jan 20 17:35:06 2023 ==
+2023-01-20 17:36:32,948-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Fri Jan 20 17:36:32 2023 ==
+2023-01-20 17:36:52,669-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Fri Jan 20 17:36:52 2023 ==
+2023-01-20 17:36:53,737-ERROR-main.py-Line:177-Message:string indices must be integers
+2023-01-20 17:36:53,745-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 392, in get_price
+    num = p_str[pos]
+TypeError: string indices must be integers
+

@@ -1,0 +1,240 @@
+2023-01-19 17:28:31,412-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 17:28:31 2023 ==
+2023-01-19 17:28:31,412-ERROR-main.py-Line:177-Message:城市hangzhou不在支持列表内
+2023-01-19 17:28:31,413-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 64, in init_city
+    raise Exception(f'城市{city}不在支持列表内')
+Exception: 城市hangzhou不在支持列表内
+
+2023-01-19 17:29:05,685-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 17:29:05 2023 ==
+2023-01-19 17:29:05,685-ERROR-main.py-Line:177-Message:城市hz不在支持列表内
+2023-01-19 17:29:05,687-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 64, in init_city
+    raise Exception(f'城市{city}不在支持列表内')
+Exception: 城市hz不在支持列表内
+
+2023-01-19 17:29:25,935-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 17:29:25 2023 ==
+2023-01-19 17:29:25,936-ERROR-main.py-Line:177-Message:城市杭州不在支持列表内
+2023-01-19 17:29:25,937-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 64, in init_city
+    raise Exception(f'城市{city}不在支持列表内')
+Exception: 城市杭州不在支持列表内
+
+2023-01-19 17:41:31,729-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 17:41:31 2023 ==
+2023-01-19 17:41:41,866-ERROR-main.py-Line:177-Message:list index out of range
+2023-01-19 17:41:41,873-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 181, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 170, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 141, in get_room_info_page
+    area = float(re.findall('(.*)㎡', area_str)[0])
+IndexError: list index out of range
+
+2023-01-19 18:14:08,555-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:14:08 2023 ==
+2023-01-19 18:14:18,738-ERROR-main.py-Line:177-Message:list index out of range
+2023-01-19 18:14:18,740-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 181, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 170, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 141, in get_room_info_page
+    area = float(re.findall('(.*)㎡', area_str)[0])
+IndexError: list index out of range
+
+2023-01-19 18:39:55,152-INFO-main.py-Line:52-Message:== 开始获取链家的房源信息 Thu Jan 19 18:39:55 2023 ==
+2023-01-19 18:40:38,906-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:40:38 2023 ==
+2023-01-19 18:40:49,605-ERROR-main.py-Line:177-Message:list index out of range
+2023-01-19 18:40:49,606-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 183, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 172, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 143, in get_room_info_page
+    area = float(re.findall('(.*)㎡', area_str)[0])
+IndexError: list index out of range
+
+2023-01-19 18:44:13,524-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:44:13 2023 ==
+2023-01-19 18:44:15,144-ERROR-main.py-Line:177-Message:name 'avg_price' is not defined
+2023-01-19 18:44:15,146-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 190, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 179, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 154, in get_room_info_page
+    'area': area, 'price': price, 'avg_price': avg_price,
+NameError: name 'avg_price' is not defined
+
+2023-01-19 18:45:18,916-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:45:18 2023 ==
+2023-01-19 18:45:28,518-ERROR-main.py-Line:177-Message:unsupported operand type(s) for /: 'float' and 'str'
+2023-01-19 18:45:28,520-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 191, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 180, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 152, in get_room_info_page
+    avg_price = round(price / area, 2)
+TypeError: unsupported operand type(s) for /: 'float' and 'str'
+
+2023-01-19 18:46:10,021-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:46:10 2023 ==
+2023-01-19 18:46:20,861-ERROR-main.py-Line:177-Message:list index out of range
+2023-01-19 18:46:20,862-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 191, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 180, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 153, in get_room_info_page
+    sub_area = name.split('-')[1]
+IndexError: list index out of range
+
+2023-01-19 18:47:31,626-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:47:31 2023 ==
+2023-01-19 18:47:52,198-ERROR-main.py-Line:177-Message:can only concatenate str (not "NoneType") to str
+2023-01-19 18:47:52,200-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 194, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 183, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 130, in get_room_info_page
+    room_url = self.url_base + i('.twoline').attr('href')
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-01-19 18:52:23,376-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 18:52:23 2023 ==
+2023-01-19 18:52:37,618-ERROR-main.py-Line:177-Message:can only concatenate str (not "NoneType") to str
+2023-01-19 18:52:37,618-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 197, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 186, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 133, in get_room_info_page
+    room_url = self.url_base + i('.twoline').attr('href')
+TypeError: can only concatenate str (not "NoneType") to str
+
+2023-01-19 19:40:28,390-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 19:40:28 2023 ==
+2023-01-19 19:52:40,230-ERROR-main.py-Line:177-Message:None
+2023-01-19 19:52:40,250-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 58, in main
+    info_lj = RoomInfoCatchingLJ.init_city(city).get_room_info_total()
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 200, in get_room_info_total
+    room_info_total += self.get_room_info_by_area(i['area'])
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 189, in get_room_info_by_area
+    room_info_list = self.get_room_info_page(i)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 126, in get_room_info_page
+    doc = pq(get_one_page_html(url_pg))  # doc
+  File "D:\Software\Develop\Python\Lib\site-packages\pyquery\pyquery.py", line 228, in __init__
+    raise TypeError(context)
+TypeError: None
+
+2023-01-19 20:18:48,836-INFO-main.py-Line:57-Message:== 开始获取链家的房源信息 Thu Jan 19 20:18:48 2023 ==
+2023-01-19 20:20:00,246-INFO-main.py-Line:59-Message:== 链家房源信息获取完毕，开始获取自如房源信息 Thu Jan 19 20:20:00 2023 ==
+2023-01-19 20:20:17,979-INFO-main.py-Line:62-Message:== 自如房源信息获取完毕 Thu Jan 19 20:20:17 2023 ==
+2023-01-19 20:20:22,322-ERROR-main.py-Line:177-Message:X has 900 features, but LogisticRegression is expecting 840 features as input.
+2023-01-19 20:20:22,348-ERROR-main.py-Line:178-Message:Traceback (most recent call last):
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 175, in <module>
+    run_script(args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 168, in run_script
+    main(**args)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\main.py", line 68, in main
+    i['price'] = t.get_price(i['price_info'], model_path)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\common_utils.py", line 38, in fi
+    res = f(*args, **kwargs)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\core\core_catching.py", line 382, in get_price
+    num_pre = pre_obj.predict(j)
+  File "d:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\utils\ocr_service.py", line 27, in predict
+    res = self.model.predict(v_image)[0]
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 420, in predict
+    scores = self.decision_function(X)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\linear_model\_base.py", line 401, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 558, in _validate_data
+    self._check_n_features(X, reset=reset)
+  File "D:\Software\Develop\Python\Lib\site-packages\sklearn\base.py", line 359, in _check_n_features
+    raise ValueError(
+ValueError: X has 900 features, but LogisticRegression is expecting 840 features as input.
+
