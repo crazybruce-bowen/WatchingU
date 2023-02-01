@@ -9,6 +9,13 @@ import time
 import pickle
 from typing import List
 
+now_dir = os.path.dirname(__file__)
+path_code = os.path.dirname(now_dir)
+path_root = os.path.dirname(path_code)
+path_proj = os.path.dirname(path_root)
+for path in [path_code, path_root, path_proj]:
+    if path not in sys.path:
+        sys.path.append(path)
 
 from utils.common_utils import print_time, G_LJ, G_ZR
 from utils.html_service import get_one_page_html
