@@ -5,9 +5,10 @@ import pandas as pd
 import numpy as np
 import os
 import pymongo
+from typing import List
 
 
-def save_info_to_local(info: [dict], path: str, file_name='info.xlsx', data_type='DataFrame'):
+def save_info_to_local(info: List(dict), path: str, file_name='info.xlsx', data_type='DataFrame'):
     """
     将信息存入本地的方法
 
@@ -35,7 +36,7 @@ def save_info_to_local(info: [dict], path: str, file_name='info.xlsx', data_type
     return True, data
 
 
-def save_info_to_mongodb(info: [dict], db_config: dict, server_config=None):
+def save_info_to_mongodb(info: List(dict), db_config: dict, server_config=None):
     """
     将信息存入mongodb
 

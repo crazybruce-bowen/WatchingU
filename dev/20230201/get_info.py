@@ -45,7 +45,8 @@ def get_lj_url(city=None):
 
     res = url_city
     return res
-    
+
+
     
 
 

@@ -33,6 +33,7 @@ def get_city_code(city: str) -> str or False:
         else:
             citycode = mapper(CityCode.city_cn2, CityCode.city_code).get(city, False)
     else:    # 英文匹配
+        city = city.lower()
         if city in CityCode.city_en_abbr:
             citycode = mapper(CityCode.city_en_abbr, CityCode.city_code).get(city)
         else:
@@ -40,9 +41,16 @@ def get_city_code(city: str) -> str or False:
 
     return citycode
 
+
 def get_city_info(citycode: str, attr: str) -> str:
     """ 根据citycode获取对应的信息，info可选项为CityCode的属性名称，如city_en等 """
     assert attr in dir(CityCode), f'{attr} 属性不在CityCode属性中，请核实'
     attr_info = getattr(CityCode, attr)
     res = mapper(CityCode.city_code, attr_info).get(citycode, False)
     return res
+
+
+def get_url_base(url):
+    """ 取主站url，即https://xxx/ 为止 """
+    return '/'.join(url.split('/')[:3])
+    
