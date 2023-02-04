@@ -202,7 +202,7 @@ def lj_city2area_html_list(city_html: str or pq, citycode: str=None) -> list:
     return res
 
 
-def lj_area_level2_html_dict(area_html: str or pq, area: str) -> dict:
+def lj_area_level2_html_dict(area_html: str or pq, citycode: str) -> dict:
     """
     功能：
         链家二级区域信息获取, 提取二级区域名和对应的url, 输出dict
@@ -211,7 +211,73 @@ def lj_area_level2_html_dict(area_html: str or pq, area: str) -> dict:
         area: 一级区域中文名* 注: 此处中文名无法验证
 
     """
-    
+    # 参数处理
+    if isinstance(area_html, str):
+        doc = pq(area_html)
+    else:
+        doc = area_html
+    assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+
+    # 城市主站
+    url_city = get_lj_url(citycode)
+
+    # 解析区域信息
+    res = []
+    doc('ul[data-target=area]').remove('[class=""]')
+    for i in doc('ul[data-target=area]')('a').items():
+        tmp = i.text()
+        if tmp != '不限':
+            res.append({'area': i.text(),  # 区域中文名
+                        'url': get_url_base(url_city) + i.attr('href')})    # 区域url  
+    return res
+
+
+def lj_area_level2_html_list(area_html: str or pq, citycode: str) -> list:
+    """
+    功能：
+        链家二级区域信息获取, 提取二级区域名和对应的url, 输出list
+    参数: 
+        area_html: html字符或pq(PyQuery)类型均可
+        area: 一级区域中文名* 注: 此处中文名无法验证
+
+    """
+    d = lj_area_level2_html_dict(area_html, citycode)
+    res = []
+    for i in d:
+        area = i.get('area')
+        if area:
+            res.qppend(area)
+    if not res:
+        city_cn = get_city_info(citycode, 'city_cn')
+        print(f'== Warning 该城市 {city_cn} 无可用区域 ==')
+    return res
+
+
+def make_filter(rent_type='整租', price_min=3000, price_max=6000, room_num: int=None, toward: str=None) -> dict:
+    """ 
+    功能：
+        生成下探筛选条件, 生成字典
+    参数：
+        rent_type: 房源类型，可选【整租|合租】
+        price_min: 租金最低值
+        price_max: 租金最高值
+        room_num: 房间数可选1-3, 4以上自动合成
+        toward: 房间朝向
+    """
+    res = {
+        'rent_type': rent_type,
+        'price_min': price_min,
+        'price_max': price_max,
+        'room_num': room_num,
+        'toward': toward
+
+    }
+    return res
+
+
+def lj_generater_filter_url(filter: dict) -> str:
+    """ 链家用, 根据filter条件生成url后缀 """
+    return True
 
 
 # ==============================================
