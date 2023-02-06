@@ -198,16 +198,72 @@ def lj_city2area_html_list(city_html: str or pq, citycode: str=None) -> list:
 
 #%%
 
-url = 'https://hz.lianjia.com/zufang/xihu/'
+url = 'https://hz.lianjia.com/zufang/xihu/rt200600000001f100500000003l2l1brp3000erp5000/'
 
 doc = pq(get_one_page_html(url))
 
 #%%
+import re
+from typing import List
 
+def get_room_info_page(html_pg: str or pq, citycode: str=None) -> List[dict]:  # 获取一整个页面的房间信息
+    """
+    功能: 
+        根据分页的页面获取房源信息, 只做信息爬取, 不做计算
+    返回结果:
+        name: 房间名
+        area: 面积
+        price: 房间价格
+        orientation: 朝向
+        types: 房间类型
+        floor: 房间楼层
+        updated_info: 房间维护信息
+    """
+
+    # 参数处理
+    if isinstance(html_pg, str):
+        doc = pq(html_pg)
+    else:
+        doc = html_pg
+    assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+
+    # 城市主站
+    url_city = get_lj_url(citycode)
+
+    room_info_items = doc('div.content__list--item').items()
+    res = list()
+    for i in room_info_items:
+        # 链家内部code
+        lj_code = i.attr('data-house_code')
+        # url
+        url = url_city + i('a.content__list--item--aside').attr('href')
+        # 标题
+        title = i('a.content__list--item--aside').attr('title')
+        # 全部描述
+        desc = i('p.content__list--item--des')
+        desc_vec = desc.text().replace(' ', '').split('/')
+        # 小区
+        xiaoqu = desc('a[title]').text()
+        # # 面积
+        # area = desc[-4]
+        # # 朝向
+        # towards = desc[-3]
+        # # 楼层
+        # floor = desc[-1]
+        # # 户型
+        # room_num_info = desc[-2]
+
+        dict_info = {'链家id': lj_code, '标题': title, '小区': xiaoqu, 
+                     '描述': desc.text()
+                     # '面积': area, '朝向': towards, '楼层': floor, '户型': room_num_info
+                     }
+        res.append(dict_info)
+    
+    return res
 
 
 # ==============================================
-
+res = get_room_info_page(doc, '004')
 # ==============================================
 
 # ==============================================

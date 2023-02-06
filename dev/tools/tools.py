@@ -7,6 +7,7 @@
 
 import pandas as pd
 from dataclasses import dataclass
+from typing import List
 
 
 @dataclass
@@ -28,6 +29,36 @@ class CityCode:
 class DefaultInfo:
     city = 'sh'
     city_code = '001'
+
+
+@dataclass
+class LjFilter:
+    # 链家filter对照关系
+    rent_type_mapper = {'整租': 'rt200600000001', '合租': 'rt200600000002'}
+
+    def price_mapper(p: int, method='left'):
+        """ 
+            功能: 生成price filter字符
+            参数: 
+                p: 价格
+                method: 可选 【left|right】
+        """
+        if method == 'left':
+            res = f'brp{p}'
+        elif method == 'right':
+            res = f'erp{p}'
+        else:
+            raise Exception('生成价格仅可使用left或者right参数')
+        return res
+
+    def room_num_mapper(n: int):
+        """ 房间数量对应字符, n为房间数 """
+        if n >= 4:
+            n = 4
+        return f'l{n-1}'
+
+    toward_mapper = {'东': 'f100500000001', '西': 'f100500000005', '南': 'f100500000003', '北': 'f100500000007', '南北': 'f100500000009'}
+
 
 # ==============================================
 # 非业务功能
@@ -153,7 +184,7 @@ def get_doc_from_url(url: str) -> pq:
 # ==============================================
 # html解析 *注意，此模块仅可输入html和pq类型参数，禁止使用网络
 
-def lj_city2area_html_dict(city_html: str or pq, citycode: str=None) -> dict:
+def lj_city2area_html_dict(city_html: str or pq, citycode: str=None=None) -> dict:
     """
     功能:
         链家html解析。解析city_doc, 提取可用的区级信息, 输出dict
@@ -182,7 +213,7 @@ def lj_city2area_html_dict(city_html: str or pq, citycode: str=None) -> dict:
     return res
 
 
-def lj_city2area_html_list(city_html: str or pq, citycode: str=None) -> list:
+def lj_city2area_html_list(city_html: str or pq, citycode: str=None)-> list:
     """
     功能:
         链家html解析。解析city_doc, 提取可用的区级信息, 输出可用的中文名list
@@ -202,7 +233,7 @@ def lj_city2area_html_list(city_html: str or pq, citycode: str=None) -> list:
     return res
 
 
-def lj_area_level2_html_dict(area_html: str or pq, citycode: str) -> dict:
+def lj_area_level2_html_dict(area_html: str or pq, citycode: str=None) -> dict:
     """
     功能：
         链家二级区域信息获取, 提取二级区域名和对应的url, 输出dict
@@ -232,7 +263,7 @@ def lj_area_level2_html_dict(area_html: str or pq, citycode: str) -> dict:
     return res
 
 
-def lj_area_level2_html_list(area_html: str or pq, citycode: str) -> list:
+def lj_area_level2_html_list(area_html: str or pq, citycode: str=None) -> list:
     """
     功能：
         链家二级区域信息获取, 提取二级区域名和对应的url, 输出list
@@ -253,7 +284,70 @@ def lj_area_level2_html_list(area_html: str or pq, citycode: str) -> list:
     return res
 
 
-def make_filter(rent_type='整租', price_min=3000, price_max=6000, room_num: int=None, toward: str=None) -> dict:
+def lj_pagination(html: str or pq, citycode: str=None) -> list:
+    """ 获取分页完整url, 从第二页开始, 返回list """
+    # 参数处理
+    if isinstance(html, str):
+        doc = pq(html)
+    else:
+        doc = html
+    assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+    
+    # 城市主站
+    url_city = get_lj_url(citycode)
+
+    res = []
+    for i in doc('div.content__article > ul[style=display\:hidden] > li > a').items():
+        res.append(url_city + i.attr('href'))  # 第二页开始的分页
+    
+    return res
+
+
+# =============================================
+# 页面核心信息提取
+
+def get_room_info_page(html_pg: str or pq, citycode: str=None) -> List[dict]:  # 获取一整个页面的房间信息
+    """
+    功能: 
+        根据分页的页面获取房源信息, 只做信息爬取, 不做计算
+    返回结果:
+        链家id, 标题, 小区, 描述(包括面积等信息, 待后续计算)
+    """
+
+    # 参数处理
+    if isinstance(html_pg, str):
+        doc = pq(html_pg)
+    else:
+        doc = html_pg
+    assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+
+    # 城市主站
+    url_city = get_lj_url(citycode)
+
+    room_info_items = doc('div.content__list--item').items()
+    res = list()
+    for i in room_info_items:
+        # 链家内部code
+        lj_code = i.attr('data-house_code')
+        # url
+        url = url_city + i('a.content__list--item--aside').attr('href')
+        # 标题
+        title = i('a.content__list--item--aside').attr('title')
+        # 全部描述
+        desc = i('p.content__list--item--des')
+        # 小区
+        xiaoqu = desc('a[title]').text()
+
+        dict_info = {'链家id': lj_code, '标题': title, '小区': xiaoqu, '描述': desc.text()}
+        res.append(dict_info)
+    
+    return res
+
+
+# ==============================================
+# 待分类
+
+def make_filter(rent_type='整租', price_min=3000, price_max=6000, room_num: list=[], towards: list=[]) -> dict:
     """ 
     功能：
         生成下探筛选条件, 生成字典
@@ -261,28 +355,57 @@ def make_filter(rent_type='整租', price_min=3000, price_max=6000, room_num: in
         rent_type: 房源类型，可选【整租|合租】
         price_min: 租金最低值
         price_max: 租金最高值
-        room_num: 房间数可选1-3, 4以上自动合成
-        toward: 房间朝向
+        room_num: list 多选。如1居2居可传入[1, 2]。房间数可选1-3, 4以上自动合成
+        toward: list 多选 房间朝向, 可选【东|南|西|北|南北】
     """
+    # 参数校验
+    assert price_max > price_min, f'最高价格需高于最低价格, 当前设置最高价格{price_max}, 最低价格{price_min}'
+    assert len(room_num) <= 4, f'room_num参数设置过多, 最多支持4个, 当前为{len(room_num)}个'
+    assert len(towards) <= 5, f'toward参数设置过多, 最多支持5个, 当前为{len(towards)}个'
     res = {
         'rent_type': rent_type,
         'price_min': price_min,
         'price_max': price_max,
         'room_num': room_num,
-        'toward': toward
+        'toward': towards
 
     }
     return res
 
 
 def lj_generater_filter_url(filter: dict) -> str:
-    """ 链家用, 根据filter条件生成url后缀 """
-    return True
+    """ 链家用, 根据filter条件生成url后缀。此方法为人工学习结果, 可能更改 """
+    rent_type = filter.get('rent_type')
+    price_min = filter.get('price_min')
+    price_max = filter.get('price_max')
+    room_num = filter.get('room_num')
+    towards = filter.get('towards')
+    # 输出的字符变量
+    res = ''
+    # 最左端为租房类型
+    if rent_type:
+        res += LjFilter.rent_type_mapper.get(rent_type)
+    # 之后为朝向
+    if towards:
+        for i in towards:
+            res += LjFilter.toward_mapper.get(i)
+    # 之后为房间数量
+    if room_num:
+        for i in room_num:
+            res += LjFilter.room_num_mapper(i)
+    # 右端为价格
+    if price_min:
+        res += LjFilter.price_mapper(price_min, 'left')
+    if price_max:
+        res += LjFilter.price_mapper(price_max, 'right')
+
+    return res
 
 
 # ==============================================
+# 
 
-# ==============================================
+
 
 # ==============================================
 

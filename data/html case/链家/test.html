@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="description" content="相信音樂能為你帶來生活的魔法，搶先聽熱門新歌，遠傳friDay音樂提供完整、便利的線上音樂服務！"/>
+  <meta name="keywords" content="Omusic,friDay,遠傳friDay音樂,線上聽歌,新歌,主題曲,音樂下載,遠傳"/>
+
+  <title>精彩好生活 盡在全音樂 - 遠傳friDay音樂(原Omusic)</title>
+
+  <link href="../images/favicon.png" rel="SHORTCUT ICON">
+  <link href="section.css" rel="stylesheet" type="text/css"/>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <link href="layout.css" rel="stylesheet" type="text/css"/>
+  <link href="instru.css" rel="stylesheet" type="text/css"/>
+
+  <script type="text/javascript" src="../js/lib/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="../js/lib/json2.js"></script>
+  <script type="text/javascript" src="../js/lib/jstorage.min.js"></script>
+
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.core.min.js"></script>
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.widget.min.js"></script>
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.position.min.js"></script>
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.mouse.min.js"></script>
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.slider.min.js"></script>
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.accordion.min.js"></script>
+  <script type="text/javascript" src="../js/lib/ui/minified/jquery.ui.tabs.min.js"></script>
+
+  <script type="text/javascript" src="../js/lib/jquery.cookie.js"></script>
+
+  <script type="text/javascript" src="../js/lib/webplayer/jcarousellite_1.0.1.js"></script>
+  <script type="text/javascript" src="../js/lib/webplayer/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="../js/lib/webplayer/jquery.lazyload.min.js"></script>
+  <script type="text/javascript" src="../js/lib/jwplayer/jwplayer.js"></script>
+
+  <script type="text/javascript" src="../js/lib/jquery.autocomplete.js"></script>
+
+  <script type="text/javascript" src="../js/lib/webplayer/AC_RunActiveContent.js"></script>
+
+  <script type="text/javascript" src="../js/lib/fancybox/jquery.fancybox.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../js/lib/fancybox/jquery.fancybox.css" media="screen"/>
+
+  <script type="text/javascript" src="../js/lib/webplayer/slides.min.jquery.js"></script>
+  <script type="text/javascript" src="../js/common.js"></script>
+
+  <link rel="stylesheet" href="../js/lib/ui/jquery.ui.tabs.css">
+  <link rel="stylesheet" href="../js/lib/jquery.autocomplete.css"/>
+  <script type="text/javascript">
+        var delStorage = function () {
+            $.jStorage.deleteKey("omPL_song_id");
+        };
+
+        function runPlayer(command) {
+            if ($.jStorage.get("omPL_song_id") == null) {
+                $.jStorage.set("omPL_song_id", []);
+                var omPL_song_id = $.jStorage.get("omPL_song_id");
+            } else {
+                var omPL_song_id = $.jStorage.get("omPL_song_id");
+            }
+
+            var cmdType = command.split("_");
+            cmdType = cmdType[0];
+
+            //歌單也會被清空
+            if (cmdType == 'album' || cmdType == 'editor' || cmdType == 'subject' || cmdType == 'news' || cmdType == 'myplaylist' || cmdType == 'playlist') {
+                $.jStorage.deleteKey("omPL_song_id");
+                $.jStorage.set("omPL_song_id", []);
+                var omPL_song_id = $.jStorage.get("omPL_song_id");
+            }
+
+            //alert(cmdType);
+            // alert(omPL_song_id);
+
+            $.ajax({
+                type: "POST",
+                dataType: 'json',
+                //url: 'include/trialplayer.php',
+                url: 'playList.php',
+                data: {'playType': command},
+                cache: false,
+                beforeSend: function (XMLHttpRequest) {
+
+                },
+                success: function (json, textStatus) {
+                    //console.info(json);
+                    var PL_Array = [];
+                    var myJSON = "";
+
+                    //console.info($.jStorage.get("omPL_song_id"));
+                    var prevSongList = $.jStorage.get("omPL_song_id");
+
+                    for (var i = 0; i < json.length; i++) {
+                        var exist = false;
+                        var existIDX = '';
+                        var song_id = json[i].song_id;
+
+                        if (prevSongList.length > 0) {
+                            //檢查歌曲是否已經存在 原先歌單裡
+                            for (var j = 0; j < prevSongList.length; j++) {
+                                if (song_id == prevSongList[j] && song_id != '') {
+                                    existIDX = j;
+                                    exist = true;
+                                }
+                            }
+
+                            if (exist == false && song_id != '') {
+                                prevSongList.push(song_id);
+                            }
+                        } else {
+                            prevSongList.push(song_id);
+                        }
+                    }
+
+                    $.jStorage.set("omPL_song_id", prevSongList);
+
+                    //console.info($.jStorage.get("omPL_song_id").toString());
+
+                    if ($.jStorage.get("omPL_song_id").length > 100) {
+                        alert('您的歌單已達100首歌的上限，若要再新增，請先\n刪除部分歌曲。');
+                        var limitSong = $.jStorage.get("omPL_song_id").splice(0, 100);
+                        $.jStorage.set("omPL_song_id", limitSong);
+                    }
+
+                    if ($.jStorage.get("omPL_song_id").length > 0) {
+                        $.ajax({
+                            type: "POST",
+                            dataType: 'json',
+                            data: {'songList': $.jStorage.get("omPL_song_id").toString()},
+                            url: 'currentList.php',
+                            success: function (json, textStatus) {
+                                for (var i = 0; i < json.length; i++) {
+                                    var title = json[i].song_name;
+                                    var shortTitle = json[i].shortTitle;
+                                    var image = json[i].image;
+                                    var album_name = json[i].album_name;
+                                    var short_album_name = json[i].short_album_name;
+                                    var album_id = json[i].album_id;
+                                    var song_name = json[i].song_name;
+                                    var song_id = json[i].song_id;
+                                    var singer_name = json[i].singer_name;
+                                    var singer_id = json[i].singer_id;
+                                    var static_lyrics = json[i].static_lyrics;
+                                    var provider = json[i].provider;
+                                    var file = json[i].file;
+                                    var playItem = {
+                                        "title": song_name,
+                                        "shortTitle": shortTitle,
+                                        "image": image,
+                                        "album_name": album_name,
+                                        "short_album_name": short_album_name,
+                                        "album_id": album_id,
+                                        "song_name": song_name,
+                                        "song_id": song_id,
+                                        "singer_name": singer_name,
+                                        "singer_id": singer_id,
+                                        "static_lyrics": static_lyrics,
+                                        "provider": 'sound',
+                                        "file": file
+                                    };
+
+                                    PL_Array.push(playItem);
+                                }
+
+                                //  PL_Array.reverse();
+                                myJSON = JSON.stringify(PL_Array);
+                                myJSON = JSON.parse(myJSON);
+
+                                //alert(cmdType);
+                                jwplayer("OmusicPlayer").load(myJSON);
+
+                                if (cmdType == 'album' || cmdType == 'editor' || cmdType == 'subject' || cmdType == 'news' || cmdType == 'myplaylist' || cmdType == 'playlist') {
+                                    //歌單重頭播
+                                    jwplayer("OmusicPlayer").play();
+                                } else {
+                                    if (existIDX === '') {
+                                        // console.info('str : ' + typeof(existIDX) + existIDX);
+                                        jwplayer("OmusicPlayer").playlistItem(myJSON.length - 1);
+                                    } else {
+                                        if (existIDX != 0 && existIDX != '') {
+                                            // console.info('not zero : ' + typeof(existIDX) + existIDX);
+                                            jwplayer("OmusicPlayer").playlistItem(existIDX);
+                                        } else {
+                                            //console.info(' zero : ' + typeof(existIDX) + existIDX);
+                                            jwplayer("OmusicPlayer").play();
+                                        }
+                                    }
+                                }
+
+                                // jwplayer("OmusicPlayer").play();
+                            },
+                            complete: function (XMLHttpRequest, textStatus) {
+                                //$("#loading").hide();
+                            },
+                            error: function (xhr) {
+                                //alert('Ajax request 發生錯誤');
+                            }
+                        });
+                    }
+
+                    //$("#pplay").click();
+                    // jwplayer("OmusicPlayer").play();
+                },
+                error: function (xhr) {
+                    //alert('Ajax request 發生錯誤');
+                }
+            });
+        }
+
+        $(function () {
+            parent.resizeTo(730, 492); //設定視窗大小
+            parent.moveTo(150, 150); //移動視窗位置
+
+            //輪播
+            var repeatStatus = 'always';
+            //隨機
+            var shuffleStatus = false;
+
+            //定義歌單物件
+            var PLObj;
+
+            //定義原始音量
+            var initVoice = 50;
+
+            //定義是否發送過
+            var sendRecord = false;
+
+            var vaild149 = '';
+
+            var CMDList = new cookieList("recCMD");
+
+            initCommand = CMDList.items()[0];
+
+            var WinExist_old = new cookieList("recWIN");
+            WinExist = WinExist_old.items()[0];
+
+            // console.info(WinExist);
+
+            if (WinExist == '') {
+                $.jStorage.deleteKey("omPL_song_id");
+                WinExist_old.add('Y');
+            }
+
+            //$.jStorage.deleteKey("recCMD");
+
+            jwplayer("OmusicPlayer").setup({
+                flashplayer: "player.swf",
+                width: 1,
+                height: 1,
+                events: {
+                    onReady: function (e) {
+                    },
+                    onPlaylistItem: function (e) {
+                        var idx = e.index;
+                        $('#ListTable tbody > tr').each(function (index) {
+                            if (index == idx) {
+                                $(this).addClass('nowplaying');
+                            } else {
+                                $(this).removeClass('nowplaying');
+                            }
+                        });
+                    },
+                    onPlaylist: function (e) {
+                        //alert('onPlaylist');
+
+                        //記錄歌單
+                        PLObj = e.playlist;
+
+                        //取得當前播放歌曲名稱
+                        var plObj = jwplayer("OmusicPlayer").getPlaylistItem(0);
+
+                        //變更歌手名稱
+                        $("#singer_name").html(plObj.singer_name);
+                        //變更歌曲名稱
+                        $("#song_name").html(plObj.song_name);
+                        //變更lrc 歌名
+                        $("#L_LrcTitle").html(plObj.song_name);
+                        //LRC 內容
+                        $("#txt").html(decodeURIComponent(plObj.static_lyrics));
+                        //變更專輯封面
+                        $("#album_image").attr("src", plObj.image);
+                        //變更專輯連結
+                        $("#L_info a").attr("href", '../albumpage.php?album_id=' + plObj.album_id);
+
+                        //console.info(count(PLObj));
+
+                        $("#ListTable").html('');
+                        var scntTable = $('#ListTable');
+
+                        // $('<table cellspacing="0" cellpadding="0">').appendTo(scntTable);
+                        for (var i = 0; i < PLObj.length; i++) {
+                            var k = i + 1;
+                            var t_song_name = PLObj[i].song_name;
+                            var t_singer_id = PLObj[i].singer_id;
+                            var t_singer_name = PLObj[i].singer_name;
+                            var t_album_id = PLObj[i].album_id;
+                            var t_album_name = PLObj[i].album_name;
+
+                            if (k % 2 == 0) {
+                                t_class = ' class="even" ';
+                            } else {
+                                t_class = '';
+                            }
+
+                            $('<tr ' + t_class + ' ><td width="55" class="no">' + k + '</td>' +
+                                '<td width="205"><a class="title" hint="' + i + '">' + t_song_name + '</a></td>' +
+                                '<td width="90"><a class="sheet" >' + t_singer_name + '</a></td>' +
+                                '<td><a class="sheet" >' + t_album_name + '</a></td>' +
+                                '<td width="40"><a class="cartdl" hint="' + i + '" ></a></td></tr>').appendTo(scntTable);
+                        }
+                    },
+                    onIdle: function (e) {
+                        sendRecord = false;
+                        //console.info('Idle');
+                    },
+                    onBufferChange: function (e) {
+                        //width 363px;
+                        var bufPos = Math.floor(250 / 100 * e.bufferPercent);
+                        $("#preload").css("width", bufPos + 'px');
+                        if (e.bufferPercent == 100)
+                            $("#preload").css("width", '0px');
+                    },
+                    onBuffer: function (e) {
+                    },
+                    onPlay: function (e) {
+                        //取得當前播放歌曲名稱
+                        var plObj = jwplayer("OmusicPlayer").getPlaylistItem();
+
+                        //變更歌手名稱
+                        $("#singer_name").html(plObj.singer_name);
+                        //變更歌曲名稱
+                        $("#song_name").html(plObj.song_name);
+                        //變更連結
+                        $("#singer_name").attr('href', '../artistpage.php?singer_id=' + plObj.singer_id);
+                        //變更lrc 歌名
+                        $("#L_LrcTitle").html(plObj.song_name);
+                        //LRC 內容
+                        $("#txt").html(decodeURIComponent(plObj.static_lyrics));
+                        //變更專輯封面
+                        $("#album_image").attr("src", plObj.image);
+                        //變更專輯連結
+                        $("#L_info a").attr("href", '../albumpage.php?album_id=' + plObj.album_id);
+
+                        $("#pplay").css("visibility", "hidden");
+                        $("#ppause").css("visibility", "visible");
+                    },
+                    onPause: function (e) {
+                        $("#pplay").css("visibility", "visible");
+                        $("#ppause").css("visibility", "hidden");
+                    },
+                    onComplete: function () {
+                        //進度條歸0
+                        $("#progressbar").slider("option", "value", 0);
+                        //停止按鈕變成播放按鈕
+                        $("#ppause").css("visibility", "hidden");
+                        $("#pplay").css("visibility", "visible");
+
+                        //隨機播放
+                        if (shuffleStatus) {
+                            //所得所有播放清單索引長度
+                            var songIndex = jwplayer("OmusicPlayer").getPlaylist().length - 1;
+                            var ran = Math.random();
+                            playIndex = Math.round(ran * songIndex);
+                            //console.info(playIndex);
+                            jwplayer("OmusicPlayer").playlistItem(playIndex);
+                        } else {
+                            //是否循環播放
+                            if (repeatStatus == 'always') {
+
+                                jwplayer("OmusicPlayer").playlistNext();
+                            }
+                        }
+                        $("#pplay").css("visibility", "visible");
+                        $("#ppause").css("visibility", "hidden");
+                    },
+                    onTime: function (e) {
+                        //寫入目前播放時間
+                        var Position = Math.floor(e.position);
+                        $("#currentTime").html(time2ms(Position));
+                        //寫入播放時間
+                        var Duration = Math.floor(jwplayer("OmusicPlayer").getDuration());
+                        $("#totalTime").html(time2ms(Duration));
+
+                        //console.info('Position')
+
+                        //算出播放百分比
+                        var seekPos = Math.floor(e.position / e.duration * 100);
+                        //控制播放進度條進度
+                        $("#progressbar").slider("option", "value", seekPos);
+
+                        if (!sendRecord && vaild149 == 'Y') {
+                            if (Position > 30) {
+                                var plObj = jwplayer("OmusicPlayer").getPlaylistItem();
+                                //console.info(plObj.song_id);
+                                song_id = plObj.song_id;
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: 'addRecord.php',
+                                    data: {'song_id': song_id},
+                                    cache: false,
+                                    beforeSend: function (XMLHttpRequest) {
+                                    },
+                                    success: function (json, textStatus) {
+                                    },
+                                    error: function (xhr) {
+                                        //alert('Ajax request 發生錯誤');
+                                    }
+                                });
+
+                                sendRecord = true;
+                            }
+                        }
+                    }
+                }
+            });
+
+            //進度條播放控制
+            $("#progressbar").slider({
+                range: "min",
+                value: 0,
+                min: 0,
+                max: 100,
+                slide: function (event, ui) {
+                    //$( "#amount" ).val( "$" + ui.value );
+                    //播放歌曲整首秒數
+
+                    var getDuration = jwplayer("OmusicPlayer").getDuration();
+                    var position = getDuration / 100 * (ui.value);
+
+                    if (jwplayer("OmusicPlayer").getState() == 'PLAYING') {
+                        //跳至歌曲秒數
+                        jwplayer("OmusicPlayer").seek(position);
+
+                    } else if (jwplayer("OmusicPlayer").getState() == 'PAUSED') {
+                        jwplayer("OmusicPlayer").seek(position);
+                        jwplayer("OmusicPlayer").pause();
+
+                    }
+
+                    //console.info(ui.value);
+                }
+            });
+
+            //播放按鈕
+            $("#pplay").click(function () {
+                $(this).css("visibility", "hidden");
+                $("#ppause").css("visibility", "visible");
+                jwplayer("OmusicPlayer").play();
+
+            });
+
+            //暫停按鈕
+            $("#ppause").click(function () {
+                $(this).css("visibility", "hidden");
+                $("#pplay").css("visibility", "visible");
+
+                jwplayer("OmusicPlayer").pause();
+
+            });
+
+            //上一首按鈕
+            $("#pprev").click(function () {
+
+                if (shuffleStatus) {
+                    //所得所有播放清單索引長度
+                    var songIndex = jwplayer("OmusicPlayer").getPlaylist().length - 1;
+                    var ran = Math.random();
+                    playIndex = Math.round(ran * songIndex);
+                    //console.info(playIndex);
+                    jwplayer("OmusicPlayer").playlistItem(playIndex);
+
+                } else {
+                    jwplayer("OmusicPlayer").playlistPrev();
+                }
+
+
+            });
+
+            //下一首按鈕
+            $("#pnext").click(function () {
+
+                if (shuffleStatus) {
+                    //所得所有播放清單索引長度
+                    var songIndex = jwplayer("OmusicPlayer").getPlaylist().length - 1;
+                    var ran = Math.random();
+                    playIndex = Math.round(ran * songIndex);
+                    //console.info(playIndex);
+                    jwplayer("OmusicPlayer").playlistItem(playIndex);
+
+                } else {
+                    jwplayer("OmusicPlayer").playlistNext();
+                }
+            });
+
+            //音量隱藏
+            $("#volHide").click(function () {
+                $("#s_volumn").css("visibility", "hidden");
+            });
+
+            //隨機按鈕啟動 隨機
+            $("#a_shuffle").click(function () {
+                shuffleStatus = true;
+                $("#s_shuffle").css("visibility", "visible");
+
+            });
+
+            //隨機按鈕不啟動 不隨機
+            $("#s_shuffle").click(function () {
+                shuffleStatus = false;
+                $("#s_shuffle").css("visibility", "hidden");
+
+            });
+
+            $("#s_loop").css("visibility", "visible");
+
+            //循環按鈕啟動 循環
+            $("#a_loop").click(function () {
+                repeatStatus = 'always';
+                $("#s_loop").css("visibility", "visible");
+            });
+
+            //循環按鈕不啟動 不循環
+            $("#s_loop").click(function () {
+                repeatStatus = 'none';
+                $("#s_loop").css("visibility", "hidden");
+            });
+
+            //音量 靜音
+            $("#sound").click(function () {
+                $("#mute").css("visibility", "visible");
+                $(this).css("visibility", "hidden");
+                //取得靜音前音量
+                initVoice = jwplayer("OmusicPlayer").getVolume();
+                jwplayer("OmusicPlayer").setVolume(0);
+                $("#vocom").slider({value: 0});
+                // jwplayer("OmusicPlayer").setMute(true);
+
+            });
+
+            //音量 回復
+            $("#mute").click(function () {
+                $("#sound").css("visibility", "visible");
+                $(this).css("visibility", "hidden");
+                jwplayer("OmusicPlayer").setVolume(initVoice);
+                $("#vocom").slider("value", initVoice);
+                //jwplayer("OmusicPlayer").setMute(false);
+
+            });
+
+            //音量進度條播放控制
+            $("#vocom").slider({
+                range: "min",
+                value: 50,
+                min: 0,
+                max: 100,
+                slide: function (event, ui) {
+                    jwplayer("OmusicPlayer").setVolume(ui.value);
+                    //若靜音狀態
+                    $("#sound").css("visibility", "visible");
+                    $("#mute").css("visibility", "hidden");
+                    //console.info(ui.value);
+                }
+            });
+
+            //刪除全部歌曲 確定刪除全部歌曲？
+            $("#deleteALL").click(function () {
+
+                if (confirm("確定刪除全部歌曲?")) {
+                    // return true;
+
+
+                    jwplayer("OmusicPlayer").stop();
+
+                    //寫入目前播放時間
+                    $("#currentTime").html(time2ms(0));
+
+                    //寫入播放時間
+                    $("#totalTime").html(time2ms(0));
+
+                    $("#progressbar").slider("option", "value", 0);
+                    $('#ListTable tr').remove();
+
+
+                    jwplayer("OmusicPlayer").remove();
+
+                    $.jStorage.deleteKey("omPL_song_id");
+
+                    //變更專輯封面
+                    $("#album_image").attr("src", "../images/webplayer/_bk70.png");
+                    //變更歌手名稱
+                    $("#singer_name").html('---');
+                    //變更歌曲名稱
+                    $("#song_name").html('---');
+
+                    $("#preload").css("width", '0px');
+                }
+            });
+
+            $('#ListTable').off("click", "tr a.title").on("click", "tr a.title", function (event) {
+                var playIdx = $(this).attr('hint');
+                //console.info(playIdx);
+                jwplayer("OmusicPlayer").playlistItem(playIdx);
+                event.preventDefault();
+            });
+
+            $('#ListTable').off("click", "tr a.cartdl").on("click", "tr a.cartdl", function (event) {
+
+                var deleteIdx = $(this).attr('hint');
+
+                //取得目前所有歌單
+                var playList = jwplayer("OmusicPlayer").getPlaylist();
+
+
+                //取得目前播放歌曲索引
+                var curIdx = jwplayer("OmusicPlayer").getPlaylistItem().index;
+
+                //取得目前播放歌曲進度
+                var curpos = jwplayer().getPosition();
+
+                //jwplayer("OmusicPlayer").stop();
+
+                //console.info('deleteIdx : '+ deleteIdx);
+                //console.info('curIdx : '+ curIdx);
+
+                if (deleteIdx == curIdx) {
+
+                    //刪除所選擇項目
+
+                    jwplayer("OmusicPlayer").stop();
+
+                    //寫入目前播放時間
+                    $("#currentTime").html(time2ms(0));
+
+                    //寫入播放時間
+                    $("#totalTime").html(time2ms(0));
+
+                    $("#progressbar").slider("option", "value", 0);
+
+                    playList.splice(deleteIdx, 1);
+
+                    //console.info(playList);
+
+                    //當歌單列表為空
+
+
+                } else if (deleteIdx > curIdx) {
+
+                    playList.splice(deleteIdx, 1);
+                    jwplayer("OmusicPlayer").load(playList);
+
+
+                    jwplayer("OmusicPlayer").playlistItem(curIdx);
+                    jwplayer("OmusicPlayer").seek(curpos);
+
+
+                } else {
+
+
+                    playList.splice(deleteIdx, 1);
+                    jwplayer("OmusicPlayer").load(playList);
+
+
+                    jwplayer("OmusicPlayer").playlistItem(curIdx - 1);
+                    jwplayer("OmusicPlayer").seek(curpos);
+
+
+                }
+
+                if (playList.length == 0) {
+                    //寫入目前播放時間
+                    $("#currentTime").html(time2ms(0));
+
+                    //寫入播放時間
+                    $("#totalTime").html(time2ms(0));
+
+                    $("#progressbar").slider("option", "value", 0);
+                    $('#ListTable tr').remove();
+
+                    jwplayer("OmusicPlayer").remove();
+
+                    //變更專輯封面
+                    $("#album_image").attr("src", "../images/webplayer/_bk70.png");
+                    //變更歌手名稱
+                    $("#singer_name").html('---');
+                    //變更歌曲名稱
+                    $("#song_name").html('---');
+
+                    $("#preload").css("width", '0px');
+
+                } else {
+
+                    jwplayer("OmusicPlayer").load(playList);
+                    jwplayer("OmusicPlayer").play();
+                }
+
+
+                var prevSongList = $.jStorage.get("omPL_song_id");
+                prevSongList.splice(deleteIdx, 1);
+                $.jStorage.set("omPL_song_id", prevSongList);
+
+                event.preventDefault();
+            });
+
+            runPlayer(initCommand);
+        });
+
+        $(window).on('beforeunload', function () {
+            //$.jStorage.set("winExist",'N');
+            //會造成chrome  重整只剩一首歌
+            //$.jStorage.deleteKey("omPL_song_id");
+            //alert('close');
+            //console.info('win close');
+            //var WinExist_old = new cookieList("recWIN");
+            //WinExist_old.clear();
+            //return 'close win';
+
+        });
+        $(window).unload(function () {
+            //alert("Are you sure?");
+            //$.jStorage.deleteKey("omPL_song_id");
+        });
+
+        /*
+         chrome.windows.onRemoved.addListener(function(windowId) {
+         // $.jStorage.set("winExist",'');
+         //alert('chrome close');
+
+         $.jStorage.deleteKey("omPL_song_id");
+         });
+         */
+    </script>
+
+  <link href="player.css" rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+        #progressbar {
+            position: relative;
+            width: 363px;
+            height: 14px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            margin: 8px 0px 8px 6px;
+        }
+
+        #progressbar .ui-slider-handle {
+            position: absolute;
+            z-index: 20;
+            margin-left: -9px;
+            width: 18px;
+            height: 18px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            background-position: left -42px;
+        }
+
+        #progressbar .ui-slider-handle:hover {
+            width: 18px;
+            height: 18px;
+            background-position: left -60px;
+            cursor: pointer
+        }
+
+        #progressbar .ui-slider-range {
+            position: relative;
+            z-index: 18;
+            width: 363px;
+            height: 14px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            background-position: left -28px;
+
+        }
+
+        #progressbar.ui-widget-content {
+            width: 363px;
+            height: 18px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            margin: 8px 0px 8px 6px;
+        }
+
+        #vocom {
+            position: relative;
+            width: 69px;
+            height: 7px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            margin: 11px 0px 11px 3px;
+        }
+
+        #vocom .ui-slider-handle {
+            position: absolute;
+            z-index: 20;
+            margin-left: -7px;
+            margin-top: -7px;
+            width: 13px;
+            height: 13px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            background-position: -400px top;
+        }
+
+        #vocom .ui-slider-handle:hover {
+            width: 13px;
+            height: 13px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            background-position: -400px -14px;
+            cursor: pointer
+        }
+
+        #vocom .ui-slider-range {
+            width: 69px;
+            height: 7px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            background-position: left -160px;
+            margin-left: 0px;
+            z-index: 18;
+        }
+
+        #vocom.ui-widget-content {
+            width: 69px;
+            height: 7px;
+            background: url(../images/webplayer/progressbar.png) no-repeat;
+            margin: 11px 0px 11px 3px;
+        }
+    </style>
+</head>
+
+<body style=" width: 700px; height: 400px; overflow: hidden;">
+<span id="OmusicPlayer"></span>
+<div id="webPlayer">
+  <div id="Cpanel">
+    <div id="ctrl">
+      <a id="pprev"></a>
+      <a id="pplay"></a>
+      <a id="ppause" style="visibility:hidden"></a>
+      <a id="pnext"></a></div>
+    <div id="marquee">
+      <div id="L"></div>
+      <div id="C">
+        <h1>遠傳friDay音樂</h1>
+        <marquee scrollamount="2" direction="left" height="20">
+          <li style="float:left;margin-top:-1px;white-space: nowrap;">
+            <h2 id="song_name" style="float:left">---</h2>
+            <a href="../artistpage.php" target="_blank" id="singer_name" style="float:left">---</a>
+          </li>
+        </marquee>
+      </div>
+      <div id="R"></div>
+    </div>
+    <div id="function">
+      <a class="p3" id="a_shuffle" title="隨機播放"></a>
+      <a class="p4" id="a_loop" title="循環播放"></a>
+      <div id="s_shuffle"><a class="cls"></a></div>
+      <div id="s_loop"><a class="cls"></a></div>
+    </div>
+    <div id="function" style=" margin-left: 30px;">
+      <a class="p1" id="sound"></a>
+      <a class="p0" id="mute" style="visibility:hidden"></a>
+      <div id="vocom"></div>
+      <div id="Vplayer">
+        <p class="time"><span id="currentTime">00:00</span></p>
+        <div id="progressbar">
+          <div id="preload" style=" width: 0px;">></div>
+        </div>
+        <p class="time" id="totalTime">00:00</p>
+      </div>
+    </div>
+  </div>
+  <div id="musicContent">
+    <div id="L" class="fl"><img src="../images/webplayer/_bk70.png" id="album_image" width="200" height="200"/>
+      <ul>
+        <li id="L_info"><a href="" target="_blank">專輯資訊</a></li>
+        <li id="L_lyrics"><a id="lyricsOn"></a><a onclick="MM_showHideLayers('lyricsOn','','show','listOn','','hide','showA','','hide','showB','','show')">歌詞</a></li>
+        <li id="L_list"><a id="listOn"></a><a onclick="MM_showHideLayers('lyricsOn','','hide','listOn','','show','showA','','show','showB','','hide')">播放列表</a></li>
+      </ul>
+      <a class="deleteALL" id="deleteALL">全部刪除</a>
+    </div>
+    <div id="R" class="fr">
+      <div id="showA">
+        <table class="headline" cellspacing="0" cellpadding="0">
+          <tr style=" ">
+            <td width="55" align="center">曲序</td>
+            <td width="205">歌曲名稱</td>
+            <td width="90">歌手</td>
+            <td>專輯名稱</td>
+            <td width="55">刪除</td>
+          </tr>
+        </table>
+        <div id="List">
+          <table cellspacing="0" cellpadding="0" id="ListTable">
+          </table>
+        </div>
+      </div>
+      <div id="showB">
+        <h2 id="L_LrcTitle"></h2>
+        <div id="txt"></div>
+      </div>
+    </div>
+  </div>
+  <div id="parent">
+    <div id="BG">
+      <a class="login" href="../login.php" target="_blank">登入</a>
+      <img src="../images/webplayer/ps1.gif"/>
+      <a class="dl" href="http://omusic.friday.tw/products.php" target="_blank">下載軟體</a> <img src="../images/webplayer/ps2.gif"/>
+    </div>
+  </div>
+</div>
+</body>
+</html>
