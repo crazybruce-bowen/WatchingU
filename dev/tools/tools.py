@@ -86,6 +86,16 @@ def get_url_base(url):
     return '/'.join(url.split('/')[:3])
 
 
+def make_standard_html(html: str or pq):
+    """ 生成标准doc """
+    # 参数处理
+    if isinstance(html, str):
+        doc = pq(html)
+    else:
+        doc = html
+    assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+    return doc
+
 
 # ==============================================
 # 业务信息变换
@@ -185,23 +195,34 @@ def get_doc_from_url(url: str) -> pq:
 # html解析 *注意，此模块仅可输入html和pq类型参数，禁止使用网络
 
 class LianJiaHtmlOps:
-    def __init__(self, citycode):
-        self.citycode = citycode
-        self.cityhtml = None
+    """
+    链家html相关操作, 由于链家返回url均为城市主站+后缀, 故继承citycode信息
+    """
+    def __init__(self, citycode=None):
+        self.citycode = citycode if citycode else '001'
+        self.city_url = get_lj_url(citycode)
+        self.city_cn = get_city_info(citycode, 'city_cn')
 
-    @staticmethod
-    def make_standard_html(html: str or pq):
-        """ 生成标准doc """
-        # 参数处理
-        if isinstance(html, str):
-            doc = pq(html)
-        else:
-            doc = html
-        assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
-        return doc
+    def city2area_dict(self, city_html):
+        """
+        功能:
+            链家html解析。解析city_doc, 提取可用的区级信息, 输出dict
+        参数: 
+            city_html: 城市主页的html字符或pq(PyQuery)类型均可
+            citycode: 项目城市编码
+        """
+        doc = make_standard_html(city_html)
 
-    def city2area_dict():
-        pass
+        # 解析区域信息
+        res = []
+        for i in doc('ul[data-target=area]')('a').items():
+            tmp = i.text()
+            if tmp != '不限':
+                res.append({'area': i.text(),  # 区域中文名
+                            'url': get_url_base(self.city_url) + i.attr('href')})    # 区域url  
+        
+        return res
+        
 
 def lj_city2area_html_dict(city_html: str or pq, citycode: str=None) -> dict:
     """
