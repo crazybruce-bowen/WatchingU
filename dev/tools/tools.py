@@ -184,7 +184,26 @@ def get_doc_from_url(url: str) -> pq:
 # ==============================================
 # html解析 *注意，此模块仅可输入html和pq类型参数，禁止使用网络
 
-def lj_city2area_html_dict(city_html: str or pq, citycode: str=None=None) -> dict:
+class LianJiaHtmlOps:
+    def __init__(self, citycode):
+        self.citycode = citycode
+        self.cityhtml = None
+
+    @staticmethod
+    def make_standard_html(html: str or pq):
+        """ 生成标准doc """
+        # 参数处理
+        if isinstance(html, str):
+            doc = pq(html)
+        else:
+            doc = html
+        assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+        return doc
+
+    def city2area_dict():
+        pass
+
+def lj_city2area_html_dict(city_html: str or pq, citycode: str=None) -> dict:
     """
     功能:
         链家html解析。解析city_doc, 提取可用的区级信息, 输出dict
