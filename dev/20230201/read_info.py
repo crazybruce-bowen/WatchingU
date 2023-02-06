@@ -37,6 +37,6 @@ def lj_get_city_area_dict(city: str=None) -> dict:
     return res
 
 
-def lj_get_
+def lj_get_area_list_level2(area) -> dict:
 
 
