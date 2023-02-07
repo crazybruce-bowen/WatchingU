@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="wb:webmaster" content="6aedfa3b11557c1a">
+    <meta property="qc:admins" content="445170677762127756375">
+    <title>【杭州租房房源价格信息】-杭州自如网</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="keywords" content="杭州租房房源价格信息">
+    <meta name="description" content="自如网为杭州租客提供杭州租房房源价格信息尽在杭州自如网。">
+    <meta name="xxx-platform" content="ziroom-omega" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="location" content="province=浙江;city=杭州;coord=120.185839,30.273821">
+    <meta name="mobile-agent" content="format=html5;url=http://www.ziroom.com/">
+    <meta name="renderer" content="webkit">
+    <meta content="width=1152, initial-scale=1, maximum-scale=1, user-scalable=1" name="viewport">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="dnF5UFdYNHhBAzYPIh9TAT4FHjFvKmwSLgEsBS8zWiczNzQybh1zTQ==">
+    <link rel="dns-prefetch" href="//static8.ziroom.com">
+    <link rel="dns-prefetch" href="//webimg.ziroom.com">
+    <link rel="stylesheet" href="//static8.ziroom.com//phoenix/pc/css/2019/iconfont.css">
+    <link rel="stylesheet" href="//static8.ziroom.com//phoenix/pc/css/2019/common.css?202212211341">
+    <link rel="stylesheet" href="//static8.ziroom.com//phoenix/pc/css/2019/index.css?202212211341">
+
+    <script type="text/javascript" src="//static8.ziroom.com/phoenix/pc/js/2019/lib/jquery.min.1.9.0.js"></script>
+    <script type="text/javascript" src="//static8.ziroom.com/phoenix/pc/js/2019/lib/jquery.cookie.min.js"></script>
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <!--[if lt IE 9]>
+    <div style="background: #eeeeee;border-bottom: 1px solid #cccccc;color: #000;padding: 15px;margin: 0;z-index: 9999;position:fixed;width:100%;height:100%;left:0;top:0;">
+        您的浏览器实在<strong>&nbsp;版本过低</strong>，为了更好的体验，请
+        <a href="https://browsehappy.com/" style="color: #003bb3;font-weight: bold;" target="_blank">&nbsp;升级您的浏览器&nbsp;</a>以获得更好的体验。
+
+    </div>
+    <![endif]-->
+    <!--[if lt IE 9]><script src="//static8.ziroom.com/phoenix/pc/js/lib/2019/html5.min.js"></script><![endif]-->
+    <!-- <a href="javascript:;" style="color: #003bb3;font-weight: bold;"
+    onclick="this.parentNode.parentNode.removeChild(this.parentNode.style.display='none');">&nbsp;点击关闭提示&nbsp;</a> -->
+<link href="//static8.ziroom.com/phoenix/pc/css/2019/list.css?202212211341" rel="stylesheet">
+<link href="//static8.ziroom.com/fecommon/library/Swiper5/swiper.min.css?202212211341" rel="stylesheet"></head>
+<script type="text/javascript">var ZRCONFIG = {"CSS_DOMAIN":"//static8.ziroom.com/","JS_DOMAIN":"//static8.ziroom.com/","DOMAIN":"//hz.ziroom.com","ENV":"","CITY_CODE":330100,"URL_SUGGESTION":"//hz.ziroom.com/z/suggestion.json","URL_REDIRECT_SUGGESTION":"//hz.ziroom.com/z/","URL_REDIRECT_PAGING":"//hz.ziroom.com/z/p%7Bpage%7D/","URL_REDIRECT_RENTAL":"//hz.ziroom.com/z/r0/","URL_REDIRECT_SEARCH":"//hz.ziroom.com/z/","promptText":"","page":1};</script><body>
+<!-- Header  头部 -->
+<header class="Z_layout_head" id="Z_layout_head">
+    <div class="Z_layout_main">
+        <div class="Z_container Z_header_main">
+            <!-- 自如Logo -->
+            <h1 class="Z_logo_box">
+                <a href="/">
+                    <!-- 首页logo 区别于其他页面logo -->
+                                        <img class="Z_logo" src="//webimg.ziroom.com/8784bda4-3d5a-4f8b-9cee-bddd37f613c5.png" alt="" />
+                                    </a>
+            </h1>
+            <!-- 城市筛选 -->
+                            <dl class="Z_city_select Z_select">
+                    <dt class="Z_city_name">
+                        杭州                    </dt>
+                    <dd class="Z_city_list Z_select_body">
+                                                        <a href="//www.ziroom.com/z/" class="Z_city_option ani">北京</a>
+                                                            <a href="//sh.ziroom.com/z/" class="Z_city_option ani">上海</a>
+                                                            <a href="//sz.ziroom.com/z/" class="Z_city_option ani">深圳</a>
+                                                            <a href="//hz.ziroom.com/z/" class="Z_city_option ani">杭州</a>
+                                                            <a href="//nj.ziroom.com/z/" class="Z_city_option ani">南京</a>
+                                                            <a href="//cd.ziroom.com/z/" class="Z_city_option ani">成都</a>
+                                                            <a href="//wh.ziroom.com/z/" class="Z_city_option ani">武汉</a>
+                                                            <a href="//gz.ziroom.com/z/" class="Z_city_option ani">广州</a>
+                                                            <a href="//tj.ziroom.com/z/" class="Z_city_option ani">天津</a>
+                                                            <a href="//su.ziroom.com/z/" class="Z_city_option ani">苏州</a>
+                                                </dd>
+                </dl>
+                        <!-- 顶部导航 -->
+            <ul class="Z_nav_box">
+                                    <li><a href="http://hz.ziroom.com/" class="ani " >首页</a></li>
+                                    <li><a href="http://hz.ziroom.com/z/" class="ani " >租房</a></li>
+                                    <li><a href="http://apartment.ziroom.com/" class="ani " >自如寓</a></li>
+                                    <li><a href="http://z-inn.ziroom.com/" class="ani " >自如驿</a></li>
+                                    <li><a href="http://sm.ziroom.com/service/cms/service/" class="ani " >服务</a></li>
+                                    <li><a href="http://hz.ziroom.com/life/index/" class="ani " >生活</a></li>
+                                    <li><a href="https://job.ziroom.com/home" class="ani " >加入我们</a></li>
+                                <li><a href="javascript:;" class="ani app_download" rel="nofollow">
+                        <span>APP下载</span>
+                        <div class="qcode_box">
+                            <i></i>
+                            <img id="qcode_normal" src="" alt="扫码下载APP" >
+                            <p>扫码下载APP</p>
+                        </div>
+                    </a></li>
+                <li><a href="http://yz.ziroom.com/?utm_source=main" class="become_houser" target="_blank">成为房东</a></li>
+            </ul>
+            <div class="Z_login_top" id="loginEntyWrapper" style="display: none">
+                <a href="javascript:;" class="Z_exit" rel="nofollow" id="zLogin">登录</a>
+                <a href="javascript:;" class="Z_exit_line">|</a>
+                <a href="javascript:;" class=" Z_exit" rel="nofollow" id="zRegister">注册</a>
+            </div>
+            <div class="Z_login_top" style="display: none">
+                <a href="#" class=" Z_headtop_tel" rel="nofollow"></a>
+                <a href="#" class=" Z_exit" rel="nofollow" id="zRegister">退出</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="Z_content">
+    <!-- search box -->
+    <div class="Z_container Z_search_box">
+      <div class="Z_search_main">
+        <input type="text" class="Z_search_input" id="Z_search_input" placeholder="请输入小区/商圈/地铁站等..." value="" />
+        <a href="javascript:void(0)" class="Z_search_btn Z_search_submit Z_btn_ani" id="Z_search_submit"><i class="z_i"></i>开始找房</a>
+        <a href="/map/" class="Z_search_btn Z_map_search Z_btn_ani"><i class="iconfont iconicon_address_c_"></i><i class="z_i"></i>地图找房</a>
+        <!-- 热门搜索 -->
+        <div class="Z_search_hot Z_search_hotsearh" id="Z_search_hotsearh">
+          <h4 class="hot_title"> 热门搜索 </h4>
+
+        </div>
+        <div class="Z_search_hot Z_search_history" id="Z_search_history">
+          <h4 class="hot_title"> 历史记录 <span class="clear_history" id="clear_history">清空历史</span></h4>
+          <ul class="hot_list">
+          </ul>
+        </div>
+        <div class="Z_search_hot Z_search_vague" id="Z_search_vague">
+          <ul class="search_list">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- filter -->
+    <div class="Z_filter">
+      <ul class="f-box">
+        <li class="f-item">
+		  <strong class="title">找房方式</strong>
+		  <div class="opt">
+		    		    <div class="opt-type ">
+		      <span class="opt-name">区域</span>
+		      <div class="child-opt">
+		        <a class="item parent-title" href="javascript:;">区域</a>
+		        <div class="wrapper">
+		          		          <a class="item " href="//hz.ziroom.com/z/d330106/">西湖</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d330105/">拱墅</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d330102/">上城</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d330108/">滨江</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d330110/">余杭</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d330109/">萧山</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d23011864/">钱塘区</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/d23011905/">临平区</a>
+		          		        </div>
+		      </div>
+		      		    </div>
+		                  		    <div class="opt-type ">
+		      <span class="opt-name">地铁</span>
+		      <div class="child-opt">
+		        <a class="item parent-title" href="javascript:;">地铁</a>
+		        <div class="wrapper">
+		          		          <a class="item " href="//hz.ziroom.com/z/s101377/">5号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s1000003/">19号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s101077/">1号线(萧山国际机场-湘湖)</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s101079/">2号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s101078/">4号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100018/">7号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100019/">16号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100020/">6号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100021/">6号线(杭富线)</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100022/">9号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100028/">8号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100029/">1号线柯桥段</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100030/">杭海城际</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100042/">3号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100043/">10号线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100047/">3号线支线</a>
+		          		          <a class="item " href="//hz.ziroom.com/z/s510100100048/">6号线(枸桔弄-双浦)</a>
+		          		        </div>
+		      </div>
+		      		    </div>
+		    		    		    <div class="opt-type ">
+		      <span class="opt-name">通勤</span>
+		      <div class="child-opt" style="display: none;">
+		        <div class="itm addr">
+		          <span class="title">公司地址</span>
+		          <span class="ct">
+		            <input type="text"  data-g="" placeholder="请输入公司地址..." name="address" id="company" value="" />
+		            <div class="p-list"></div>
+		          </span>
+		        </div>
+		        <div class="itm trans">
+		          <span class="title">通勤方式</span>
+		          <span class="ct">
+		            		              		              	<div class="radio transit active"></div>
+		              		            		              		              	<div class="radio walk "></div>
+		              		            		              		              	<div class="radio ride "></div>
+		              		            		              		              	<div class="radio drive "></div>
+		              		            		          </span>
+		        </div>
+		        <div class="time-wrap">
+		          		            <div class="itm time" style="display: block;">
+		                <span class="title">通勤时间</span>
+		                <span class="ct">
+		                  		                  			                	<a class="checkbox " href="javascript:;">15分</a>
+		                			                  		                  			                	<a class="checkbox active" href="javascript:;">30分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">40分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">50分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">60分</a>
+		                			                  		                </span>
+		            </div>
+		          		            <div class="itm time" >
+		                <span class="title">通勤时间</span>
+		                <span class="ct">
+		                  		                  			                	<a class="checkbox " href="javascript:;">10分</a>
+		                			                  		                  			                	<a class="checkbox active" href="javascript:;">15分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">20分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">25分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">30分</a>
+		                			                  		                </span>
+		            </div>
+		          		            <div class="itm time" >
+		                <span class="title">通勤时间</span>
+		                <span class="ct">
+		                  		                  			                	<a class="checkbox " href="javascript:;">10分</a>
+		                			                  		                  			                	<a class="checkbox active" href="javascript:;">15分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">20分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">25分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">30分</a>
+		                			                  		                </span>
+		            </div>
+		          		            <div class="itm time" >
+		                <span class="title">通勤时间</span>
+		                <span class="ct">
+		                  		                  			                	<a class="checkbox " href="javascript:;">15分</a>
+		                			                  		                  			                	<a class="checkbox active" href="javascript:;">30分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">40分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">50分</a>
+		                			                  		                  			                	<a class="checkbox " href="javascript:;">60分</a>
+		                			                  		                </span>
+		            </div>
+		          		        </div>
+
+		      </div>
+		    </div>
+		    		  </div>
+		</li>
+              <!-- 超出4行后增加展开收起模块 -->
+      	      	      	      	<li class="f-item">
+          <strong class="title">类型</strong>
+          <div class="opt">
+          	                        <a class="active" href="//hz.ziroom.com/z/z0/">不限</a>
+                        <a class="" href="//hz.ziroom.com/z/z1/">合租</a>
+                        <a class="" href="//hz.ziroom.com/z/z2/">整租</a>
+                                              </div>
+        </li>
+                        <!-- 超出4行后增加展开收起模块 -->
+      	      	      	      	<li class="f-item">
+          <strong class="title">租金</strong>
+          <div class="opt">
+          	                        <a class="active" href="//hz.ziroom.com/z/r0/">不限</a>
+                        <a class="" href="//hz.ziroom.com/z/r1/">1000元以下</a>
+                        <a class="" href="//hz.ziroom.com/z/r2/">1000-1500元</a>
+                        <a class="" href="//hz.ziroom.com/z/r3/">1500-2000元</a>
+                        <a class="" href="//hz.ziroom.com/z/r4/">2000-3000元</a>
+                        <a class="" href="//hz.ziroom.com/z/r5/">3000-4000元</a>
+                        <a class="" href="//hz.ziroom.com/z/r6/">4000元以上</a>
+                                    <div class="price" id="range">
+	            <input type="text" name="low" class="low num" value="">&nbsp;- <input type="text" name="high" class="high num" value="">&nbsp;元 <input type="button" class="confirm" value="确定">
+	        </div>
+                                  </div>
+        </li>
+                        <!-- 超出4行后增加展开收起模块 -->
+      	      	      	      	<li class="f-item">
+          <strong class="title">特色户型</strong>
+          <div class="opt">
+          	                        <a class="" href="//hz.ziroom.com/z/?p=x44">loft</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x1">近地铁</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x14">有电梯</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x3">主卧独卫</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x4">独立阳台</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x65">公共盥洗室</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x15">双卫生间</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x46">有健身房</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=x7">可养宠物</a>
+                                              </div>
+        </li>
+                        <!-- 超出4行后增加展开收起模块 -->
+      	<div class="wrapper hide">      	      	      	<li class="f-item">
+          <strong class="title">优惠活动</strong>
+          <div class="opt">
+          	                        <a class="" href="//hz.ziroom.com/z/?p=y21">人人享自如特惠</a>
+                                              </div>
+        </li>
+                        <!-- 超出4行后增加展开收起模块 -->
+      	      	      	                <!-- 超出4行后增加展开收起模块 -->
+      	      	      	      	<li class="f-item">
+          <strong class="title">房源朝向</strong>
+          <div class="opt">
+          	                        <a class="" href="//hz.ziroom.com/z/?p=g2">南</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=g1">东</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=g4">北</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=g3">西</a>
+                                              </div>
+        </li>
+                        <!-- 超出4行后增加展开收起模块 -->
+      	      	      	      	<li class="f-item">
+          <strong class="title">供暖方式</strong>
+          <div class="opt">
+          	                        <a class="" href="//hz.ziroom.com/z/?p=n3">集体供暖</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=n2">独立供暖</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=n1">中央供暖</a>
+                                              </div>
+        </li>
+                        <!-- 超出4行后增加展开收起模块 -->
+      	      	          <li class="f-item house-leasetype">
+              <strong class="title">租期时长</strong>
+              <div class="opt">
+                                        <div class="opt-type active no-arrow">
+                          <a class="opt-name" href="//hz.ziroom.com/z/" >不限</a>
+                          <div class="child-opt">
+                                                        </div>
+                      </div>
+                                        <div class="opt-type  no-arrow">
+                          <a class="opt-name" href="//hz.ziroom.com/z/?p=b33" >长租1年</a>
+                          <div class="child-opt">
+                                                        </div>
+                      </div>
+                                        <div class="opt-type  ">
+                          <a class="opt-name" href="//hz.ziroom.com/z/?p=b4" >长租1年以上</a>
+                          <div class="child-opt">
+                                                                                                      <a class="checkbox " href="//hz.ziroom.com/z/?p=b4-d30">长租2年以下</a>
+                                                                        <a class="checkbox " href="//hz.ziroom.com/z/?p=b4-d31">长租2年</a>
+                                                                        <a class="checkbox " href="//hz.ziroom.com/z/?p=b4-d32">长租2年以上</a>
+                                                                                          </div>
+                      </div>
+                                        <div class="opt-type  ">
+                          <a class="opt-name" href="//hz.ziroom.com/z/?p=b1" >可短签</a>
+                          <div class="child-opt">
+                                                                                                      <a class="checkbox " href="//hz.ziroom.com/z/?p=b1-d21"><=1个月</a>
+                                                                        <a class="checkbox " href="//hz.ziroom.com/z/?p=b1-d50">1-2个月</a>
+                                                                        <a class="checkbox " href="//hz.ziroom.com/z/?p=b1-d51">2-4个月</a>
+                                                                        <a class="checkbox " href="//hz.ziroom.com/z/?p=b1-d52">4-7个月</a>
+                                                                        <a class="checkbox " href="//hz.ziroom.com/z/?p=b1-d53">7-12个月</a>
+                                                                                          </div>
+                      </div>
+                                </div>
+          </li>
+                          <!-- 超出4行后增加展开收起模块 -->
+      	      	      	      	<li class="f-item">
+          <strong class="title">房源状态</strong>
+          <div class="opt">
+          	                        <a class="active" href="//hz.ziroom.com/z/">不限</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=t1">可立即入住</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=t7">可预签</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=t3">自如客转租</a>
+                        <a class="" href="//hz.ziroom.com/z/?p=t9">可预订</a>
+                                              </div>
+        </li>
+                        <!-- 展开收起模块 -->
+        </div>      </ul>
+      <div class="more-box">
+      	      		<div class="more down"> 展开选项 </div>
+      	
+      </div>
+          </div>
+    <!-- main list -->
+    <div class="Z_list">
+      <div class="Z_list-filter">
+      	        <div class="option">
+                    	<a class="active" href="//hz.ziroom.com/z/" title="默认排序">默认排序</a>
+                    	<a class="ico-sort" href="//hz.ziroom.com/z/?sort=2" title="点击按价格从低到高排序">价格</a>
+                    	<a class="ico-sort" href="//hz.ziroom.com/z/?sort=5" title="点击按面积从大到小排序">面积</a>
+                  </div>
+      </div>
+                    <div class="Z_list-box">
+                        <div class="item"  data-location ="1" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/729236091.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/de290d97-7df0-478a-aa8b-2191c72459cb_965.jpg_C_640_480_Q100.jpg" alt="杭州合租铭雅苑东区1460租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/729236091.html" target="_blank">合租·铭雅苑东区4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>19㎡ | 4/6层</div>
+	              <div class="location">
+	                	                    房源距金家渡站步行约253米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -0px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -149.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="2" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/755448304.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/7d084e80-f5dc-4a2b-ba49-cdd74f2f019d_469.jpg_C_640_480_Q100.jpg" alt="杭州合租中意名仕苑1430租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/755448304.html" target="_blank">合租·中意名仕苑4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>20㎡ | 1/6层</div>
+	              <div class="location">
+	                	                    房源距临平站步行约403米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -0px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="3" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/725895799.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/aec8bf3d-1d5a-4cb2-9545-33dee558678f_947.jpg_C_640_480_Q100.jpg" alt="杭州合租翡翠城三期1590租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/725895799.html" target="_blank">合租·翡翠城三期6居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>19㎡ | 3/4层</div>
+	              <div class="location">
+	                	                    房源距高教路站步行约352米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -192.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -21.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="4" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/792425286.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/c6599d66-72f8-47b4-8bb2-1c2685d03648_122.jpg_C_640_480_Q100.jpg" alt="杭州合租宋都晨光国际1530租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/792425286.html" target="_blank">合租·宋都晨光国际4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>17㎡ | 13/33层</div>
+	              <div class="location">
+	                	                    房源距下沙江滨站步行约369米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -192.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>拿铁6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                                <div class="item"  data-location ="5" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/782526533.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/d721ab8b-2a3a-468d-b392-22c9d90bdf14_315.jpg_C_640_480_Q100.jpg" alt="杭州合租宋都香悦郡1530租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title turn"><a href="//hz.ziroom.com/x/782526533.html" target="_blank">合租·宋都香悦郡3居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>17.4㎡ | 21/26层</div>
+	              <div class="location">
+	                	                    房源距桃源街站步行约733米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -192.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>新小区</span>
+	              	              	              	              	<span>拿铁6.0</span>
+	              	              	            </div>
+	            	            <div class="tips has-more air-high">
+		             空气质量已检测		        </div>
+		        		        		        <div class="tip-info">
+		            预计2023-03-01可入住		        </div>
+		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="6" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/732834209.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/384bdaf6-64d7-4b33-9870-2e99e6379337_923.jpg_C_640_480_Q100.jpg" alt="杭州合租首开国风美域1730租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1038元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/732834209.html" target="_blank">合租·首开国风美域4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>17㎡ | 30/31层</div>
+	              <div class="location">
+	                	                    房源距三墩站步行约263米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -20px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -160px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -160px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -135px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -75px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>新小区</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="7" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/754665902.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/b803fc73-8e30-40bd-bd9c-2b95950cfa96_425.jpg_C_640_480_Q100.jpg" alt="杭州合租翠苑东二区1790租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1074元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/754665902.html" target="_blank">合租·翠苑东二区4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18.55㎡ | 5/6层</div>
+	              <div class="location">
+	                	                    房源距翠柏路站步行约260米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -180px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -80px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -135px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -90px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>全部空置</span>
+	              	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="8" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/807647521.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/02a1187f-9c0e-4037-9918-be9bf052ff04_396.jpg_C_640_480_Q100.jpg" alt="杭州合租胡姬花园1360租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1360元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/807647521.html" target="_blank">合租·胡姬花园5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>14㎡ | 8/13层</div>
+	              <div class="location">
+	                	                    房源距临平站步行约39米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -60px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -160px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -180px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -75px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -15px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸2.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>布丁6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="9" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/796486385.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/f9906837-d405-4a77-a3fc-a67d136d76de_300.jpg_C_640_480_Q100.jpg" alt="杭州合租奥克斯时代未来之城1890租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/796486385.html" target="_blank">合租·奥克斯时代未来之城4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>17㎡ | 3/48层</div>
+	              <div class="location">
+	                	                    房源距创景路站步行约283米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -64.2px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -21.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="10" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/794983758.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/7e723be2-1687-4043-8335-16f080fd9ebf_948.jpg_C_640_480_Q100.jpg" alt="杭州合租世茂江滨花园碧景湾1530租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减918元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/794983758.html" target="_blank">合租·世茂江滨花园碧景湾3居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>15.3㎡ | 26/29层</div>
+	              <div class="location">
+	                	                    房源距下沙江滨站步行约254米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -160px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -40px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -160px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -30px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -75px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>布丁6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="11" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/751737957.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/3fa39b06-f49f-44f5-a066-d49eb2d12ba7_325.jpg_C_640_480_Q100.jpg" alt="杭州合租中海定山府1430租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/751737957.html" target="_blank">合租·中海定山府3居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>16㎡ | 5/17层</div>
+	              <div class="location">
+	                	                    房源距音乐学院站步行约469米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -0px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>米苏6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="12" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/732553685.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/6127ddc5-7327-4082-8b07-c6d3f3a45a85_370.jpg_C_640_480_Q100.jpg" alt="杭州合租理想银泰城1490租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/732553685.html" target="_blank">合租·理想银泰城4居室-东卧</a></h5>
+	            <div class="desc">
+	              <div>18㎡ | 30/47层</div>
+	              <div class="location">
+	                	                    房源距临平站步行约400米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -0px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -21.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>新小区</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="13" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/808993600.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/66764efd-74ce-4161-9088-492e48f98340_586.jpg_C_640_480_Q100.jpg" alt="杭州合租金桥花苑1490租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1490元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/808993600.html" target="_blank">合租·金桥花苑4居室-东卧</a></h5>
+	            <div class="desc">
+	              <div>24.97㎡ | 2/6层</div>
+	              <div class="location">
+	                	                    房源距临平站步行约312米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -100px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -20px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -20px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -120px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -90px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸2.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="14" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/808309497.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/549fc1ed-5245-49b3-a932-9ae53c83fe7b_547.jpg_C_640_480_Q100.jpg" alt="杭州合租翡翠城一期1730租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/808309497.html" target="_blank">合租·翡翠城一期5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18㎡ | 4/17层</div>
+	              <div class="location">
+	                	                    房源距高教路站步行约262米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -42.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸2.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="15" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/745964226.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/7e0ddca9-e835-4dc7-940e-f5fe654aa1cc_115.jpg_C_640_480_Q100.jpg" alt="杭州合租余之城1330租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/745964226.html" target="_blank">合租·余之城4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>15.5㎡ | 9/33层</div>
+	              <div class="location">
+	                	                    房源距南苑站步行约601米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>新小区</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="16" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/781095686.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/0b7eef04-a9a2-445a-92f7-c5b7fb5ae75a_098.jpg_C_640_480_Q100.jpg" alt="杭州合租中天之江诚品1790租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1790元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/781095686.html" target="_blank">合租·中天之江诚品4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18.1㎡ | 2/17层</div>
+	              <div class="location">
+	                	                    房源距霞鸣街站步行约985米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -20px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -160px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -135px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -90px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="17" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/807919093.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/3a76b842-a641-4ad8-8bc9-27badfd536b9_300.jpg_C_640_480_Q100.jpg" alt="杭州合租融信永兴首府1960租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1960元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/807919093.html" target="_blank">合租·融信永兴首府5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18.8㎡ | 6/26层</div>
+	              <div class="location">
+	                	                    房源距通惠中路站步行约615米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -180px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -120px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -180px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -90px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -15px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸2.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="18" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/768581037.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/28945e32-ad0e-4559-9188-5758b17bc994_142.jpg_C_640_480_Q100.jpg" alt="杭州合租协安紫郡1590租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减954元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/768581037.html" target="_blank">合租·协安紫郡5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>13.25㎡ | 2/20层</div>
+	              <div class="location">
+	                	                    房源距池华街站步行约96米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -40px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -30px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -90px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>布丁6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="19" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/807980091.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/256bc513-86df-48d3-aa1c-8f06a6d73204_783.jpg_C_640_480_Q100.jpg" alt="杭州合租海兴雅苑1790租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title turn"><a href="//hz.ziroom.com/x/807980091.html" target="_blank">合租·海兴雅苑5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>16㎡ | 3/14层</div>
+	              <div class="location">
+	                	                    房源距永福站步行约412米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -42.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -21.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸2.0</span>
+	              	              	              	              	<span>新小区</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips has-more air-high">
+		             空气质量已检测		        </div>
+		        		        		        <div class="tip-info">
+		            预计2023-02-14可入住		        </div>
+		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="20" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/757524686.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/e05c58be-6594-4db2-b961-5dd269ed51c5_013.jpg_C_640_480_Q100.jpg" alt="杭州合租野风海天城1760租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/757524686.html" target="_blank">合租·野风海天城5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>17.9㎡ | 17/18层</div>
+	              <div class="location">
+	                	                    房源距云水站步行约492米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -42.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -149.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="21" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/734798265.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/0b3033d9-597f-4e17-98dd-aaeb1ec6f803_228.jpg_C_640_480_Q100.jpg" alt="杭州合租新城花苑1430租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/734798265.html" target="_blank">合租·新城花苑4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>19㎡ | 2/6层</div>
+	              <div class="location">
+	                	                    房源距临平站步行约450米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -0px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>木棉4.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="22" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/807875098.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/be180233-f78c-499d-bd28-fc864232280f_730.jpg_C_640_480_Q100.jpg" alt="杭州合租东海未名园1630租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/807875098.html" target="_blank">合租·东海未名园3居室-北卧</a></h5>
+	            <div class="desc">
+	              <div>18.23㎡ | 3/6层</div>
+	              <div class="location">
+	                	                    房源距文泽路站步行约438米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -149.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>米苏6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="23" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/762991412.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/bfc1e8d9-ff11-4972-acdf-b9f30962ccda_848.jpg_C_640_480_Q100.jpg" alt="杭州合租云溪香山1790租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/762991412.html" target="_blank">合租·云溪香山4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18.6㎡ | 3/6层</div>
+	              <div class="location">
+	                	                    房源距霞鸣街站步行约788米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -42.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -21.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="24" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/747899182.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/c5efabb7-7625-469e-b85d-f4528515f8cd_329.jpg_C_640_480_Q100.jpg" alt="杭州合租华元欢乐城1660租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1660元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/747899182.html" target="_blank">合租·华元欢乐城4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>13㎡ | 15/30层</div>
+	              <div class="location">
+	                	                    房源距南苑站步行约78米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -40px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -60px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -60px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -15px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -15px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸1.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>拿铁6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="25" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/752800301.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/8448820c-0283-4613-9f27-dbe8f51181bf_950.jpg_C_640_480_Q100.jpg" alt="杭州合租中海定山府1830租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title turn"><a href="//hz.ziroom.com/x/752800301.html" target="_blank">合租·中海定山府3居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18.6㎡ | 4/17层</div>
+	              <div class="location">
+	                	                    房源距音乐学院站步行约527米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -64.2px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>自如客转租</span>
+	              	              	              	              	<span>可短签</span>
+	              	              	              	              	<span>拿铁6.0</span>
+	              	              	            </div>
+	            		        		        <div class="tip-info">
+		            预计2023-03-04可入住		        </div>
+		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="26" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/809287761.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/47f694bc-aba9-42da-bc66-7b5899774e4e_871.jpg_C_640_480_Q100.jpg" alt="杭州合租伊萨卡国际城绮风园1760租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/809287761.html" target="_blank">合租·伊萨卡国际城绮风园5居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18.57㎡ | 11/11层</div>
+	              <div class="location">
+	                	                    房源距下沙江滨站步行约110米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -42.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -149.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测, 空置已超过15天		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="27" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/808173935.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/335b1a1b-5647-4516-a992-e0c04bb04b0e_299.jpg_C_640_480_Q100.jpg" alt="杭州合租亲亲家园三期1730租房户型实景图"></a>
+                                    <span class="ico ico-vr"></span>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/808173935.html" target="_blank">合租·亲亲家园三期4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>18㎡ | 4/6层</div>
+	              <div class="location">
+	                	                    房源距墩祥街站步行约480米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -42.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -128.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>深呼吸2.0</span>
+	              	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            	            <div class="tips  air-high">
+		             空气质量已检测		        </div>
+		        		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="28" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/752814463.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/28ecd3a4-7bb1-469d-8611-e601116f0da6_285.jpg_C_640_480_Q100.jpg" alt="杭州合租新城金镶玉1960租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            <p class="tip">最高可减1176元</p>
+	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/752814463.html" target="_blank">合租·新城金镶玉4居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>19.4㎡ | 2/11层</div>
+	              <div class="location">
+	                	                    房源距花园岗站步行约701米	                	              </div>
+	            </div>
+                	            <div class="price red">
+		                                    <span class="label">最高可减至</span>
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -140px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -0px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -20px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_red.png);background-position: -60px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                <div class="underline_price">
+                    <span class="unit">￥</span>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -105px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -90px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -15px"></i>
+                                            <i class="s_num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/2020/list/img_pricenumber_list_grey.png);background-position: -60px"></i>
+                                    </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>离地铁近</span>
+	              	              	              	              	<span>木棉6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+                        <div class="item"  data-location ="29" >
+        	        		<div class="pic-box">
+	          	<a href="//hz.ziroom.com/x/752858501.html" target="_blank" class="pic-wrap"><img class="lazy" src="//webimg.ziroom.com/ff78bbc2-9e99-4ecd-90c2-56302b25e9b2.jpg" data-original="//imgpro.ziroom.com/5128e2d7-51fc-49ce-b20a-8683154c464e_335.jpg_C_640_480_Q100.jpg" alt="杭州合租中海定山府1690租房户型实景图"></a>
+                                	            <span class="ico ico-video"></span>
+	            	            	            </div>
+	          	<div class="info-box">
+	            <h5 class="title sign"><a href="//hz.ziroom.com/x/752858501.html" target="_blank">合租·中海定山府3居室-南卧</a></h5>
+	            <div class="desc">
+	              <div>17.7㎡ | 12/17层</div>
+	              <div class="location">
+	                	                    房源距音乐学院站步行约717米	                	              </div>
+	            </div>
+                	            <div class="price ">
+		                                <span class="rmb">￥</span>
+	            		            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -85.6px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -149.8px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -21.4px"></span>
+	                	            	            <span class="num" style="background-image: url(//static8.ziroom.com/phoenix/pc/images/price/new-list/f4c1f82540f8d287aa53492a44f5819b.png);background-position: -171.2px"></span>
+	                	            	<span class="unit">/月</span>
+	            </div>
+                                	            <div class="tag">
+	              	              	              	<span>可闪定</span>
+	              	              	              	              	<span>可短签</span>
+	              	              	              	              	<span>拿铁6.0</span>
+	              	              	            </div>
+	            		        	          </div>
+        	        	</div>
+              </div>
+      <div class="Z_pages" id="page">
+          <a class="active" href="//hz.ziroom.com/z/p1/">1</a>
+<a href="//hz.ziroom.com/z/p2/">2</a>
+<a href="//hz.ziroom.com/z/p3/">3</a>
+<span class="">...</span>
+<a href="//hz.ziroom.com/z/p50/">50</a> <a class="next" href="//hz.ziroom.com/z/p2/">下一页</a>  <span>共50页</span><span class="marL20">到</span><span><input type="text" class="num" id="JumpToPage" value="1"></span><span>页</span><input type="button" class="go" value="确定">        </div>
+      <div class="Z_bar">
+        <div class="ico ico-date">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABoUlEQVRYR82X4U1DMQyE7zboBrABbABMAEwAnQA2oEwAbNBuwAbABLQbwAZsYGSURKmVNg4vQUTqj+pZzmc7PieEWSJyAeAOwLH95vi/JDl32CUT5sYicgrgpcVBwbYJwgI8AzgH8Alg2QCi4CeZvRvCArwGR/ckF14AEVFbLVu+XBAjAFYArgJJFaI7AEmKiJbPBTEEQKP3QgwD8EIMBfBADAcoQDyRvI3t0h0AwK721U1nAN5Iqm78rBEANfkYAnANQH/71iGAgyEZqIUczkFUy/4Z+HcAOlVJ6lxJK5sXYzOQKeCcZJqofwJg5HdDMl1qJgOIiDp7AHBJ8svW3W4OQMuQ7CYBiIi20HsQkjWAM+M8n34bu3mXLjARJoha5DFTkzKQOckjVQj9RQEqRt4VoDBYov+9m3cpgenpas0Lh7SvEobaa2dsnfZdqtjlDBSimpVasgQxBMAzA7ofwpZNp8yCrWvTbzc1AI8Abmr3gfg0+2h8mnkYVS9UUVck0+VlxOO0BqMynkb1FkAQDH2ea88e1Tw1flexWpDULKf1DduDizBcrrVtAAAAAElFTkSuQmCC" alt="">
+          <div class="inner-tag">
+            <a href="http://i.ziroom.com/index.php?uri=look/index">我的约看</a>
+          </div>
+        </div>
+        <div class="ico ico-top">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABf0lEQVRYR+2UUVEDQRBEuxWAA3AADgAFJApIFBAUkCggKCAoAAeAg+AACaCgqU7NVQ1JjtslHymqbn7u4+Zm3nX3LrHn4p73owfoFegV+L8KSBoBuAJwCOAVwIzkZ+29Uq2AJC+8A2CAXEsAY5J+FlcVQCx/AXAaG77ieRBPK2CI51KCYgBJXurlVsDl5ecAvNQLT9LSKclZCUQRQPj9kAa+e3njeSgzj0w0bQsAN1256ASQ5EEOW1OPJNf9X72TNIl8NL3Ow5DkR5sarQBb/PYM+2ug1pJkW2xJzoUhfFI2aitA+P0E4Dj7XZrw+N6gORcTkvfrBBsA4bePWRM2+z34TcZtfxYKGuIyvV+QHOf+HwCSHKTr7DcAk1dfMM0MSVMAt2mmc3HRzFwBBK1TPkiNTrCBdq5Q1bNyLgyxZMvlMqq5TEoIIxcO51HqHxogHx377eVV12kJQFLaEGfxzZsBnHTLY5938rsCxPt8XOedF1Hp0L/29QC9Ar0CvQLfNayJiOU5xW8AAAAASUVORK5CYII=" alt="">
+          <div class="inner-tag">返回顶部</div>
+        </div>
+      </div>
+                </div>
+
+    <!-- 底部banner -->
+    <div class="banner-swiper">
+        <div class="close-btn"></div>
+
+        <div class="my-swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+    </div>
+
+    <!-- recommand list -->
+    <div class="Z_recommand">
+      <div class="bread-crumb">
+      	      		      		<a href="//hz.ziroom.com/">首页</a>
+      		      	      		      		<h1>杭州租房</h1>
+      		      	      </div>
+          </div>
+  </section>
+<style>
+.price span {
+  display:inline-block;
+  height:20px;
+  line-height: 20px;
+  float: left;
+  font-size: 16px;
+  color:$orange;
+}
+
+.price .num {
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+.price .unit {
+  width:30px;
+}
+</style><footer class="footer_container">
+    <div class="Z_section_fade">
+        <div class="Z_container Z_footer_nav ">
+            <ul class="clearfix">
+                                <li><a href="https://special.ziroom.com/2018/tpl201810/index.html?id=1568">隐私政策</a></li>
+                                <li><a href="http://hz.ziroom.com/sitemap/index">网站地图</a></li>
+                            </ul>
+        </div>
+        <div class="Z_hr"></div>
+        <div class="Z_container  Z_footer_tab">
+            <div class="Z_footer_tab_header">
+                <ul class="clearfix tab_head">
+                                        <li class="active">友情链接</li>
+                    
+                        <li>热门区域</li>
+                        <li>地铁周边</li>
+                        <li>热门城市</li>
+                        <li>最新房源</li>
+                </ul>
+            </div>
+            <div class="Z_footer_tab_body">
+                <div class="Z_footer_tab_content tab_body">
+                    <ul class="clearfix">
+                    
+                        <li><a href="https://hz.lianjia.com/" target="_blank">杭州房产网</a></li>
+                    
+                        <li><a href="https://hz.ke.com/" target="_blank">杭州房产</a></li>
+                    
+                        <li><a href="https://su.lianjia.com/" target="_blank">苏州房产网</a></li>
+                    
+                        <li><a href="https://su.ke.com/" target="_blank">苏州房产</a></li>
+                                        </ul>
+
+                    <ul class="clearfix">
+                                                        <li ><a href="//hz.ziroom.com/z/d330106-b611100178/" target="_blank">黄龙租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b611101259/" target="_blank">留下商业圈租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b611101304/" target="_blank">良渚租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b611100183/" target="_blank">申花租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b611101317/" target="_blank">松木场租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b611101313/" target="_blank">山水商圈租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b1100001748/" target="_blank">文三租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330106-b1100000661/" target="_blank">转塘租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/b330106/" target="_blank">西湖租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100188/" target="_blank">潮鸣租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100139/" target="_blank">大关租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100152/" target="_blank">丁桥租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611101294/" target="_blank">大营盘租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100140/" target="_blank">拱宸桥租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611101318/" target="_blank">勾庄租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100178/" target="_blank">黄龙租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100492/" target="_blank">和平租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611100142/" target="_blank">湖墅租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b613000670/" target="_blank">莫衙营租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611101298/" target="_blank">万达租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330105-b611101275/" target="_blank">信义坊租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/b330105/" target="_blank">拱墅租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100151/" target="_blank">城东新城租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611101241/" target="_blank">大学城北租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100168/" target="_blank">复兴租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611101296/" target="_blank">高教园区东租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611101299/" target="_blank">鼓楼租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611101253/" target="_blank">火车东站租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b613001072/" target="_blank">客运中心租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b613000670/" target="_blank">莫衙营租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100171/" target="_blank">南星租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611101261/" target="_blank">南肖埠租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100157/" target="_blank">彭埠租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100172/" target="_blank">清波租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100161/" target="_blank">望江租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611101327/" target="_blank">雄镇楼租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330102-b611100164/" target="_blank">闸弄口租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/b330102/" target="_blank">上城租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330108-b1100000965/" target="_blank">滨江区政府租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330108-b611101330/" target="_blank">钱江湾租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330108-b611101271/" target="_blank">西兴租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330110-b611100184/" target="_blank">文新租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330110-b611100185/" target="_blank">西溪租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330109-b611101267/" target="_blank">明月江南租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330109-b611101272/" target="_blank">湘湖租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d330109-b1100000640/" target="_blank">萧山开发区租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d23011864-b611101241/" target="_blank">大学城北租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d23011864-b611101297/" target="_blank">高教园区西租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d23011864-b1100000963/" target="_blank">沿江北租房</a></li>
+                                                                <li ><a href="//hz.ziroom.com/z/d23011905-b1100000645/" target="_blank">乔司租房</a></li>
+                                                    </ul>
+
+                    <ul class="clearfix">
+                                                        <li><a href="//hz.ziroom.com/z/s510100100047-t510100200647/" target="_blank">桃花湖公园站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100048-t510100200333/" target="_blank">星民站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100029-t510100200756/" target="_blank">明珠广场站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101078-t201116/" target="_blank">近江站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100042-t10000003/" target="_blank">高教路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101377-t330100200020/" target="_blank">万安桥站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101078-t510100200670/" target="_blank">皋亭坝站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101078-t201874/" target="_blank">南星桥站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100047-t201335/" target="_blank">武林门站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101377-t330100200008/" target="_blank">江城路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s1000003-t330100200004/" target="_blank">创景路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100018-t201162/" target="_blank">市民中心站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100021-t510100200344/" target="_blank">桂花西路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100047-t20000010/" target="_blank">古荡新村站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101078-t201145/" target="_blank">钱江路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100020-t510100200398/" target="_blank">三堡站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101377-t330100200012/" target="_blank">聚才路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100048-t510100200328/" target="_blank">博览中心站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100030-t510100200435/" target="_blank">周王庙站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100042-t510100200653/" target="_blank">丁桥站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100042-t510100200648/" target="_blank">大关站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100029-t510100200766/" target="_blank">城市广场站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101079-t201842/" target="_blank">虾龙圩站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101079-t201844/" target="_blank">墩祥街站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100047-t510100200653/" target="_blank">丁桥站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100022-t510100200729/" target="_blank">红普南路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101377-t202645/" target="_blank">蒋村站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100020-t510100200402/" target="_blank">枸桔弄站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101079-t201157/" target="_blank">朝阳站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s1000003-t510100200349/" target="_blank">萧山国际机场站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100021-t510100200343/" target="_blank">高桥站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100048-t510100200327/" target="_blank">枫桦西路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100029-t510100200422/" target="_blank">西沙路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100019-t510100200317/" target="_blank">南湖站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100042-t10000005/" target="_blank">洪园站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s1000003-t510100200299/" target="_blank">永盛路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100042-t20000011/" target="_blank">古荡站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s1000003-t20000055/" target="_blank">西溪湿地北站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100020-t510100200440/" target="_blank">之浦路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100048-t510100200325/" target="_blank">伟业路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100021-t510100200336/" target="_blank">公望街站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101077-t201112/" target="_blank">滨康路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101079-t201155/" target="_blank">潘水站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101077-t201124/" target="_blank">打铁关站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101078-t201873/" target="_blank">甬江路站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100022-t510100200777/" target="_blank">六堡站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100020-t510100200328/" target="_blank">博览中心站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100043-t510100200663/" target="_blank">渡驾桥站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s101079-t201152/" target="_blank">人民广场站租房</a></li>
+                                                                <li><a href="//hz.ziroom.com/z/s510100100048-t510100200330/" target="_blank">诚业路站租房</a></li>
+                                                    </ul>
+
+                    <ul class="clearfix">
+                                                        <li><a href="//www.ziroom.com" target="_blank">北京租房</a></li>
+                                                                <li><a href="//sh.ziroom.com" target="_blank">上海租房</a></li>
+                                                                <li><a href="//sz.ziroom.com" target="_blank">深圳租房</a></li>
+                                                                <li><a href="//hz.ziroom.com" target="_blank">杭州租房</a></li>
+                                                                <li><a href="//nj.ziroom.com" target="_blank">南京租房</a></li>
+                                                                <li><a href="//cd.ziroom.com" target="_blank">成都租房</a></li>
+                                                                <li><a href="//wh.ziroom.com" target="_blank">武汉租房</a></li>
+                                                                <li><a href="//gz.ziroom.com" target="_blank">广州租房</a></li>
+                                                                <li><a href="//tj.ziroom.com" target="_blank">天津租房</a></li>
+                                                                <li><a href="//su.ziroom.com" target="_blank">苏州租房</a></li>
+                                                    </ul>
+                    <ul class="clearfix">
+
+                                                        <li><a href="//hz.ziroom.com/x/788654217.html" target="_blank">皮市巷2居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/809400202.html" target="_blank">维元弄2居室-南</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807895510.html" target="_blank">海兴雅苑5居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/744716903.html" target="_blank">广宇万科公园里4居室-西卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807727244.html" target="_blank">欧美金融城4居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/808354570.html" target="_blank">乐虹湾5居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/731010512.html" target="_blank">润和亿城嘉园4居室-西卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/737900325.html" target="_blank">迎春小区5居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/809328788.html" target="_blank">三堡家园南区5居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807941157.html" target="_blank">欣盛东方郡东区3居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/759608925.html" target="_blank">坤和西溪里5居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807895503.html" target="_blank">海兴雅苑5居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807944083.html" target="_blank">莱蒙水榭春天4居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/750252014.html" target="_blank">风雅钱塘3居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/731095872.html" target="_blank">保利东湾4居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/777494658.html" target="_blank">融信蓝孔雀4居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807229915.html" target="_blank">紫金西苑4居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/744936317.html" target="_blank">阳光城翡丽湾4居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/773469061.html" target="_blank">花园新宸府3居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/760399960.html" target="_blank">中兴花园5居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/749436826.html" target="_blank">钱江三苑1居室-南</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/807191555.html" target="_blank">金基晓庐5居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/793763401.html" target="_blank">复地连城国际4居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/764067433.html" target="_blank">中兴花园4居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/764066560.html" target="_blank">中兴花园4居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/808329741.html" target="_blank">东海水景城4居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/787393314.html" target="_blank">野风海天城4居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/751926040.html" target="_blank">武林公寓4居室-南卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/765598190.html" target="_blank">余之城3居室-北卧</a></li>
+                                                                <li><a href="//hz.ziroom.com/x/786433693.html" target="_blank">越秀星汇尚城4居室-南卧</a></li>
+                                                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Z_hr" ></div>
+        <div class="Z_container  Z_zrinfo">
+            <div class="z_logo_footer">
+                <img style="width: 100%;" src="//webimg.ziroom.com/e3bc20c6-e62b-4ebd-a06f-fb63fe7fb01e.png" alt="">
+            </div>
+
+            <div class="Z_pr">
+                <p>北京自如信息科技有限公司 Copyright©2020 ziroom.com 版权所有
+<img src="https://webimg.ziroom.com/e889d38d-829d-4cae-b58b-6ceee615b8ea.png"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502035900">  京公网安备 11010502035900号</a>   <a href="https://beian.miit.gov.cn/">京ICP备16015349号</a>
+违法和不良信息举报电话：4001001111-9  违法和不良信息举报邮箱：jubao@ziroom.com</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- FOOTER -->
+<link rel="stylesheet" href="//static8.ziroom.com/phoenix/pc/css/2019/video-js.min.css">
+<script type="text/javascript" src="//static8.ziroom.com/fecommon/library/polyfill/polyfill.min.js"></script>
+<script src="//static8.ziroom.com/phoenix/pc/js/2019/lib/layer.js"></script>
+<script src='//static8.ziroom.com/phoenix/pc/js/2019/lib/jquery.SuperSlide.2.1.3.js'></script>
+<script src='//static8.ziroom.com/phoenix/pc/js/2019/lib/jquery.lazyload.min.js'></script>
+<script src="//static8.ziroom.com/phoenix/pc/js/2019/lib/scrollreveal.js"></script>
+<script src="//static8.ziroom.com/phoenix/pc/js/2019/lib/videojs-ie8.min.js"></script>
+<script src='//static8.ziroom.com/phoenix/pc/js/2019/lib/video.min.js'></script>
+<script type="text/javascript">
+// baidu&gio
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4f083817a81bcb8eed537963fc1bbf10";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 神策统计 只能放在页面优先加载  暂不放在放到js文件 后期所有页面都统计可以放在main文件里-->
+<script type="text/javascript" src="//static8.ziroom.com/phoenix/pc/map/2017/js/sensors.js"></script>
+<script src="//static8.ziroom.com/phoenix/pc/js/2019/list.js?202212211341"></script>
+<script src="//static8.ziroom.com/fecommon/library/Swiper5/swiper.min.js?202212211341"></script></html>
