@@ -1,10 +1,3 @@
-import os
-import re
-path = r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合'
-
-os.chdir(path)
-
-#%%
 # ==============================
 # 链家部分
 
@@ -19,11 +12,12 @@ TODO list:
 
 """
 
-from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps
+from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps
 from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url
 from prd.service import get_one_page_html, get_doc_from_url
 from prd.constants import ZiRoomFilter
 from typing import List
+import pandas as pd
 
 
 def get_lianjia_area_list(city: str) -> list:
@@ -298,20 +292,22 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
     return room_info_total
 
 
+def get_lj_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
+    room_info = get_lianjia_info(city, area, area_lv2, **kwargs)
+    print('== 开始整理信息 ==')
+    res = []
+    for i in room_info:
+        res.append(AnalysisOps.analyse_lianjia_info_item(i))
+    return res
+
 # ==========================================================
 # 二次解析
 
-def analyse_lianjia_info_item(room_info: dict, get_picture=False) -> dict:
-    """
-    解析链家信息的单条记录
-
-    :param room_info: 链家信息的单条记录
-    :param get_picture: 是否获取图片数据
-    :return:
-    """
-
+#%%
+if __name__ == '__main__':
+    a = get_ziroom_info('hz', '西湖', price_min=3000, price_max=6000, rent_type='整租')
+    df = pd.DataFrame(a)
+    # df.to_excel(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0208.xlsx', index=None)
 
 #%%
-t = get_lianjia_info('hz', '西湖', '文三西路', rent_type='整租', price_min=3000, 
-                     price_max=6000, room_num=[1, 2])
-
+b = get_lianjia_info('hz', '西湖', '文三西路', price_min=3000, price_max=6000, rent_type='整租')

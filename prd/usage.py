@@ -12,11 +12,14 @@ TODO list:
 
 """
 
-from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps
+from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps
 from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url
 from prd.service import get_one_page_html, get_doc_from_url
 from prd.constants import ZiRoomFilter
 from typing import List
+import pandas as pd
+from pyquery import PyQuery as pq
+from prd.utils import print_time
 
 
 def get_lianjia_area_list(city: str) -> list:
@@ -76,7 +79,7 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
         room_num: list or int 多选。如1居2居可传入[1, 2]。房间数可选1-3, 4以上自动合成
         toward: list or int 多选 房间朝向, 可选【东|南|西|北|南北】
     :return: list of dict
-        内容包括：链家id, 标题, 小区, 描述, 价格, 房源url, 图片地址url
+        内容包括：链家id, 标题, 小区, 描述, 价格, 房源url, 图片url
 
     """
     # 城市编码
@@ -133,14 +136,122 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
     # 解析html
     room_info_total = []
     n = 0
-    for pq in pq_total:
+    for i in pq_total:
         n += 1
         print(f'= 解析第{n}页 =')
-        tmp_room_info = lj_ops.get_room_info_page(pq)
+        tmp_room_info = lj_ops.get_room_info_page(i)
         room_info_total += tmp_room_info
     print(f'== html解析完成，共解析房源{len(room_info_total)}个 == ')
 
     return room_info_total
+
+
+def get_lianjia_html(city, area=None, area_lv2=None, **kwargs) -> List[str]:
+    """
+    获取链家房源信息，进行request请求，返回html的list
+
+    :param city:
+    :param area:
+    :param area_lv2:
+    :param kwargs:
+        可选列表如下：
+        rent_type: 房源类型，可选【整租|合租】
+        price_min: 租金最低值
+        price_max: 租金最高值
+        room_num: list or int 多选。如1居2居可传入[1, 2]。房间数可选1-3, 4以上自动合成
+        toward: list or int 多选 房间朝向, 可选【东|南|西|北|南北】
+    :return: list of dict
+        内容包括：链家id, 标题, 小区, 描述, 价格, 房源url, 图片url
+
+    """
+    # 城市编码
+    city_code = get_city_code(city)
+    city_str = get_city_info(city_code, 'city_cn')
+
+    # 城市url和html
+    url_city = get_lj_rent_url(city_code)
+    html_city = get_one_page_html(url_city)
+
+    lj_ops = LianJiaHtmlOps(city_code)
+    # 有区域
+    if area:
+        url_area = lj_ops.get_area_url(html_city, area)
+        html_area = get_one_page_html(url_area)
+        city_str = city_str + '-' + area
+        # 2级区域
+        if area_lv2:
+            url_f = lj_ops.get_area_lv2(html_area, area_lv2)
+            city_str = city_str + '-' + area_lv2
+        else:
+            url_f = url_area
+    # 无区域
+    else:
+        url_f = url_city
+
+    # 制作filter
+    url_f += lj_generate_filter_url(kwargs)
+
+    # 分页信息
+    url_pages = lj_ops.pagination(url_f)
+    # 全量url
+    url_total = [url_f] + url_pages
+
+    print(f'== 本次共提取链家{city_str} {len(url_total)}页房源 == ')
+
+    # 全量html捕获
+    html_total = []
+    n = 0
+    for url in url_total:
+        n += 1
+        print(f'= 下载第{n}页 =')
+        try:
+            tmp_html = get_one_page_html(url)
+            html_total.append(tmp_html)
+        except Exception as e:
+            print(f'= 第{n}页url获取失败，异常情况如下 =')
+            print(e)
+            pass
+
+    print(f'== 本次提取链家{city_str} 房源完成 == ')
+    return html_total
+
+
+def analyse_lianjia_html(html_list: List[str], city=None):
+    """
+    下载到html文件后，可用此方法进行解析
+
+    :param html_list:
+    :param city: 城市
+    :return:
+    """
+    # pq化
+    pq_total = []
+    for i in html_list:
+        doc = pq(i)
+        pq_total.append(doc)
+
+    print(f'== 开始解析html == ')
+    city_code = get_city_code(city)
+    lj_ops = LianJiaHtmlOps(city_code)
+    # 解析html
+    room_info_total = []
+    n = 0
+    for i in pq_total:
+        n += 1
+        print(f'= 解析第{n}页 =')
+        tmp_room_info = lj_ops.get_room_info_page(i)
+        room_info_total += tmp_room_info
+    print(f'== html解析完成，共解析房源{len(room_info_total)}个 == ')
+
+
+@print_time
+def get_lj_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
+    room_info = get_lianjia_info(city, area, area_lv2, **kwargs)
+    print('== 开始整理信息 ==')
+    res = []
+    for i in room_info:
+        res.append(AnalysisOps.analyse_lianjia_info_item(i))
+    return res
 
 
 # ===========================================
@@ -291,13 +402,47 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
     return room_info_total
 
 
+@print_time
+def get_ziroom_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
+    room_info = get_ziroom_info(city, area, area_lv2, **kwargs)
+    print('== 开始整理信息 ==')
+    res = []
+    for i in room_info:
+        res.append(AnalysisOps.analyse_ziroom_info_item(i))
+    print('== 整理信息完成 ==')
+    return res
+
+
+def get_room_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
+    """
+    获取整理后的信息，链家和自如一起操作
+
+    :param city:
+    :param area:
+    :param area_lv2:
+    :param kwargs:
+    :return:
+    """
+    # 操作链家
+    print('=== 开始执行链家任务 ===')
+    room_info_lj = get_lj_info_standard(city, area, area_lv2, **kwargs)
+    print('=== 链家任务执行完成 ===')
+    # 操作自如
+    print('=== 开始执行自如任务 ===')
+    room_info_zr = get_ziroom_info_standard(city, area, area_lv2, **kwargs)
+    print('=== 自如任务执行完成 ===')
+    res = room_info_lj + room_info_zr
+    return res
+
+
 # ==========================================================
-# 二次解析
+# 小区情况
+def get_xiaoqu_info(city, area):
+    pass
 
 
 if __name__ == '__main__':
-    t = get_ziroom_info('hz', '西湖', '文三西路', price_min=3000, price_max=6000, rent_type='整租')
-    print(len(t))
-    print(t[:5])
-
+    t = get_room_info_standard('hz', '西湖', price_min=3000, price_max=6000, rent_type='整租')
+    df = pd.DataFrame(t)
+    df.to_excel(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0208.xlsx', index=None)
 

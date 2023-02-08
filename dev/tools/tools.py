@@ -324,7 +324,7 @@ class LianJiaHtmlOps:
             price = i('span.content__list--item-price').text()
 
             dict_info = {'链家id': lj_code, '标题': title, '小区': xiaoqu, '描述': desc.text(),
-                         '价格': price, '房源url': url, '图片地址': url_pic}
+                         '价格': price, '房源url': url, '图片url': url_pic}
             res.append(dict_info)
 
         return res
@@ -495,7 +495,7 @@ class LianJiaHtmlOps:
 #         price = i('span.content__list--item-price').text()
 #
 #         dict_info = {'链家id': lj_code, '标题': title, '小区': xiaoqu, '描述': desc.text(),
-#                      '价格': price, '图片地址': url_pic}
+#                      '价格': price, '图片url': url_pic}
 #         res.append(dict_info)
 #
 #     return res

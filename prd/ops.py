@@ -137,7 +137,7 @@ class LianJiaHtmlOps:
         根据分页的页面获取房源信息, 只做信息爬取, 不做计算
 
         :param html_pg:
-        :return: 链家id, 标题, 小区, 描述, 价格, 房源url, 图片地址url
+        :return: 链家id, 标题, 小区, 描述, 价格, 房源url, 图片url
         """
         doc = make_standard_html(html_pg)
         # 判断当页是否有符合条件的内容
@@ -166,7 +166,7 @@ class LianJiaHtmlOps:
             price = i('span.content__list--item-price').text()
 
             dict_info = {'链家id': lj_code, '标题': title, '小区': xiaoqu, '描述': desc.text(),
-                         '价格': price, '房源url': url, '图片地址': url_pic}
+                         '价格': price, '房源url': url, '图片url': url_pic}
             res.append(dict_info)
 
         return res
@@ -184,6 +184,7 @@ class LianJiaHtmlOps:
 
 class ZiRoomHtmlOps:
     """ 自如html相关操作 """
+
     def __init__(self, citycode=None):
         self.citycode = citycode if citycode else '001'
         self.city_url = get_lj_url(citycode)
@@ -314,7 +315,7 @@ class ZiRoomHtmlOps:
         根据分页的页面获取房源信息, 只做信息爬取, 不做计算
 
         :param html_pg:
-        :return: 标题, 小区, 描述, 价格, 房源url, 图片地址url, 位置信息, 价格信息
+        :return: 标题, 小区, 描述, 价格, 房源url, 图片url, 位置信息, 价格信息
         """
         doc = make_standard_html(html_pg)
         room_info = doc('div.item').items()
@@ -330,7 +331,7 @@ class ZiRoomHtmlOps:
             # 其他标签
             tags = '||'.join([tag.text() for tag in i('div.tag span').items()])  # ||分割改list为str
 
-            dict_info = {'标题': title, '描述': desc, '房源url': url, '图片地址': url_pic,
+            dict_info = {'标题': title, '描述': desc, '房源url': url, '图片url': url_pic,
                          '位置信息': locations, '价格信息': price_info, '其他标签': tags}
             res.append(dict_info)
 
@@ -352,8 +353,8 @@ class AnalysisOps:
     统一两平台信息内容，生成标准输出字典
 
     规则如下：
-        房源url | 来源 | 小区 | 租金 | 面积 | 房型 | 居室数 | 朝向 | 楼层 | 图片*
-        xxx | 链家 | xx小区 | 3500 | 54 | 2室1厅 | 2 | 南 | 6 | *
+        房源url | 来源 | 小区 | 租金 | 类型 | 面积 | 房型 | 居室数 | 朝向 | 楼层描述 | 楼层数 | 原始标题 | 图片url | 图片*
+        xxx | 链家 | xx小区 | 3500 | 整租 | 54 | 2室1厅 | 2 | 南 | 高楼层 （9层） | 6 | xxx | xxx | *
         图片格式待定
     """
 
@@ -367,24 +368,102 @@ class AnalysisOps:
         :return:
         """
         res = dict()
+        title_str = room_info.get('标题')
+        res['原始标题'] = title_str
+        # 租房类型 整租 合租
+        rent_type_str = re.compile('(.租)·').findall(title_str)
+        if rent_type_str:
+            res['类型'] = rent_type_str[0]
         res['房源url'] = room_info.get('房源url')
         res['来源'] = '链家'
         res['小区'] = room_info.get('小区')
-        price_str = re.compile('\d+.*(?= +元/月)').findall(room_info.get('价格'))
-        if price_str:  # 取出的是list
-            try:
-                res['租金'] = int(price_str[0])
-            except Exception as e:
-                print('= 租金正则错误，错误码如下，已跳过 =')
-        desc = res['描述']
+        price = re.compile('\d+(?= +元/月)').findall(room_info.get('价格'))
+        if price:  # 取出的是list
+            res['租金'] = int(price[0])
+        desc = room_info['描述']
+        res['原始描述'] = desc
         # 正则捕获面积，房型
-        area_str = re.compile('(\d+\.*\d+)㎡').findall(desc)
-        if area_str:
-            res['面积'] = float(area_str)
+        area = re.compile('(\d+\.*\d+)㎡').findall(desc)
+        if area:
+            res['面积'] = float(area[0])
+        room = re.compile('(\d室\d厅)').findall(desc)
+        if room:
+            res['房型'] = room[0]
+        # 居室数
+        room_num_str = re.compile('(\d)室').findall(desc)
+        res['居室数'] = int(room_num_str[0])
+        # 楼层
+        desc_split = desc.split('/')
+        if desc_split and len(desc_split) > 4:
+            res['楼层描述'] = desc_split[-1]
+            res['楼层'] = int(re.findall('(\d)层', desc_split[-1])[0])
+        # 朝向
+        desc_split = desc.split('/')
+        if desc_split and len(desc_split) > 4:
+            res['朝向'] = desc_split[-3]
 
+        # 图片
+        res['图片url'] = room_info.get('图片url')
+        if get_picture:
+            pass
 
+        return res
 
+    @staticmethod
+    def analyse_ziroom_info_item(room_info: dict, get_price=False, get_picture=False) -> dict:
+        """
+        解析自如信息的单条记录
 
+        :param room_info: 自如信息的单条记录
+        :param get_price: 是否计算价格
+        :param get_picture: 是否获取图片数据
+        :return:
+        """
+        res = dict()
+        res['房源url'] = room_info.get('房源url')
+        res['来源'] = '自如'
+        # 小区，类型
+        title_str = room_info.get('标题')
+        res['原始标题'] = title_str
+        rent_type_str = re.compile('(.租)·').findall(title_str)
+        if rent_type_str:
+            res['类型'] = rent_type_str[0]
+        xiaoqu = re.compile('·(.*)\d居室').findall(title_str)
+        if xiaoqu:
+            res['小区'] = xiaoqu[0]
+        # 面积，楼层
+        desc_str = room_info.get('描述')
+        res['原始描述'] = desc_str
+        area = re.compile('(\d+\.*\d+)㎡').findall(desc_str)
+        if area:
+            res['面积'] = float(area[0])
+        floor_desc = re.compile('\d/\d层').findall(desc_str)
+        if floor_desc:
+            res['楼层描述'] = floor_desc[0]
+        floor = re.compile('(\d)/\d层').findall(desc_str)
+        if floor:
+            res['楼层'] = int(floor[0])
+        # 房型，居室数
+        room_num_desc = re.compile('\d居室').findall(title_str)
+        if room_num_desc:
+            res['房型'] = room_num_desc[0]
+        room_num = re.compile('(\d)居室').findall(title_str)
+        if room_num:
+            res['居室数'] = room_num[0]
+        # 朝向
+        res['朝向'] = title_str.split('-')[-1]
+
+        # 图片
+        res['图片url'] = room_info.get('图片url')
+        if get_picture:
+            pass
+        # 价格
+        res['价格信息'] = room_info.get('价格信息')
+        res['位置信息'] = room_info.get('位置信息')
+        res['其他标签'] = room_info.get('其他标签')
+        if get_price:
+            pass
+        return res
 
 
 
@@ -404,7 +483,3 @@ class AnalysisOps:
 #         :param lj_page_info:
 #         :return:
 #         """
-
-
-
-

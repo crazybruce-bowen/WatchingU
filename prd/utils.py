@@ -13,7 +13,7 @@ def print_time(f):
     def fi(*args, **kwargs):
         s = time.time()
         res = f(*args, **kwargs)
-        print('--> RUN TIME: <%s> : %s' % (f.__name__, round(float(time.time() - s), 2)))
+        print('--> <%s> 任务的执行时间为 : %s 秒' % (f.__name__, round(float(time.time() - s), 2)))
         return res
 
     return fi
@@ -112,8 +112,8 @@ def get_lj_url(citycode=None) -> str:
 # =========================================
 # 待分类
 
-def make_filter(rent_type='整租', price_min=3000, price_max=6000,
-                room_num: list = [] or int, towards: list = [] or int) -> dict:
+def make_lianjia_filter(rent_type='整租', price_min=3000, price_max=6000,
+                        room_num: list = [] or int, towards: list = [] or int) -> dict:
     """
     生成下探筛选条件, 生成字典
 
