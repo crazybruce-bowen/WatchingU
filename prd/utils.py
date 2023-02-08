@@ -1,7 +1,7 @@
 import time
 from pyquery import PyQuery as pq
 from prd.constants import CityCode, DefaultInfo
-from prd.constants import LjFilter
+from prd.constants import LjFilter, ZiRoomFilter
 
 
 # =========================================
@@ -81,7 +81,7 @@ def get_city_info(citycode: str, attr: str) -> str:
           - city_en  拼音全名  如 shanghai
           - city_en_abbr  拼音缩写  如 sh
           - city_url_lianjia  该城市链家首页地址  如 sh.lianjia.com
-          - city_url_ziru  该城市自如首页地址  如 sh.ziroom.com
+          - city_url_ziroom  该城市自如首页地址  如 sh.ziroom.com
 
     """
     assert attr in dir(CityCode), f'{attr} 属性不在CityCode属性中, 请核实'
@@ -176,3 +176,43 @@ def lj_generate_filter_url(f: dict) -> str:
         res += LjFilter.price_mapper(price_max, 'right')
 
     return res
+
+
+# def zr_generate_filter_url(f: dict) -> str:
+#     """ 自如用, 根据filter条件生成url后缀。此方法为人工学习结果, 可能更改 """
+#     area_sub_url = f.get('area_sub_url')
+#     area_lv2_sub_url = f.get('area_lv2_sub_url')
+#     rent_type = f.get('rent_type')
+#     price_min = f.get('price_min')
+#     price_max = f.get('price_max')
+#     room_num = f.get('room_num')
+#     towards = f.get('towards')
+#
+#     if room_num and isinstance(room_num, int):
+#         room_num = [room_num]
+#     if towards and isinstance(towards, str):
+#         towards = [towards]
+#     # 输出的字符变量
+#     res = ''
+#     # 最左端为租房类型
+#     if rent_type:
+#         res += ZiRoomFilter.rent_type_mapper.get(rent_type)
+#     # 之后为区域
+#     if area_sub_url:
+#         res = res + '-' + area_sub_url
+#     # lv2区域
+#     if area_lv2_sub_url:
+#         res = res + '-' + area_lv2_sub_url
+#
+#     # 之后为房间数量
+#     if room_num:
+#         for i in room_num:
+#             res += LjFilter.room_num_mapper(i)
+#     # 右端为价格
+#     if price_min:
+#         res += LjFilter.price_mapper(price_min, 'left')
+#     if price_max:
+#         res += LjFilter.price_mapper(price_max, 'right')
+#
+#     return res
+
