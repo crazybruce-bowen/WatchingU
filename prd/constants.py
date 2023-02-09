@@ -61,7 +61,7 @@ class LjFilter:
 @dataclass
 class ZiRoomFilter:
     # 链家filter对照关系
-    rent_type_mapper = {'整租': 'z0', '合租': 'z1'}
+    rent_type_mapper = {'整租': 'z2', '合租': 'z1'}
     toward_mapper = {'东': '1', '西': '3', '南': '2', '北': '4'}
     room_num_mapper = {1: '13', 2: '14', 3: '15'}
 

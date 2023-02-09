@@ -1,6 +1,14 @@
 import re
 from typing import List
 from prd.utils import *
+import copy
+
+
+class HtmlOps:
+
+    def __init__(self, citycode=None):
+        self.citycode = citycode if citycode else '001'
+        self.city_cn = get_city_info(citycode, 'city_cn')
 
 
 class LianJiaHtmlOps:
@@ -323,7 +331,7 @@ class ZiRoomHtmlOps:
         for i in room_info:
             title = i('div.info-box a').text()  # 名称
             url = 'https:' + i('div.info-box a').attr('href')  # url
-            url_pic = i('div.pic-box')('img').attr('data-original')
+            url_pic = 'https:' + i('div.pic-box')('img').attr('data-original')
             desc = i('div.desc div:nth-of-type(1)').text()  # 描述
             locations = i('div.desc>div.location').text()  # 位置描述
             # 价格信息
@@ -346,6 +354,196 @@ class ZiRoomHtmlOps:
         """
         print(self.city_url)
         return True
+
+
+class XiaoquHtmlOps:
+    """
+    链家小区html的解析
+
+    """
+    def __init__(self, citycode):
+        self.citycode = citycode if citycode else '001'
+        self.city_url = get_lj_xiaoqu_url(citycode)  # 'https://hz.lianjia.com/xiaoqu'
+        self.city_cn = get_city_info(citycode, 'city_cn')
+
+    def city2area_dict(self, city_html) -> List[dict]:
+        """
+        小区html解析。解析city_doc, 提取可用的区级信息, 输出dict
+
+        参数:
+            city_html: 城市主页的html字符或pq(PyQuery)类型均可
+        """
+        doc = make_standard_html(city_html)
+
+        # 解析区域信息
+        res = []
+        for i in doc('div[data-role=ershoufang]')('a').items():
+            res.append({'area': i.text(),  # 区域中文名
+                        'url': self.city_url + i.attr('href')})  # 区域url
+        return res
+
+    def get_area_url(self, city_html, area: str):
+        """
+        获取城市某个区域的url
+
+        :param city_html:
+        :param area: 城市区域 中文
+        :return:
+        """
+        d_area = self.city2area_dict(city_html)
+        url_area = None
+        for i in d_area:
+            if i['area'] == area:
+                url_area = i['url']
+                break
+        assert url_area, f'{self.city_cn} 中未找到区域 {area}'
+        return url_area
+
+    def city2area_list(self, city_html) -> list:
+        """
+        链家html解析。解析city_doc, 提取可用的区级信息, 输出dict
+
+        参数:
+            city_html: 城市主页的html字符或pq(PyQuery)类型均可
+            citycode: 项目城市编码
+        """
+        doc = make_standard_html(city_html)
+        d = self.city2area_dict(doc)
+        res = []
+        for i in d:
+            area = i.get('area')
+            if area:
+                res.append(area)
+        if not res:
+            print(f'== Warning 该城市 {self.city_cn} 无可用区域 ==')
+        return res
+
+    def area_level2_dict(self, area_html) -> List[dict]:
+        """
+        链家二级区域信息获取, 提取二级区域名和对应的url, 输出dict
+
+        参数:
+            area_html: html字符或pq(PyQuery)类型均可
+
+        """
+        doc = make_standard_html(area_html)
+        # 解析区域信息
+        res = []
+        for i in doc('div[data-role=ershoufang] div:nth-child(2)')('a').items():
+            tmp = i.text()
+            if tmp != '不限':
+                res.append({'area': i.text(),  # 区域中文名
+                            'url': self.city_url + i.attr('href')})  # 区域url
+        return res
+
+    def get_area_lv2(self, area_html, area_lv2) -> str:
+        """
+        获取某个区域的二级区域的url
+
+        :param area_html:
+        :param area_lv2:
+        :return:
+        """
+        d_area = self.area_level2_dict(area_html)
+        url_area = None
+        for i in d_area:
+            if i['area'] == area_lv2:
+                url_area = i['url']
+                break
+        assert url_area, f'{self.city_cn} 中未找到区域 {area_lv2}'
+        return url_area
+
+    def area_level2_list(self, area_html) -> List[dict]:
+        """
+        链家二级区域信息获取, 提取二级区域名和对应的url, 输出list
+
+        参数:
+            area_html: html字符或pq(PyQuery)类型均可
+
+        """
+        doc = make_standard_html(area_html)
+        d = self.area_level2_dict(doc)
+        res = []
+        for i in d:
+            area = i.get('area')
+            if area:
+                res.append(area)
+        if not res:
+            print(f'== Warning 该城市 {self.city_cn} 无可用区域 ==')
+        return res
+
+    def pagination(self, html, url, one_pg_len=30) -> list:
+        """
+        获取分页信息，返回从第二页开始的列表
+
+        :param html: 最终搜索页面html
+        :param url: 最终搜索页面url
+        :param one_pg_len: 单页房源数
+        :return:
+        """
+        doc = make_standard_html(html)
+
+        # 此处需要计算分页数量
+        house_num = int(doc('div.resultDes')('h2.total.fl')('span').text())
+        pg_num = int(house_num/one_pg_len)+1
+
+        url_list = url.split('/')
+        res = []
+        for i in range(2, pg_num + 1):
+            if len(url_list) > 6:  # url中包含filter信息
+                tmp = f'pg{i}' + url_list[-2]
+                url_pg = '/'.join(url_list[:-2]) + tmp + url_list[-1]
+            else:  # url中不包含filter信息
+                url_pg = url + f'pg{i}/'
+            res.append(url_pg)
+
+        return res
+
+    def get_xiaoqu_info_page(self, html_pg) -> List[dict]:
+        """
+        根据分页的页面获取房源信息, 只做信息爬取, 不做计算
+
+        :param html_pg:
+        :return: 小区, 小区url, 区域信息
+        """
+        doc = make_standard_html(html_pg)
+        res = []
+        for i in doc('div.info').items():
+            xiaoqu = i('div.title').text()
+            xiaoqu_url = i('div.title a').attr('href')
+            area = i('div.info')('div.positionInfo')('a[class=district]').text()
+            area_lv2 = i('div.info')('div.positionInfo')('a[class=bizcircle]').text()
+            tag_location = i('div.tagList')('span').text()
+            res.append({
+                '小区': xiaoqu, '小区url': xiaoqu_url, '区域信息': area + '-' + area_lv2, '位置信息': tag_location
+            })
+        return res
+
+    def get_xiaoqu_info_single(self, html_xiaoqu):
+        """
+        解析单小区html
+
+        :param html_xiaoqu:
+        :return: 小区, 建筑年代, 建筑类型, 物业费用, 物业公司, 开发商, 楼栋总数, 房屋总数, 附近门店, 在售信息(价格描述, 房价描述, 其他信息)
+        """
+        doc = make_standard_html(html_xiaoqu)
+        # 基础信息
+        items_key = doc('div.xiaoquInfoItem > span.xiaoquInfoLabel').items()
+        info_key = [i.text() for i in items_key]
+        items_value = doc('div.xiaoquInfoItem > span.xiaoquInfoContent').items()
+        info_value = [i.text() for i in items_value]
+        res = dict(zip(info_key, info_value))
+        res['小区'] = doc('h1.detailTitle').text()
+        # 挂牌情况
+        room_info = []
+        for i in doc('li.fl').items():
+            price = i('span.goodSellItemPrice').text()
+            area = i('div.goodSellItemDesc').text()
+            desc = i('div.goodSellItemTitle').text()
+            room_info.append({'价格描述': price, '房价描述': area, '其他信息': desc})
+        res['在售信息'] = room_info
+
+        return res
 
 
 class AnalysisOps:
@@ -437,10 +635,10 @@ class AnalysisOps:
         area = re.compile('(\d+\.*\d+)㎡').findall(desc_str)
         if area:
             res['面积'] = float(area[0])
-        floor_desc = re.compile('\d/\d层').findall(desc_str)
+        floor_desc = re.compile('\d+/\d+层').findall(desc_str)
         if floor_desc:
             res['楼层描述'] = floor_desc[0]
-        floor = re.compile('(\d)/\d层').findall(desc_str)
+        floor = re.compile('(\d+)/\d+层').findall(desc_str)
         if floor:
             res['楼层'] = int(floor[0])
         # 房型，居室数
@@ -449,7 +647,7 @@ class AnalysisOps:
             res['房型'] = room_num_desc[0]
         room_num = re.compile('(\d)居室').findall(title_str)
         if room_num:
-            res['居室数'] = room_num[0]
+            res['居室数'] = int(room_num[0])
         # 朝向
         res['朝向'] = title_str.split('-')[-1]
 
@@ -465,21 +663,44 @@ class AnalysisOps:
             pass
         return res
 
+    @staticmethod
+    def analyse_xiaoqu_info_item(xiaoqu_info: dict):
+        """
+        解析小区信息的单条记录
+
+        :param xiaoqu_info:
+        :return:
+        """
+        res = copy.deepcopy(xiaoqu_info)
+        sales_info = res.pop('在售信息')
+        # 计算在售均价
+        avg_price_list = []
+        for i in sales_info:
+            price_str = i.get('价格描述')
+            if price_str:
+                price_re = re.findall('\d+\.*\d+', price_str)
+                if price_re:
+                    price = float(price_re[0])
+                else:
+                    continue
+            else:
+                continue
+            area_str = i.get('房价描述')
+            if area_str:
+                area_str2 = area_str.split('/')[0]
+                area_re = re.findall('\d+\.*\d+', area_str2)
+                if area_re:
+                    area = float(area_re[0])
+                else:
+                    continue
+            else:
+                continue
+            avg_price_list.append(round(price / area, 2))
+        if avg_price_list:
+            avg_price = round(sum(avg_price_list) / len(avg_price_list), 2)
+            res['在售均价'] = avg_price
+        return res
 
 
-
-
-
-# class InformationOps:
-#     """
-#     提取的information操作和转换
-#     """
-#
-#     @staticmethod
-#     def analyse_lj_page(lj_page_info: dict):
-#         """
-#         将链家page页爬取的单条房源信息进行处理
-#
-#         :param lj_page_info:
-#         :return:
-#         """
+if __name__ == '__main__':
+    pass

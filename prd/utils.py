@@ -92,14 +92,23 @@ def get_city_info(citycode: str, attr: str) -> str:
 
 def get_lj_rent_url(citycode=None) -> str:
     """
-    功能:
-        根据city信息获取链家租房首页地址
+    根据city信息获取链家租房首页地址
+
     参数:
         citycode: 项目城市编码
     """
     if not citycode:
         citycode = DefaultInfo.city_code
     url_city = get_city_info(citycode, 'city_url_lianjia')
+
+    return url_city
+
+
+def get_lj_xiaoqu_url(citycode=None) -> str:
+    """ 获取链家小区城市主站 """
+    if not citycode:
+        citycode = DefaultInfo.city_code
+    url_city = get_url_base(get_lj_url(citycode)) + '/xiaoqu'
 
     return url_city
 

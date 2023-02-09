@@ -1,19 +1,17 @@
-# ==============================
-# 链家部分
-
 """
 TODO list:
 1. 输入城市, 查询可选区域参数  |  Done
 2. 输入城市和可选区域, 查询二级可选区域参数  |  Done
 3. 输入城市, 区域, 二级区域, 其他备选信息, 计算链家原始信息  |  Done
-4. 解析原始信息
+4. 解析原始信息  |  Done
+4.1 自如价格解析
 5. 存储信息至数据库
 6. 自动执行, 多线程执行
 
 """
 
-from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps
-from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url
+from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps, XiaoquHtmlOps
+from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url, get_lj_xiaoqu_url
 from prd.service import get_one_page_html, get_doc_from_url
 from prd.constants import ZiRoomFilter
 from typing import List
@@ -21,6 +19,9 @@ import pandas as pd
 from pyquery import PyQuery as pq
 from prd.utils import print_time
 
+
+# ==============================
+# 链家部分
 
 def get_lianjia_area_list(city: str) -> list:
     """
@@ -110,7 +111,9 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
     url_f += lj_generate_filter_url(kwargs)
 
     # 分页信息
-    url_pages = lj_ops.pagination(url_f)
+    html_f = get_one_page_html(url_f)
+    url_pages = lj_ops.pagination(html_f)
+
     # 全量url
     url_total = [url_f] + url_pages
 
@@ -362,7 +365,13 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
     if towards:
         url_f = url_f + ZiRoomFilter.make_towards_str(towards)
     # 再拼价格
-    url_f = url_f + f'&cp={price_min}TO{price_max}'
+    if price_min or price_max:
+        if price_max:
+            if not price_min:
+                price_min = 0
+        else:
+            price_max = 99999
+        url_f = url_f + f'&cp={price_min}TO{price_max}'
 
     # 分页信息
     html_f = get_one_page_html(url_f)
@@ -437,12 +446,106 @@ def get_room_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dic
 
 # ==========================================================
 # 小区情况
-def get_xiaoqu_info(city, area):
-    pass
+@print_time
+def get_xiaoqu_info(city, area=None, area_lv2=None):
+    """
+    获取小区信息。此处需要下探到小区页面, 耗时较长
+
+    :param city:
+    :param area:
+    :param area_lv2:
+    :return:
+    """
+    city_code = get_city_code(city)
+    city_str = get_city_info(city_code, 'city_cn')
+    # 城市url和html
+    url_city = get_lj_xiaoqu_url(city_code)
+    html_city = get_one_page_html(url_city)
+
+    xiaoqu_ops = XiaoquHtmlOps(city_code)
+    # 有区域
+    if area:
+        url_area = xiaoqu_ops.get_area_url(html_city, area)
+        html_area = get_one_page_html(url_area)
+        city_str = city_str + '-' + area
+        # 2级区域
+        if area_lv2:
+            url_f = xiaoqu_ops.get_area_lv2(html_area, area_lv2)
+            city_str = city_str + '-' + area_lv2
+        else:
+            url_f = url_area
+    # 无区域
+    else:
+        url_f = url_city
+
+    # 分页信息
+    html_f = get_one_page_html(url_f)
+    url_pages = xiaoqu_ops.pagination(html_f, url_f)
+    # 全量url
+    url_total = [url_f] + url_pages
+
+    print(f'== 本次共提取链家{city_str} {len(url_total)}页小区情况 == ')
+
+    # 全量html捕获
+    pq_total = []
+    n = 0
+    for url in url_total:
+        n += 1
+        print(f'= 下载第{n}页 =')
+        try:
+            tmp_pq = get_doc_from_url(url)
+            pq_total.append(tmp_pq)
+        except Exception as e:
+            print(f'= 第{n}页url获取失败，异常情况如下 =')
+            print(e)
+            pass
+
+    print(f'== 本次提取链家{city_str} 小区情况完成 == ')
+
+    print('== 开始解析分页html == ')
+    # 解析html
+    xiaoqu_info_total = []
+    n = 0
+    for i in pq_total:
+        n += 1
+        print(f'= 解析第{n}页 =')
+        tmp_room_info = xiaoqu_ops.get_xiaoqu_info_page(i)
+        xiaoqu_info_total += tmp_room_info
+    print(f'== 分页html解析完成，共解析小区{len(xiaoqu_info_total)}个 == ')
+
+    print('== 开始进入小区页面获取详细信息 ==')
+
+    # 频繁下载不一定是好事，下方统一操作
+    res = []
+    n = 0
+    for i in xiaoqu_info_total:
+        n += 1
+        if n % 10 == 0:
+            print(f'= 已完成 {n} 个小区，共 {len(xiaoqu_info_total)} 个')
+        url = i.get('小区url')
+        try:
+            html = get_one_page_html(url)
+        except Exception as e:
+            print(f'= 第{n}个小区信息获取失败, url为{url}, 报错信息如下 =')
+            print(e)
+            continue
+        xiaoqu_info = xiaoqu_ops.get_xiaoqu_info_single(html)
+        res.append(xiaoqu_info)
+    return res
+
+
+def get_xiaoqu_info_standard(city, area=None, area_lv2=None):
+    xiaoqu_info = get_xiaoqu_info(city, area, area_lv2)
+    print('== 开始整理信息 ==')
+    res = []
+    for i in xiaoqu_info:
+        res.append(AnalysisOps.analyse_xiaoqu_info_item(i))
+    print('== 整理信息完成 ==')
+    return res
 
 
 if __name__ == '__main__':
-    t = get_room_info_standard('hz', '西湖', price_min=3000, price_max=6000, rent_type='整租')
+    t = get_room_info_standard('hz', '西湖', '文三西路', rent_type='整租')
     df = pd.DataFrame(t)
-    df.to_excel(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0208.xlsx', index=None)
+    df.to_excel(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0209.xlsx', index=None)
 
