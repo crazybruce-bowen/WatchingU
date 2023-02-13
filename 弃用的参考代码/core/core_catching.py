@@ -554,7 +554,6 @@ class HouseDistrictCatching(RoomInfoCatching):
         """ 获取全区 """
         area_info_list = self.generate_area_urls() if not self.urls_area else self.urls_area
         area_info_list = [area_info_list[0]]
-        print('== BW test ==')
         print(area_info_list)
         print('= 分区域获取小区信息开始！共有 {} 个区域 = '.format(len(area_info_list)))
         hd_info_list = list()

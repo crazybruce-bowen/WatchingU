@@ -14,7 +14,7 @@ from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps, XiaoquHtmlOps
 from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url, get_lj_xiaoqu_url
 from prd.service import get_one_page_html, get_doc_from_url
 from prd.constants import ZiRoomFilter
-from typing import List
+from typing import List, Tuple
 import pandas as pd
 from pyquery import PyQuery as pq
 from prd.utils import print_time
@@ -311,7 +311,7 @@ def get_ziroom_area_level2_list(city: str, area: str) -> list:
 
 
 def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: float = None, price_max: float = None,
-                    room_num: int or list = None, towards=None):
+                    room_num: int or list = None, towards=None, **kwargs):
     """
     获取自如房源信息
 
@@ -416,32 +416,45 @@ def get_ziroom_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[d
     room_info = get_ziroom_info(city, area, area_lv2, **kwargs)
     print('== 开始整理信息 ==')
     res = []
+    get_price = kwargs.get('get_price')
     for i in room_info:
-        res.append(AnalysisOps.analyse_ziroom_info_item(i))
+        res.append(AnalysisOps.analyse_ziroom_info_item(i, get_price=get_price))
     print('== 整理信息完成 ==')
     return res
 
 
-def get_room_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
+def get_room_info_standard(city, area=None, area_lv2=None, tag_lianjia=True, tag_ziroom=True, tag_xiaoqu=False,
+                           **kwargs) -> Tuple[List[dict], List[dict], List[dict]]:
     """
     获取整理后的信息，链家和自如一起操作
 
     :param city:
     :param area:
     :param area_lv2:
+    :param tag_lianjia: 是否执行链家操作 默认执行
+    :param tag_ziroom: 是否执行自如操作 默认执行
+    :param tag_xiaoqu: 是否执行小区操作 默认执行
     :param kwargs:
     :return:
     """
+    room_info_lj, room_info_zr, xiaoqu_info = dict(), dict(), dict()
     # 操作链家
-    print('=== 开始执行链家任务 ===')
-    room_info_lj = get_lj_info_standard(city, area, area_lv2, **kwargs)
-    print('=== 链家任务执行完成 ===')
-    # 操作自如
-    print('=== 开始执行自如任务 ===')
-    room_info_zr = get_ziroom_info_standard(city, area, area_lv2, **kwargs)
-    print('=== 自如任务执行完成 ===')
-    res = room_info_lj + room_info_zr
-    return res
+    if tag_lianjia:
+        print('=== 开始执行链家任务 ===')
+        room_info_lj = get_lj_info_standard(city, area, area_lv2, **kwargs)
+        print('=== 链家任务执行完成 ===')
+    if tag_ziroom:
+        # 操作自如
+        print('=== 开始执行自如任务 ===')
+        room_info_zr = get_ziroom_info_standard(city, area, area_lv2, **kwargs)
+        print('=== 自如任务执行完成 ===')
+    if tag_xiaoqu:
+        # 操作小区
+        print('=== 开始执行小区任务 ===')
+        xiaoqu_info = get_xiaoqu_info_standard(city, area, area_lv2)
+        print('=== 小区任务执行完成 ===')
+
+    return room_info_lj, room_info_zr, xiaoqu_info
 
 
 # ==========================================================
@@ -545,7 +558,14 @@ def get_xiaoqu_info_standard(city, area=None, area_lv2=None):
 
 
 if __name__ == '__main__':
-    t = get_room_info_standard('hz', '西湖', '文三西路', rent_type='整租')
-    df = pd.DataFrame(t)
-    df.to_excel(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0209.xlsx', index=None)
+    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=True, rent_type='整租', get_price=True)
+    df1 = pd.DataFrame(t1)
+    df2 = pd.DataFrame(t2)
+    df3 = pd.DataFrame(t3)
+    df4 = pd.DataFrame(t1 + t2)
+    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0210.xlsx')
+    df1.to_excel(writer, index=None, sheet_name='链家')
+    df2.to_excel(writer, index=None, sheet_name='自如')
+    df3.to_excel(writer, index=None, sheet_name='小区')
+    df4.to_excel(writer, index=None, sheet_name='全部')
 

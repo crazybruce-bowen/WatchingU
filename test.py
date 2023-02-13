@@ -633,7 +633,7 @@ def get_pic_url(l: list):
     res = l[0]['url']
     return res
 #%%
-t = get_ziroom_info_standard('hz', '西湖', rent_type='整租')
+t = get_ziroom_info_standard('hz', '西湖', rent_type='整租')    
 df = pd.DataFrame(t)
 
 #%%

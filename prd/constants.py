@@ -2,6 +2,9 @@ import pandas as pd
 import sys
 import os
 from dataclasses import dataclass
+from tensorflow import keras
+
+
 proj_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -117,4 +120,10 @@ class ZiRoomFilter:
                 i = min(i, 3)
                 res = res + '%7C' + ops.room_num_mapper.get(i)
         return res
+
+
+@dataclass
+class ZiRoomPriceModel:
+    model_path = os.path.join(proj_path, '自如房价训练用/pre_trained.h5')
+    model = keras.models.load_model(model_path)
 

@@ -2,6 +2,8 @@ import re
 from typing import List
 from prd.utils import *
 import copy
+from prd.ziroom_price import ZiRoomPriceOps, convert_numbers, PredictPriceOps
+from prd.constants import ZiRoomPriceModel
 
 
 class HtmlOps:
@@ -654,13 +656,21 @@ class AnalysisOps:
         # 图片
         res['图片url'] = room_info.get('图片url')
         if get_picture:
-            pass
+            price_info = res['价格信息']
+            pic_ops = ZiRoomPriceOps()
+            pic_ops.get_num_position(price_info)
+
         # 价格
         res['价格信息'] = room_info.get('价格信息')
         res['位置信息'] = room_info.get('位置信息')
         res['其他标签'] = room_info.get('其他标签')
         if get_price:
-            pass
+            p_info = convert_numbers(res['价格信息'])
+            price_ops = ZiRoomPriceOps()
+            price_pic_list = price_ops.get_num_pic(p_info)
+            price_predict_ops = PredictPriceOps(ZiRoomPriceModel.model)
+            price_predict_list = [price_predict_ops.predict_one_num(i) for i in price_pic_list]
+            res['价格'] = int(''.join([str(i) for i in price_predict_list]))
         return res
 
     @staticmethod
