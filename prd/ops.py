@@ -574,6 +574,8 @@ class AnalysisOps:
         rent_type_str = re.compile('(.租)·').findall(title_str)
         if rent_type_str:
             res['类型'] = rent_type_str[0]
+        else:
+            res['类型'] = title_str.split('·')[0]
         res['房源url'] = room_info.get('房源url')
         res['来源'] = '链家'
         res['小区'] = room_info.get('小区')
@@ -670,7 +672,7 @@ class AnalysisOps:
             price_pic_list = price_ops.get_num_pic(p_info)
             price_predict_ops = PredictPriceOps(ZiRoomPriceModel.model)
             price_predict_list = [price_predict_ops.predict_one_num(i) for i in price_pic_list]
-            res['价格'] = int(''.join([str(i) for i in price_predict_list]))
+            res['租金'] = int(''.join([str(i) for i in price_predict_list]))
         return res
 
     @staticmethod

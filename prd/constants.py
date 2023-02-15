@@ -124,6 +124,6 @@ class ZiRoomFilter:
 
 @dataclass
 class ZiRoomPriceModel:
-    model_path = os.path.join(proj_path, '自如房价训练用/pre_trained.h5')
+    model_path = os.path.join(proj_path, r'自如房价训练用\pre_trained.h5')
     model = keras.models.load_model(model_path)
 
