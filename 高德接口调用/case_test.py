@@ -93,6 +93,7 @@ TODO list
 
 key = '5bbb6851e17bded31b146e95f8cd17c9'
 
+
 # 1
 def get_location_dict(address, city) -> dict:
     """
@@ -108,6 +109,7 @@ def get_location_dict(address, city) -> dict:
         return None
     dic_res = ast.literal_eval(res.text)
     return dic_res
+
 
 # 2
 def analyse_location_info(address_info) -> str:
@@ -202,8 +204,7 @@ def get_drive_time(address, city, destination):
     drive_info = get_drive_info(location)
     cost_time = analyse_drive_info(drive_info)
     return cost_time
-    
-    
+
 #%%
 if __name__ == '__main__':
     address = '锦绣华都'

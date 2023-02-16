@@ -10,7 +10,7 @@ TODO list:
 
 """
 
-from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps, XiaoquHtmlOps
+from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps, XiaoquHtmlOps, AmapOps
 from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url, get_lj_xiaoqu_url
 from prd.service import get_one_page_html, get_doc_from_url
 from prd.constants import ZiRoomFilter
@@ -18,6 +18,7 @@ from typing import List, Tuple
 import pandas as pd
 from pyquery import PyQuery as pq
 from prd.utils import print_time
+import time
 
 
 # ==============================
@@ -557,14 +558,41 @@ def get_xiaoqu_info_standard(city, area=None, area_lv2=None):
     return res
 
 
+def add_drive_time(room_info: List[dict], destination, city, area=None):
+    """
+    给room_info信息添加驾驶耗时
+
+    :param room_info:
+    :param destination: 目的地
+    :param city:
+    :param area:
+    :return:
+    """
+    citycode = get_city_code(city)
+    amap_ops = AmapOps(citycode, area)
+    res = []
+    print(f'=== 开始获取房源到 {destination} 的开车耗时 ===')
+    print(f'== 当前时间为 {time.asctime()} ==')
+    print(f'== 共 {len(room_info)} 个房源 ==')
+    n = 0
+    for i in room_info:
+        n += 1
+        res.append(amap_ops.get_drive_time(i, destination))
+        print(f'= 完成第 {n} 个房源的高德接口调用 =')
+    return res
+
+
 #%%
 if __name__ == '__main__':
-    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=False, rent_type='整租', get_price=True, price_min=3000, price_max=6000)
+    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=False, rent_type='整租',
+                                        get_price=True, price_min=3000, price_max=6000)
+    t1 = add_drive_time(t1, '杭州东站', '杭州', '西湖')
+    t2 = add_drive_time(t2, '杭州东站', '杭州', '西湖')
     df1 = pd.DataFrame(t1)
     df2 = pd.DataFrame(t2)
     df3 = pd.DataFrame(t3)
     df4 = pd.DataFrame(t1 + t2)
-    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0213.xlsx')
+    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0217.xlsx')
     df1.to_excel(writer, index=None, sheet_name='链家')
     df2.to_excel(writer, index=None, sheet_name='自如')
     df3.to_excel(writer, index=None, sheet_name='小区')

@@ -4,6 +4,7 @@ from prd.utils import *
 import copy
 from prd.ziroom_price import ZiRoomPriceOps, convert_numbers, PredictPriceOps
 from prd.constants import ZiRoomPriceModel
+from prd.service import AmapApiService
 
 
 class HtmlOps:
@@ -593,7 +594,11 @@ class AnalysisOps:
             res['房型'] = room[0]
         # 居室数
         room_num_str = re.compile('(\d)室').findall(desc)
-        res['居室数'] = int(room_num_str[0])
+        if room_num_str:
+            res['居室数'] = int(room_num_str[0])
+        else:
+            print('== BW test ==')
+            print(desc)
         # 楼层
         desc_split = desc.split('/')
         if desc_split and len(desc_split) > 4:
@@ -711,6 +716,40 @@ class AnalysisOps:
         if avg_price_list:
             avg_price = round(sum(avg_price_list) / len(avg_price_list), 2)
             res['在售均价'] = avg_price
+        return res
+
+
+class AmapOps:
+    """
+    高德相关ops
+
+    """
+    def __init__(self, citycode=None, area=None):
+        self.citycode = citycode if citycode else '001'
+        self.city_cn = get_city_info(citycode, 'city_cn')
+        self.area = area
+
+    def get_drive_time(self, room_info: dict, destination: str):
+        """
+        解析房源信息的行车耗时, 需传入整理后的room_info
+
+        :param room_info: 房源信息的单条记录
+        :param destination: 目的地
+        :return:
+        """
+        res = copy.deepcopy(room_info)
+        xiaoqu = room_info.get('小区')
+        if not xiaoqu:
+            return None
+        area = self.area
+        if not area.endswith('区'):
+            area += '区'
+        address = self.city_cn + area + xiaoqu
+        amap_service = AmapApiService(self.city_cn)
+        cost_time = amap_service.get_drive_time(address, destination)
+        if cost_time:
+            res[f'开车到{destination}耗时'] = cost_time
+            res['计算时刻'] = time.asctime()
         return res
 
 
