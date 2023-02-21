@@ -1,8 +1,9 @@
 from requests.exceptions import RequestException
 import requests
 from pyquery import PyQuery as pq
-from prd.utils import get_city_info, get_city_code
+from core.utils import get_city_info, get_city_code
 import ast
+import mariadb
 import time
 
 
@@ -11,27 +12,29 @@ import time
 
 
 # 根据url获取html文件
-def get_one_page_html(url) -> str or None:
-    """ 获取网站每一页的html return html文件 """
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/85.0.4183.121 Safari/537.36"
-    }
-    try:
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            return response.text
-        else:
+class HttpService:
+    @staticmethod
+    def get_one_page_html(url) -> str or None:
+        """ 获取网站每一页的html return html文件 """
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/85.0.4183.121 Safari/537.36"
+        }
+        try:
+            response = requests.get(url, headers=headers)
+            if response.status_code == 200:
+                return response.text
+            else:
+                return None
+        except RequestException:
             return None
-    except RequestException:
-        return None
 
-
-# 解析url直接到pq格式
-def get_doc_from_url(url: str) -> pq:
-    """ 解析url直接到pq格式 """
-    doc = pq(get_one_page_html(url))
-    return doc
+    # 解析url直接到pq格式
+    @classmethod
+    def get_doc_from_url(cls, url: str) -> pq:
+        """ 解析url直接到pq格式 """
+        doc = pq(cls().get_one_page_html(url))
+        return doc
 
 
 # 高德接口服务
@@ -158,5 +161,58 @@ class AmapApiService:
             return None
         cost_time = self.analyse_drive_info(drive_info)
         return cost_time
+
+
+# 数据库连接服务
+class DatabaseService:
+
+    def __init__(self, user='root', password='root', host='localhost', port='3306'):
+        self.user = user
+        self.password = password
+        self.host = host
+        self.port = port
+
+    def __enter__(self):
+        self.conn = mariadb.connect(user=self.user, password=self.password, host=self.host, port=self.port)
+        self.cursor = self.conn.cursor()
+
+    def __exit__(self):
+        if self.cursor:
+            self.cursor.close()
+        if self.conn:
+            self.conn.close()
+
+    def execute_sql(self, sql):
+        self.cursor.execute(sql)
+        self.conn.commit()
+
+    # def create_table(self, db, tb, info):
+    #     """
+    #     建表指令
+    #
+    #     :param db:
+    #     :param tb:
+    #     :param cols:
+    #     :return:
+    #     """
+    #     sql = f'CREATE {db}\.{tb} \(\)'
+
+    def insert_info(self, db, tb, info: dict):
+        """
+        插入一条数据
+
+        :param db: 数据库名
+        :param tb: 数据表名
+        :param info: 字典格式, 将会将每个k作为字段名, v作为值输入
+        :return:
+        """
+        list_keys = ' '.join(list(str(i) for i in info.keys()))
+        list_values = ' '.join(list(str(i) for i in info.values()))
+        sql = f'INSERT INTO {db}\.{tb} \({list_keys}\) VALUES \({list_values}\)'
+        self.execute_sql(sql)
+        return True
+
+    # def check_table_exist(self):
+
 
 

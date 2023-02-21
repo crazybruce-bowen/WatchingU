@@ -1,10 +1,10 @@
 import re
 from typing import List
-from prd.utils import *
+from core.utils import *
 import copy
-from prd.ziroom_price import ZiRoomPriceOps, convert_numbers, PredictPriceOps
-from prd.constants import ZiRoomPriceModel
-from prd.service import AmapApiService
+from core.ziroom_price import ZiRoomPriceOps, convert_numbers, PredictPriceOps
+from core.constants import ZiRoomPriceModel
+from core.service import AmapApiService
 
 
 class HtmlOps:
@@ -740,7 +740,7 @@ class AmapOps:
         res = copy.deepcopy(room_info)
         xiaoqu = room_info.get('小区')
         if not xiaoqu:
-            return None
+            return res
         area = self.area
         if not area.endswith('区'):
             area += '区'
@@ -751,6 +751,17 @@ class AmapOps:
             res[f'开车到{destination}耗时'] = cost_time
             res['计算时刻'] = time.asctime()
         return res
+
+
+# class IOOps:
+#     """
+#     TODO list
+#     1. 导出到本地csv和excel
+#     2. 导出到数据库
+#     """
+#
+#     @staticmethod
+#     def save_to_local(room_info):
 
 
 if __name__ == '__main__':

@@ -9,20 +9,25 @@ TODO list:
 6. 自动执行, 多线程执行
 
 """
+import datetime
 
-from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps, XiaoquHtmlOps, AmapOps
-from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url, get_lj_xiaoqu_url
-from prd.service import get_one_page_html, get_doc_from_url
-from prd.constants import ZiRoomFilter
+from core.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps, XiaoquHtmlOps, AmapOps
+from core.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url, get_lj_xiaoqu_url
+from core.utils import chinese_to_pinyin
+from core.service import HttpService, DatabaseService
+from core.constants import ZiRoomFilter, DefaultInfo
 from typing import List, Tuple
 import pandas as pd
+import os
 from pyquery import PyQuery as pq
-from prd.utils import print_time
+from core.utils import print_time
 import time
 
+#%%
 
 # ==============================
 # 链家部分
+
 
 def get_lianjia_area_list(city: str) -> list:
     """
@@ -33,7 +38,7 @@ def get_lianjia_area_list(city: str) -> list:
     """
     city_code = get_city_code(city)
     url = get_lj_rent_url(city_code)
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
     lj_ops = LianJiaHtmlOps(city_code)
     res = lj_ops.city2area_list(html_url)
     return res
@@ -52,14 +57,14 @@ def get_lianjia_area_level2_list(city: str, area: str) -> list:
 
     # 城市url和html
     url = get_lj_rent_url(city_code)
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
 
     # lj ops初始化
     lj_ops = LianJiaHtmlOps(city_code)
 
     # 特定区域的url和html
     url_area = lj_ops.get_area_url(html_url, area)
-    area_html = get_one_page_html(url_area)
+    area_html = HttpService.get_one_page_html(url_area)
 
     # 返回二级区域列表
     res = lj_ops.area_level2_list(area_html)
@@ -90,13 +95,13 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
 
     # 城市url和html
     url_city = get_lj_rent_url(city_code)
-    html_city = get_one_page_html(url_city)
+    html_city = HttpService.get_one_page_html(url_city)
 
     lj_ops = LianJiaHtmlOps(city_code)
     # 有区域
     if area:
         url_area = lj_ops.get_area_url(html_city, area)
-        html_area = get_one_page_html(url_area)
+        html_area = HttpService.get_one_page_html(url_area)
         city_str = city_str + '-' + area
         # 2级区域
         if area_lv2:
@@ -112,7 +117,7 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
     url_f += lj_generate_filter_url(kwargs)
 
     # 分页信息
-    html_f = get_one_page_html(url_f)
+    html_f = HttpService.get_one_page_html(url_f)
     url_pages = lj_ops.pagination(html_f)
 
     # 全量url
@@ -127,7 +132,7 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
         n += 1
         print(f'= 下载第{n}页 =')
         try:
-            tmp_pq = get_doc_from_url(url)
+            tmp_pq = HttpService.get_doc_from_url(url)
             pq_total.append(tmp_pq)
         except Exception as e:
             print(f'= 第{n}页url获取失败，异常情况如下 =')
@@ -174,13 +179,13 @@ def get_lianjia_html(city, area=None, area_lv2=None, **kwargs) -> List[str]:
 
     # 城市url和html
     url_city = get_lj_rent_url(city_code)
-    html_city = get_one_page_html(url_city)
+    html_city = HttpService.get_one_page_html(url_city)
 
     lj_ops = LianJiaHtmlOps(city_code)
     # 有区域
     if area:
         url_area = lj_ops.get_area_url(html_city, area)
-        html_area = get_one_page_html(url_area)
+        html_area = HttpService.get_one_page_html(url_area)
         city_str = city_str + '-' + area
         # 2级区域
         if area_lv2:
@@ -209,7 +214,7 @@ def get_lianjia_html(city, area=None, area_lv2=None, **kwargs) -> List[str]:
         n += 1
         print(f'= 下载第{n}页 =')
         try:
-            tmp_html = get_one_page_html(url)
+            tmp_html = HttpService.get_one_page_html(url)
             html_total.append(tmp_html)
         except Exception as e:
             print(f'= 第{n}页url获取失败，异常情况如下 =')
@@ -278,7 +283,7 @@ def get_ziroom_area_list(city: str) -> list:
     """
     city_code = get_city_code(city)
     url = get_city_info(city_code, 'city_url_ziroom')
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
     zr_ops = ZiRoomHtmlOps(city_code)
     res = zr_ops.city2area_list(html_url)
     return res
@@ -297,14 +302,14 @@ def get_ziroom_area_level2_list(city: str, area: str) -> list:
 
     # 城市url和html
     url = get_city_info(city_code, 'city_url_ziroom')
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
 
     # lj ops初始化
     zr_ops = ZiRoomHtmlOps(city_code)
 
     # 特定区域的url和html
     url_area = zr_ops.get_area_url(html_url, area)
-    area_html = get_one_page_html(url_area)
+    area_html = HttpService.get_one_page_html(url_area)
 
     # 返回二级区域列表
     res = zr_ops.area_level2_list(area_html)
@@ -335,7 +340,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
 
     # 城市url和html
     url_city = get_city_info(city_code, 'city_url_ziroom')
-    html_city = get_one_page_html(url_city)
+    html_city = HttpService.get_one_page_html(url_city)
 
     zr_ops = ZiRoomHtmlOps(city_code)
 
@@ -347,7 +352,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
     # 再拼区域
     if area:
         url_area = zr_ops.get_area_url(html_city, area)
-        html_area = get_one_page_html(url_area)
+        html_area = HttpService.get_one_page_html(url_area)
         city_str = city_str + '-' + area
         # 2级区域
         if area_lv2:
@@ -375,7 +380,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
         url_f = url_f + f'&cp={price_min}TO{price_max}'
 
     # 分页信息
-    html_f = get_one_page_html(url_f)
+    html_f = HttpService.get_one_page_html(url_f)
     url_pages = zr_ops.pagination(html_f)
     # 全量url
     url_total = [url_f] + url_pages
@@ -389,7 +394,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
         n += 1
         print(f'= 下载第{n}页 =')
         try:
-            tmp_pq = get_doc_from_url(url)
+            tmp_pq = HttpService.get_doc_from_url(url)
             pq_total.append(tmp_pq)
         except Exception as e:
             print(f'= 第{n}页url获取失败，异常情况如下 =')
@@ -474,13 +479,13 @@ def get_xiaoqu_info(city, area=None, area_lv2=None):
     city_str = get_city_info(city_code, 'city_cn')
     # 城市url和html
     url_city = get_lj_xiaoqu_url(city_code)
-    html_city = get_one_page_html(url_city)
+    html_city = HttpService.get_one_page_html(url_city)
 
     xiaoqu_ops = XiaoquHtmlOps(city_code)
     # 有区域
     if area:
         url_area = xiaoqu_ops.get_area_url(html_city, area)
-        html_area = get_one_page_html(url_area)
+        html_area = HttpService.get_one_page_html(url_area)
         city_str = city_str + '-' + area
         # 2级区域
         if area_lv2:
@@ -493,7 +498,7 @@ def get_xiaoqu_info(city, area=None, area_lv2=None):
         url_f = url_city
 
     # 分页信息
-    html_f = get_one_page_html(url_f)
+    html_f = HttpService.get_one_page_html(url_f)
     url_pages = xiaoqu_ops.pagination(html_f, url_f)
     # 全量url
     url_total = [url_f] + url_pages
@@ -507,7 +512,7 @@ def get_xiaoqu_info(city, area=None, area_lv2=None):
         n += 1
         print(f'= 下载第{n}页 =')
         try:
-            tmp_pq = get_doc_from_url(url)
+            tmp_pq = HttpService.get_doc_from_url(url)
             pq_total.append(tmp_pq)
         except Exception as e:
             print(f'= 第{n}页url获取失败，异常情况如下 =')
@@ -538,7 +543,7 @@ def get_xiaoqu_info(city, area=None, area_lv2=None):
             print(f'= 已完成 {n} 个小区，共 {len(xiaoqu_info_total)} 个')
         url = i.get('小区url')
         try:
-            html = get_one_page_html(url)
+            html = HttpService.get_one_page_html(url)
         except Exception as e:
             print(f'= 第{n}个小区信息获取失败, url为{url}, 报错信息如下 =')
             print(e)
@@ -558,7 +563,7 @@ def get_xiaoqu_info_standard(city, area=None, area_lv2=None):
     return res
 
 
-def add_drive_time(room_info: List[dict], destination, city, area=None):
+def add_drive_time(room_info: List[dict], destination, city, area=None, process_data=False) -> List[dict]:
     """
     给room_info信息添加驾驶耗时
 
@@ -566,6 +571,7 @@ def add_drive_time(room_info: List[dict], destination, city, area=None):
     :param destination: 目的地
     :param city:
     :param area:
+    :param process_data: 保留过程数据标记
     :return:
     """
     citycode = get_city_code(city)
@@ -577,24 +583,55 @@ def add_drive_time(room_info: List[dict], destination, city, area=None):
     n = 0
     for i in room_info:
         n += 1
-        res.append(amap_ops.get_drive_time(i, destination))
+        drive_info = amap_ops.get_drive_time(i, destination)
+        res.append(drive_info)
         print(f'= 完成第 {n} 个房源的高德接口调用 =')
+    if process_data:
+        file_name = str(datetime.date.today()) + '.txt'
+        outpath = os.path.join(DefaultInfo.amap_api_process_data, file_name)
+        with open(outpath, 'w') as f:
+            for i in res:
+                f.write(i)
+                f.write('\r')
+                print(f'= 完成第 {n} 个房源高德接口信息写出, 地址为 {outpath} =')
+
     return res
+
+
+def save_info_to_db(info: List[dict], db, tb, config=None):
+    """
+
+    :param info:
+    :param db:
+    :param tb:
+    :param config: 数据库配置
+    :return:
+    """
+
+    # 连接
+    with DatabaseService() as ds:
+
+        # 写数
+        for i in info:
+            ds.insert_info(db, tb, i)
+
+    return True
 
 
 #%%
 if __name__ == '__main__':
     t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=False, rent_type='整租',
                                         get_price=True, price_min=3000, price_max=6000)
-    t1 = add_drive_time(t1, '杭州东站', '杭州', '西湖')
-    t2 = add_drive_time(t2, '杭州东站', '杭州', '西湖')
+    t1 = add_drive_time(t1, '杭州东站', '杭州', '西湖', process_data=True)
+    t2 = add_drive_time(t2, '杭州东站', '杭州', '西湖', process_data=True)
     df1 = pd.DataFrame(t1)
     df2 = pd.DataFrame(t2)
     df3 = pd.DataFrame(t3)
     df4 = pd.DataFrame(t1 + t2)
-    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0217.xlsx')
+    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0221.xlsx')
     df1.to_excel(writer, index=None, sheet_name='链家')
     df2.to_excel(writer, index=None, sheet_name='自如')
     df3.to_excel(writer, index=None, sheet_name='小区')
     df4.to_excel(writer, index=None, sheet_name='全部')
-
+    writer.save()
+    writer.close()

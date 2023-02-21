@@ -1,7 +1,8 @@
 import time
 from pyquery import PyQuery as pq
-from prd.constants import CityCode, DefaultInfo
-from prd.constants import LjFilter, ZiRoomFilter
+from core.constants import CityCode, DefaultInfo
+from core.constants import LjFilter, ZiRoomFilter
+from xpinyin import Pinyin
 
 
 # =========================================
@@ -38,6 +39,11 @@ def make_standard_html(html: str or pq):
         doc = html
     assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
     return doc
+
+
+def chinese_to_pinyin(s: str):
+    p = Pinyin()
+    return p.get_pinyin(s)
 
 
 # =========================================

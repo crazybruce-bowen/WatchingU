@@ -14,7 +14,7 @@ TODO list:
 
 from prd.ops import LianJiaHtmlOps, ZiRoomHtmlOps, AnalysisOps
 from prd.utils import get_city_code, get_city_info, get_lj_rent_url, lj_generate_filter_url
-from prd.service import get_one_page_html, get_doc_from_url
+from prd.service import HttpService
 from prd.constants import ZiRoomFilter
 from typing import List
 import pandas as pd
@@ -29,7 +29,7 @@ def get_lianjia_area_list(city: str) -> list:
     """
     city_code = get_city_code(city)
     url = get_lj_rent_url(city_code)
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
     lj_ops = LianJiaHtmlOps(city_code)
     res = lj_ops.city2area_list(html_url)
     return res
@@ -48,14 +48,14 @@ def get_lianjia_area_level2_list(city: str, area: str) -> list:
 
     # 城市url和html
     url = get_lj_rent_url(city_code)
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
 
     # lj ops初始化
     lj_ops = LianJiaHtmlOps(city_code)
 
     # 特定区域的url和html
     url_area = lj_ops.get_area_url(html_url, area)
-    area_html = get_one_page_html(url_area)
+    area_html = HttpService.get_one_page_html(url_area)
 
     # 返回二级区域列表
     res = lj_ops.area_level2_list(area_html)
@@ -86,13 +86,13 @@ def get_lianjia_info(city, area=None, area_lv2=None, **kwargs) -> List[dict]:
 
     # 城市url和html
     url_city = get_lj_rent_url(city_code)
-    html_city = get_one_page_html(url_city)
+    html_city = HttpService.get_one_page_html(url_city)
 
     lj_ops = LianJiaHtmlOps(city_code)
     # 有区域
     if area:
         url_area = lj_ops.get_area_url(html_city, area)
-        html_area = get_one_page_html(url_area)
+        html_area = HttpService.get_one_page_html(url_area)
         city_str = city_str + '-' + area
         # 2级区域
         if area_lv2:
@@ -164,7 +164,7 @@ def get_ziroom_area_list(city: str) -> list:
     """
     city_code = get_city_code(city)
     url = get_city_info(city_code, 'city_url_ziroom')
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
     zr_ops = ZiRoomHtmlOps(city_code)
     res = zr_ops.city2area_list(html_url)
     return res
@@ -183,14 +183,14 @@ def get_ziroom_area_level2_list(city: str, area: str) -> list:
 
     # 城市url和html
     url = get_city_info(city_code, 'city_url_ziroom')
-    html_url = get_one_page_html(url)
+    html_url = HttpService.get_one_page_html(url)
 
     # lj ops初始化
     zr_ops = ZiRoomHtmlOps(city_code)
 
     # 特定区域的url和html
     url_area = zr_ops.get_area_url(html_url, area)
-    area_html = get_one_page_html(url_area)
+    area_html = HttpService.get_one_page_html(url_area)
 
     # 返回二级区域列表
     res = zr_ops.area_level2_list(area_html)
@@ -221,7 +221,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
 
     # 城市url和html
     url_city = get_city_info(city_code, 'city_url_ziroom')
-    html_city = get_one_page_html(url_city)
+    html_city = HttpService.get_one_page_html(url_city)
 
     zr_ops = ZiRoomHtmlOps(city_code)
 
@@ -233,7 +233,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
     # 再拼区域
     if area:
         url_area = zr_ops.get_area_url(html_city, area)
-        html_area = get_one_page_html(url_area)
+        html_area = HttpService.get_one_page_html(url_area)
         city_str = city_str + '-' + area
         # 2级区域
         if area_lv2:
@@ -255,7 +255,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
     url_f = url_f + f'&cp={price_min}TO{price_max}'
 
     # 分页信息
-    html_f = get_one_page_html(url_f)
+    html_f = HttpService.get_one_page_html(url_f)
     url_pages = zr_ops.pagination(html_f)
     # 全量url
     url_total = [url_f] + url_pages
@@ -269,7 +269,7 @@ def get_ziroom_info(city, area=None, area_lv2=None, rent_type=None, price_min: f
         n += 1
         print(f'= 下载第{n}页 =')
         try:
-            tmp_pq = get_doc_from_url(url)
+            tmp_pq = HttpService.get_doc_from_url(url)
             pq_total.append(tmp_pq)
         except Exception as e:
             print(f'= 第{n}页url获取失败，异常情况如下 =')
@@ -302,6 +302,7 @@ def get_lj_info_standard(city, area=None, area_lv2=None, **kwargs) -> List[dict]
 
 # ==========================================================
 # 二次解析
+
 
 #%%
 if __name__ == '__main__':

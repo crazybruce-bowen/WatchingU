@@ -27,6 +27,7 @@ class CityCode:
 class DefaultInfo:
     city = 'sh'
     city_code = '001'
+    amap_api_process_data = 'result/process_data'
 
 
 @dataclass
@@ -126,4 +127,12 @@ class ZiRoomFilter:
 class ZiRoomPriceModel:
     model_path = os.path.join(proj_path, r'自如房价训练用\pre_trained.h5')
     model = keras.models.load_model(model_path)
+
+
+@dataclass
+class Others:
+    cols_excel = ['原始标题', '类型', '房源url', '来源', '小区', '租金', '原始描述', '面积', '房型', '居室数', '楼层描述',
+                  '楼层', '朝向', '图片url', '价格信息', '位置信息', '其他标签']
+    cols_mariadb = ['title', 'type', 'url', 'source', 'xiaoqu', 'cost', 'desc', 'area', 'layout', 'room_num',
+                    'desc_floor', 'floor', 'toward', 'orientation', 'desc_price', 'desc_location', 'desc_others']
 
