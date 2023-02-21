@@ -166,7 +166,7 @@ class AmapApiService:
 # 数据库连接服务
 class DatabaseService:
 
-    def __init__(self, user='root', password='root', host='localhost', port='3306'):
+    def __init__(self, user='root', password='root', host='localhost', port=3306):
         self.user = user
         self.password = password
         self.host = host
@@ -175,6 +175,7 @@ class DatabaseService:
     def __enter__(self):
         self.conn = mariadb.connect(user=self.user, password=self.password, host=self.host, port=self.port)
         self.cursor = self.conn.cursor()
+        return self
 
     def __exit__(self):
         if self.cursor:
@@ -207,8 +208,9 @@ class DatabaseService:
         :return:
         """
         list_keys = ' '.join(list(str(i) for i in info.keys()))
-        list_values = ' '.join(list(str(i) for i in info.values()))
-        sql = f'INSERT INTO {db}\.{tb} \({list_keys}\) VALUES \({list_values}\)'
+        list_values = ' '.join(list('"' + str(i) + '"' for i in info.values()))
+        sql = f'INSERT INTO {db}.{tb} ({list_keys}) VALUES ({list_values})'
+        print('sql', sql)
         self.execute_sql(sql)
         return True
 
