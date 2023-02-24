@@ -22,6 +22,7 @@ import os
 from pyquery import PyQuery as pq
 from core.utils import print_time
 import time
+import json
 
 #%%
 
@@ -563,7 +564,7 @@ def get_xiaoqu_info_standard(city, area=None, area_lv2=None):
     return res
 
 
-def add_drive_time(room_info: List[dict], destination, city, area=None, process_data=False) -> List[dict]:
+def add_drive_time(room_info: List[dict], destination, city, area=None, process_data=False, tag='ziroom') -> List[dict]:
     """
     给room_info信息添加驾驶耗时
 
@@ -587,11 +588,11 @@ def add_drive_time(room_info: List[dict], destination, city, area=None, process_
         res.append(drive_info)
         print(f'= 完成第 {n} 个房源的高德接口调用 =')
     if process_data:
-        file_name = str(datetime.date.today()) + '.txt'
+        file_name = str(datetime.date.today()) + '-' + tag + '.txt'
         outpath = os.path.join(DefaultInfo.amap_api_process_data, file_name)
-        with open(outpath, 'w') as f:
+        with open(outpath, 'w', encoding='utf-8') as f:
             for i in res:
-                f.write(i)
+                f.write(json.dumps(i, ensure_ascii=False))
                 f.write('\r')
                 print(f'= 完成第 {n} 个房源高德接口信息写出, 地址为 {outpath} =')
 
@@ -620,15 +621,16 @@ def save_info_to_db(info: List[dict], db, tb, config=None):
 
 #%%
 if __name__ == '__main__':
-    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=False, rent_type='整租',
+    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=True, rent_type='整租',
                                         get_price=True, price_min=3000, price_max=6000)
-    t1 = add_drive_time(t1, '杭州东站', '杭州', '西湖', process_data=True)
-    t2 = add_drive_time(t2, '杭州东站', '杭州', '西湖', process_data=True)
-    df1 = pd.DataFrame(t1)
-    df2 = pd.DataFrame(t2)
+    t1_2 = add_drive_time(t1, '杭州东站', '杭州', '西湖', process_data=True, tag='lj')
+    t2_2 = add_drive_time(t2, '杭州东站', '杭州', '西湖', process_data=True, tag='ziroom')
+    #%%
+    df1 = pd.DataFrame(t1_2)
+    df2 = pd.DataFrame(t2_2)
     df3 = pd.DataFrame(t3)
-    df4 = pd.DataFrame(t1 + t2)
-    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0221.xlsx')
+    df4 = pd.DataFrame(t1_2 + t2_2)
+    writer = pd.ExcelWriter(r'D:\Learn\学习入口\大项目\爬他妈的\住房问题\整合\result\test_0222.xlsx')
     df1.to_excel(writer, index=None, sheet_name='链家')
     df2.to_excel(writer, index=None, sheet_name='自如')
     df3.to_excel(writer, index=None, sheet_name='小区')

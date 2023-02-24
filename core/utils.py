@@ -37,7 +37,7 @@ def make_standard_html(html: str or pq):
         doc = pq(html)
     else:
         doc = html
-    assert isinstance(doc, pq), 'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型'
+    assert isinstance(doc, pq), f'city_html参数格式错误, 仅支持str类型的html文件或PyQuery类型, 此doc类型为{type(doc)}'
     return doc
 
 

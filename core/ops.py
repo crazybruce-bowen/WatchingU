@@ -5,6 +5,7 @@ import copy
 from core.ziroom_price import ZiRoomPriceOps, convert_numbers, PredictPriceOps
 from core.constants import ZiRoomPriceModel
 from core.service import AmapApiService
+import datetime
 
 
 class HtmlOps:
@@ -749,7 +750,7 @@ class AmapOps:
         cost_time = amap_service.get_drive_time(address, destination)
         if cost_time:
             res[f'开车到{destination}耗时'] = cost_time
-            res['计算时刻'] = time.asctime()
+            res['计算时刻'] = str(datetime.datetime.now())
         return res
 
 

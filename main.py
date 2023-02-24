@@ -4,10 +4,10 @@ from core.usage import get_room_info_standard, add_drive_time
 
 
 if __name__ == '__main__':
-    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=False, rent_type='整租',
+    t1, t2, t3 = get_room_info_standard('hz', '西湖', tag_xiaoqu=True, rent_type='整租',
                                         get_price=True, price_min=3000, price_max=6000)
-    t1 = add_drive_time(t1, '杭州东站', '杭州', '西湖')
-    t2 = add_drive_time(t2, '杭州东站', '杭州', '西湖')
+    t1 = add_drive_time(t1, '杭州东站', '杭州', '西湖', process_data=True, tag='lj')
+    t2 = add_drive_time(t2, '杭州东站', '杭州', '西湖', process_data=True, tag='ziroom')
     df1 = pd.DataFrame(t1)
     df2 = pd.DataFrame(t2)
     df3 = pd.DataFrame(t3)
